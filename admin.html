@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel — Jonas Builds</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body { background: var(--ivory); min-height: 100vh; padding: 0; }
+    .admin-header {
+      background: var(--dark); color: var(--white); padding: 20px 0;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .admin-header .container { display: flex; align-items: center; justify-content: space-between; }
+    .admin-title { font-family: var(--font-heading); font-size: 1.3rem; }
+    .admin-title span { color: var(--gold); }
+    .logout-btn { color: var(--warm-gray); font-size: 0.85rem; cursor: pointer; transition: color 0.3s; }
+    .logout-btn:hover { color: var(--gold); }
+
+    /* Login */
+    .login-wrap { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+    .login-box {
+      background: var(--white); padding: 48px 40px; border-radius: var(--radius);
+      box-shadow: var(--shadow-float); border: 1px solid var(--cream);
+      max-width: 400px; width: 100%; text-align: center;
+    }
+    .login-box h2 { font-family: var(--font-heading); margin-bottom: 8px; }
+    .login-box p { color: var(--mid-gray); font-size: 0.9rem; margin-bottom: 24px; }
+    .login-input {
+      width: 100%; padding: 14px 18px; border: 1.5px solid var(--cream);
+      border-radius: var(--radius-sm); font-size: 1rem; outline: none;
+      font-family: var(--font-body); margin-bottom: 16px; text-align: center;
+    }
+    .login-input:focus { border-color: var(--gold); }
+    .login-btn {
+      width: 100%; padding: 14px; background: var(--gold); color: var(--white);
+      border: none; border-radius: 50px; font-weight: 600; font-size: 0.95rem;
+      cursor: pointer; transition: all 0.3s;
+    }
+    .login-btn:hover { background: var(--gold-dark); }
+    .login-error { color: #c62828; font-size: 0.85rem; margin-top: 12px; display: none; }
+
+    /* Admin content */
+    .admin-content { padding: 32px 0; display: none; }
+    .admin-section { margin-bottom: 40px; }
+    .admin-section-title {
+      font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 20px;
+      color: var(--dark); display: flex; align-items: center; gap: 10px;
+    }
+    .badge {
+      background: var(--gold); color: var(--white); font-family: var(--font-body);
+      font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 600;
+    }
+
+    /* Generate link */
+    .generate-box {
+      background: var(--white); padding: 28px; border-radius: var(--radius);
+      border: 1px solid var(--cream); display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+    }
+    .gen-btn {
+      padding: 12px 28px; background: var(--gold); color: var(--white);
+      border: none; border-radius: 50px; font-weight: 600; font-size: 0.9rem;
+      cursor: pointer; transition: all 0.3s; white-space: nowrap;
+    }
+    .gen-btn:hover { background: var(--gold-dark); }
+    .gen-link {
+      flex: 1; padding: 12px 16px; background: var(--ivory); border: 1px solid var(--cream);
+      border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--mid-gray);
+      word-break: break-all; min-width: 200px;
+    }
+    .copy-btn {
+      padding: 12px 20px; background: var(--dark); color: var(--white);
+      border: none; border-radius: 50px; font-weight: 600; font-size: 0.85rem;
+      cursor: pointer; transition: all 0.3s;
+    }
+    .copy-btn:hover { opacity: 0.8; }
+
+    /* Review cards */
+    .review-card {
+      background: var(--white); padding: 24px; border-radius: var(--radius);
+      border: 1px solid var(--cream); margin-bottom: 16px;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;
+    }
+    .review-info { flex: 1; }
+    .review-info h4 { font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 4px; }
+    .review-meta { font-size: 0.8rem; color: var(--mid-gray); margin-bottom: 8px; }
+    .review-stars { color: var(--gold); font-size: 1rem; margin-bottom: 8px; }
+    .review-info p { color: var(--mid-gray); font-size: 0.92rem; font-style: italic; line-height: 1.6; }
+    .review-actions { display: flex; gap: 8px; flex-shrink: 0; }
+    .action-btn {
+      padding: 8px 18px; border: none; border-radius: 20px;
+      font-weight: 600; font-size: 0.8rem; cursor: pointer; transition: all 0.3s;
+    }
+    .approve-btn { background: #e8f5e9; color: #2e7d32; }
+    .approve-btn:hover { background: #c8e6c9; }
+    .reject-btn { background: #fce4ec; color: #c62828; }
+    .reject-btn:hover { background: #f8bbd0; }
+    .delete-btn { background: var(--pearl); color: var(--mid-gray); }
+    .delete-btn:hover { background: var(--cream); }
+    .status-badge {
+      display: inline-block; padding: 3px 10px; border-radius: 12px;
+      font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .status-approved { background: #e8f5e9; color: #2e7d32; }
+    .status-pending { background: #fff3e0; color: #e65100; }
+    .status-rejected { background: #fce4ec; color: #c62828; }
+    .empty-msg { color: var(--mid-gray); font-size: 0.95rem; text-align: center; padding: 40px; }
+
+    /* Analytics */
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px; margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--white); padding: 24px; border-radius: var(--radius);
+      border: 1px solid var(--cream); text-align: center;
+    }
+    .stat-card-number {
+      font-family: var(--font-heading); font-size: 2rem; font-weight: 700;
+      color: var(--gold); line-height: 1;
+    }
+    .stat-card-label { font-size: 0.82rem; color: var(--mid-gray); margin-top: 6px; }
+    .analytics-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;
+    }
+    .analytics-box {
+      background: var(--white); padding: 24px; border-radius: var(--radius);
+      border: 1px solid var(--cream);
+    }
+    .analytics-box h4 {
+      font-family: var(--font-heading); font-size: 1.05rem; margin-bottom: 16px; color: var(--dark);
+    }
+    .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .bar-label { font-size: 0.8rem; color: var(--mid-gray); min-width: 80px; text-align: right; }
+    .bar-track { flex: 1; height: 8px; background: var(--pearl); border-radius: 4px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--gold); border-radius: 4px; transition: width 0.6s ease; }
+    .bar-value { font-size: 0.78rem; color: var(--dark); font-weight: 600; min-width: 30px; }
+    .visitors-list { max-height: 250px; overflow-y: auto; }
+    .visitor-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; border-bottom: 1px solid var(--pearl); font-size: 0.82rem;
+    }
+    .visitor-row:last-child { border: none; }
+    .visitor-device { padding: 2px 8px; border-radius: 10px; font-size: 0.72rem; font-weight: 600; }
+    .visitor-device.mobile { background: #e3f2fd; color: #1565c0; }
+    .visitor-device.desktop { background: #f3e5f5; color: #7b1fa2; }
+
+    @media (max-width: 768px) { .analytics-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) {
+      .review-card { flex-direction: column; }
+      .generate-box { flex-direction: column; }
+      .gen-link { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div class="login-wrap" id="loginView">
+    <div class="login-box">
+      <h2>Admin Panel</h2>
+      <p>Enter your admin password</p>
+      <input type="password" class="login-input" id="adminPass" placeholder="Password" autofocus>
+      <button class="login-btn" id="loginBtn" onclick="tryLogin()">Enter</button>
+      <p class="login-error" id="loginError">Incorrect password</p>
+    </div>
+  </div>
+
+  <!-- ADMIN -->
+  <div id="adminView" style="display:none;">
+    <div class="admin-header">
+      <div class="container">
+        <div class="admin-title">Jonas<span>Builds</span> — Admin</div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="admin-content container" id="adminContent">
+
+      <!-- Analytics -->
+      <div class="admin-section">
+        <div class="admin-section-title">📊 Analytics</div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-number" id="totalViews">—</div>
+            <div class="stat-card-label">Total Views</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-number" id="todayViews">—</div>
+            <div class="stat-card-label">Today</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-number" id="weekViews">—</div>
+            <div class="stat-card-label">This Week</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-number" id="totalClicks">—</div>
+            <div class="stat-card-label">Total Clicks</div>
+          </div>
+        </div>
+        <div class="analytics-grid">
+          <div class="analytics-box">
+            <h4>🖱️ Click Breakdown</h4>
+            <div id="clickBars"></div>
+          </div>
+          <div class="analytics-box">
+            <h4>📱 Devices</h4>
+            <div id="deviceBars"></div>
+          </div>
+        </div>
+        <div class="analytics-grid">
+          <div class="analytics-box">
+            <h4>📄 Popular Sections</h4>
+            <div id="sectionBars"></div>
+          </div>
+          <div class="analytics-box">
+            <h4>👤 Recent Visitors</h4>
+            <div class="visitors-list" id="visitorsList"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generate Link -->
+      <div class="admin-section">
+        <div class="admin-section-title">🔗 Generate Review Link</div>
+        <div class="generate-box">
+          <button class="gen-btn" onclick="generateToken()">Generate New Link</button>
+          <div class="gen-link" id="genLink">Click "Generate" to create a review link for a client</div>
+          <button class="copy-btn" id="copyBtn" onclick="copyLink()" style="display:none;">Copy</button>
+        </div>
+      </div>
+
+      <!-- Pending Reviews -->
+      <div class="admin-section">
+        <div class="admin-section-title">⏳ Pending Reviews <span class="badge" id="pendingCount">0</span></div>
+        <div id="pendingList"></div>
+      </div>
+
+      <!-- Approved Reviews -->
+      <div class="admin-section">
+        <div class="admin-section-title">✅ Approved Reviews <span class="badge" id="approvedCount">0</span></div>
+        <div id="approvedList"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/firebase-config.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+    import { getFirestore, collection, doc, setDoc, getDocs, updateDoc, deleteDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Simple admin password (change this!)
+    const ADMIN_PASS_HASH = "Cosmo21k!";
+    let baseUrl = window.location.origin + window.location.pathname.replace("admin.html", "review.html");
+
+    // Expose functions to window
+    window.tryLogin = function() {
+      const pass = document.getElementById("adminPass").value;
+      if (pass === ADMIN_PASS_HASH) {
+        document.getElementById("loginView").style.display = "none";
+        document.getElementById("adminView").style.display = "block";
+        document.getElementById("adminContent").style.display = "block";
+        sessionStorage.setItem("jb-admin", "1");
+        loadReviews();
+        loadAnalytics();
+      } else {
+        document.getElementById("loginError").style.display = "block";
+      }
+    };
+
+    window.logout = function() {
+      sessionStorage.removeItem("jb-admin");
+      document.getElementById("adminView").style.display = "none";
+      document.getElementById("loginView").style.display = "flex";
+      document.getElementById("adminPass").value = "";
+      document.getElementById("loginError").style.display = "none";
+    };
+
+    window.generateToken = async function() {
+      const token = crypto.randomUUID();
+      await setDoc(doc(db, "review_tokens", token), {
+        used: false,
+        createdAt: new Date().toISOString()
+      });
+      const link = baseUrl + "?token=" + token;
+      document.getElementById("genLink").textContent = link;
+      document.getElementById("copyBtn").style.display = "inline-block";
+    };
+
+    window.copyLink = function() {
+      const link = document.getElementById("genLink").textContent;
+      navigator.clipboard.writeText(link).then(() => {
+        const btn = document.getElementById("copyBtn");
+        btn.textContent = "Copied!";
+        setTimeout(() => btn.textContent = "Copy", 2000);
+      });
+    };
+
+    window.approveReview = async function(id) {
+      await updateDoc(doc(db, "reviews", id), { status: "approved" });
+      loadReviews();
+    };
+
+    window.rejectReview = async function(id) {
+      await updateDoc(doc(db, "reviews", id), { status: "rejected" });
+      loadReviews();
+    };
+
+    window.deleteReview = async function(id) {
+      if (confirm("Delete this review permanently?")) {
+        await deleteDoc(doc(db, "reviews", id));
+        loadReviews();
+      }
+    };
+
+    async function loadReviews() {
+      const snapshot = await getDocs(query(collection(db, "reviews"), orderBy("createdAt", "desc")));
+      const pending = [], approved = [];
+
+      snapshot.forEach(d => {
+        const data = { id: d.id, ...d.data() };
+        if (data.status === "pending") pending.push(data);
+        else if (data.status === "approved") approved.push(data);
+      });
+
+      document.getElementById("pendingCount").textContent = pending.length;
+      document.getElementById("approvedCount").textContent = approved.length;
+
+      document.getElementById("pendingList").innerHTML = pending.length === 0
+        ? '<p class="empty-msg">No pending reviews</p>'
+        : pending.map(r => reviewCard(r, true)).join("");
+
+      document.getElementById("approvedList").innerHTML = approved.length === 0
+        ? '<p class="empty-msg">No approved reviews yet</p>'
+        : approved.map(r => reviewCard(r, false)).join("");
+    }
+
+    function reviewCard(r, isPending) {
+      const stars = "★".repeat(r.stars || 5) + "☆".repeat(5 - (r.stars || 5));
+      const date = new Date(r.createdAt).toLocaleDateString();
+      const actions = isPending
+        ? `<button class="action-btn approve-btn" onclick="approveReview('${r.id}')">Approve</button>
+           <button class="action-btn reject-btn" onclick="rejectReview('${r.id}')">Reject</button>`
+        : `<button class="action-btn delete-btn" onclick="deleteReview('${r.id}')">Delete</button>`;
+
+      return `<div class="review-card">
+        <div class="review-info">
+          <h4>${r.name} <span class="review-meta">· ${r.role || "Client"} · ${date}</span></h4>
+          <div class="review-stars">${stars}</div>
+          <p>"${r.text}"</p>
+        </div>
+        <div class="review-actions">${actions}</div>
+      </div>`;
+    }
+
+    // Auto-login if session exists
+    if (sessionStorage.getItem("jb-admin")) {
+      document.getElementById("loginView").style.display = "none";
+      document.getElementById("adminView").style.display = "block";
+      document.getElementById("adminContent").style.display = "block";
+      loadReviews();
+      loadAnalytics();
+    }
+
+    // ========== ANALYTICS ==========
+    async function loadAnalytics() {
+      try {
+        // Load daily data
+        const dailySnap = await getDocs(collection(db, "analytics_daily"));
+        let totalViews = 0, todayViews = 0, weekViews = 0;
+        let totalMobile = 0, totalDesktop = 0;
+        let clicks = {};
+        let sections = {};
+        const today = new Date().toISOString().split("T")[0];
+        const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString().split("T")[0];
+
+        dailySnap.forEach(d => {
+          const data = d.data();
+          const date = data.date || d.id;
+          const views = data.views || 0;
+          totalViews += views;
+          if (date === today) todayViews = views;
+          if (date >= weekAgo) weekViews += views;
+          totalMobile += data.mobile || 0;
+          totalDesktop += data.desktop || 0;
+
+          // Aggregate clicks
+          Object.keys(data).forEach(k => {
+            if (k.startsWith("clicks_")) {
+              const name = k.replace("clicks_", "");
+              clicks[name] = (clicks[name] || 0) + data[k];
+            }
+            if (k.startsWith("section_")) {
+              const name = k.replace("section_", "");
+              sections[name] = (sections[name] || 0) + data[k];
+            }
+          });
+        });
+
+        document.getElementById("totalViews").textContent = totalViews;
+        document.getElementById("todayViews").textContent = todayViews;
+        document.getElementById("weekViews").textContent = weekViews;
+
+        // Total clicks
+        const totalClicksNum = Object.values(clicks).reduce((a, b) => a + b, 0);
+        document.getElementById("totalClicks").textContent = totalClicksNum;
+
+        // Click bars
+        const maxClick = Math.max(...Object.values(clicks), 1);
+        const clickNames = { discord: "Discord", fiverr: "Fiverr", tiktok: "TikTok", hero_cta: "Hero CTA", filter: "Filters", language: "Language", webdev_cta: "Web Dev" };
+        document.getElementById("clickBars").innerHTML = Object.keys(clicks).length === 0
+          ? '<p class="empty-msg" style="padding:12px">No clicks recorded yet</p>'
+          : Object.entries(clicks).sort((a, b) => b[1] - a[1]).map(([k, v]) =>
+            `<div class="bar-row"><span class="bar-label">${clickNames[k] || k}</span><div class="bar-track"><div class="bar-fill" style="width:${(v/maxClick)*100}%"></div></div><span class="bar-value">${v}</span></div>`
+          ).join("");
+
+        // Device bars
+        const totalDevices = totalMobile + totalDesktop || 1;
+        document.getElementById("deviceBars").innerHTML = `
+          <div class="bar-row"><span class="bar-label">Desktop</span><div class="bar-track"><div class="bar-fill" style="width:${(totalDesktop/totalDevices)*100}%"></div></div><span class="bar-value">${totalDesktop}</span></div>
+          <div class="bar-row"><span class="bar-label">Mobile</span><div class="bar-track"><div class="bar-fill" style="width:${(totalMobile/totalDevices)*100}%;background:#1565c0"></div></div><span class="bar-value">${totalMobile}</span></div>
+        `;
+
+        // Section bars
+        const maxSection = Math.max(...Object.values(sections), 1);
+        document.getElementById("sectionBars").innerHTML = Object.keys(sections).length === 0
+          ? '<p class="empty-msg" style="padding:12px">No data yet</p>'
+          : Object.entries(sections).sort((a, b) => b[1] - a[1]).map(([k, v]) =>
+            `<div class="bar-row"><span class="bar-label">${k}</span><div class="bar-track"><div class="bar-fill" style="width:${(v/maxSection)*100}%"></div></div><span class="bar-value">${v}</span></div>`
+          ).join("");
+
+        // Recent visitors
+        const visitSnap = await getDocs(collection(db, "analytics_visits"));
+        const visitors = [];
+        visitSnap.forEach(d => visitors.push(d.data()));
+        visitors.sort((a, b) => (b.timestamp || "").localeCompare(a.timestamp || ""));
+
+        document.getElementById("visitorsList").innerHTML = visitors.length === 0
+          ? '<p class="empty-msg" style="padding:12px">No visitors yet</p>'
+          : visitors.slice(0, 20).map(v => {
+            const time = new Date(v.timestamp).toLocaleString();
+            const dev = v.device || "unknown";
+            const ref = v.referrer === "direct" ? "Direct" : (v.referrer || "Direct").replace(/https?:\/\//, "").split("/")[0];
+            return `<div class="visitor-row"><span>${time}</span><span class="visitor-device ${dev}">${dev}</span><span style="color:var(--mid-gray)">${ref}</span></div>`;
+          }).join("");
+
+      } catch (e) {
+        console.error("Analytics error:", e);
+      }
+    }
+
+    // Enter key login
+    document.getElementById("adminPass").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") window.tryLogin();
+    });
+  </script>
+</body>
+</html>

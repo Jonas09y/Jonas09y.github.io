@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jonas Builds — Premium Minecraft Builder</title>
+  <meta name="description"
+    content="Jonas Builds — Premium Minecraft constructions. Custom lobbies, spawns, terrains, and builds crafted with excellence.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">Jonas<span>Builds</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#portfolio" data-i18n="navPortfolio">Portfolio</a>
+        <a href="#services" data-i18n="navServices">Services</a>
+        <a href="#testimonials" data-i18n="navTestimonials">Testimonials</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn" data-lang="es" onclick="setLanguage('es')">ES</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge" data-i18n="heroBadge">Minecraft Builder</div>
+      <h1>
+        <span data-i18n="heroTitle1">Crafting Worlds</span><br>
+        <span class="accent" data-i18n="heroTitle2">Beyond Imagination</span>
+      </h1>
+      <p data-i18n="heroDesc">Premium Minecraft constructions — lobbies, spawns, terrains, and custom builds that bring
+        your server vision to life.</p>
+      <div class="hero-buttons">
+        <a href="#portfolio" class="btn-primary" data-i18n="heroBtn1">View Projects</a>
+        <a href="#contact" class="btn-secondary" data-i18n="heroBtn2">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="aboutLabel">About Me</span>
+        <h2 class="section-title" data-i18n="aboutTitle">Building Dreams, Block by Block</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <img src="assets/images/Screenshot_329.png" alt="Minecraft Build">
+        </div>
+        <div class="about-text reveal">
+          <h3 data-i18n="aboutDesc">The Story Behind the Builds</h3>
+          <p data-i18n="aboutP1">I'm Jonas, a passionate Minecraft builder with years of experience creating stunning
+            environments for servers worldwide. From grand lobbies to immersive terrains, every build is crafted with
+            attention to detail and a deep understanding of what makes a server stand out.</p>
+          <p data-i18n="aboutP2">I specialize in creating unique, high-quality builds that elevate your server's
+            identity. Using professional tools and techniques, I bring concepts to life with precision and creativity.
+          </p>
+          <div class="tools-list">
+            <span class="tool-tag">WorldEdit</span>
+            <span class="tool-tag">Axiom</span>
+            <span class="tool-tag">VoxelSniper</span>
+            <span class="tool-tag">goPaint</span>
+            <span class="tool-tag">Java Edition</span>
+            <span class="tool-tag">Bedrock</span>
+          </div>
+        </div>
+      </div>
+      <div class="stats-row reveal">
+        <div class="stat-item">
+          <div class="stat-number" data-i18n="stat1Num">370+</div>
+          <div class="stat-label" data-i18n="stat1Label">Orders Completed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-i18n="stat2Num">330+</div>
+          <div class="stat-label" data-i18n="stat2Label">Satisfied Clients</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-i18n="stat3Num">3+</div>
+          <div class="stat-label" data-i18n="stat3Label">Years Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PORTFOLIO ========== -->
+  <section class="section portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="portfolioLabel">Portfolio</span>
+        <h2 class="section-title" data-i18n="portfolioTitle">Featured Projects</h2>
+        <p class="section-desc" data-i18n="portfolioDesc">A selection of my finest Minecraft builds</p>
+        <div class="divider"></div>
+      </div>
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" data-filter="all" data-i18n="filterAll">All</button>
+        <button class="filter-btn" data-filter="lobbies" data-i18n="filterLobbies">Lobbies</button>
+        <button class="filter-btn" data-filter="spawns" data-i18n="filterSpawns">Spawns</button>
+        <button class="filter-btn" data-filter="terrains" data-i18n="filterTerrains">Terrains</button>
+        <button class="filter-btn" data-filter="arenas" data-i18n="filterArenas">Arenas</button>
+        <button class="filter-btn" data-filter="events" data-i18n="filterEvents">Events</button>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card reveal" data-category="lobbies">
+          <img src="assets/images/MedievalHub.png"
+            alt="Medieval Hub">
+          <div class="portfolio-overlay">
+            <h4 data-i18n="p1">Medieval Hub</h4>
+            <span>Lobby</span>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" data-category="lobbies">
+          <img src="assets/images/skyhub.png" alt="Sky Lobby">
+          <div class="portfolio-overlay">
+            <h4 data-i18n="p2">Sky Lobby</h4>
+            <span>Lobby</span>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" data-category="terrains">
+          <img src="assets/images/Terreno.png"
+            alt="Fantasy Terrain">
+          <div class="portfolio-overlay">
+            <h4 data-i18n="p3">Fantasy Terrain</h4>
+            <span>Terrain</span>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" data-category="arenas">
+          <img src="assets/images/Battle_Arena.png"
+            alt="Battle Arena">
+          <div class="portfolio-overlay">
+            <h4 data-i18n="p4">Battle Arena</h4>
+            <span>Arena</span>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" data-category="spawns">
+          <img src="assets/images/Terrain_1.png"
+            alt="Fantasy Terrain">
+          <div class="portfolio-overlay">
+            <h4 data-i18n="p5">Fantasy Terrain</h4>
+            <span>Terrain</span>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" data-category="terrains">
+          <img src="assets/images/Montañas.png"
+            alt="Mountain World">
+          <div class="portfolio-overlay">
+            <h4 data-i18n="p6">Mountain World</h4>
+            <span>Terrain</span>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" data-category="arenas">
+          <img src="assets/images/Nether.png"
+            alt="Nether Arena">
+          <div class="portfolio-overlay">
+            <h4 data-i18n="p7">Nether Arena</h4>
+            <span>Arena</span>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" data-category="lobbies">
+          <img src="assets/images/Galactic_Lobby.png"
+            alt="Galactic Lobby">
+          <div class="portfolio-overlay">
+            <h4 data-i18n="p8">Galactic Lobby</h4>
+            <span>Lobby</span>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" data-category="events">
+          <img src="assets/images/Evento_navidad.png"
+            alt="Christmas Event">
+          <div class="portfolio-overlay">
+            <h4 data-i18n="p9">Christmas Event</h4>
+            <span>Event</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-more reveal" style="text-align: center; margin-top: 50px;">
+        <p data-i18n="portfolioMoreText" style="color: var(--mid-gray); margin-bottom: 20px; font-size: 1.1rem;">Want to see more of my work?</p>
+        <a href="https://www.behance.net/JonasBuilds" target="_blank" class="btn-primary" data-i18n="portfolioMoreBtn">
+          View Extra Photos on Behance
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="servicesLabel">Services</span>
+        <h2 class="section-title" data-i18n="servicesTitle">What I Offer</h2>
+        <p class="section-desc" data-i18n="servicesDesc">Premium building services tailored to your server's needs</p>
+        <div class="divider"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <span class="service-icon">🏛️</span>
+          <h4 data-i18n="svc1Title">Custom Lobby</h4>
+          <p data-i18n="svc1Desc">Stunning entrance lobbies that make a lasting first impression on your players.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-icon">🌍</span>
+          <h4 data-i18n="svc2Title">Terraforming</h4>
+          <p data-i18n="svc2Desc">Custom landscapes and terrains that create immersive worlds for exploration.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-icon">⚔️</span>
+          <h4 data-i18n="svc3Title">PvP Arena</h4>
+          <p data-i18n="svc3Desc">Competitive arenas designed for balanced and thrilling PvP experiences.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-icon">🎨</span>
+          <h4 data-i18n="svc4Title">Custom Build</h4>
+          <p data-i18n="svc4Desc">Bring any concept to life — from medieval castles to futuristic cities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WEB DEVELOPMENT ========== -->
+  <section class="section webdev" id="webdev">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="webdevLabel">Also Available</span>
+        <h2 class="section-title" data-i18n="webdevTitle">Web Development</h2>
+        <p class="section-desc" data-i18n="webdevDesc">Need a professional website? I build modern, responsive web pages
+          too.</p>
+        <div class="divider"></div>
+      </div>
+      <div class="webdev-card reveal">
+        <div class="webdev-content">
+          <div class="webdev-icon">🌐</div>
+          <div class="webdev-info">
+            <h3 data-i18n="webdevCardTitle">Landing Page</h3>
+            <p data-i18n="webdevCardDesc">Clean, modern, and responsive landing pages designed to showcase your brand,
+              product, or project. Fully custom, mobile-friendly, and optimized for performance.</p>
+            <div class="webdev-features">
+              <span class="webdev-tag" data-i18n="webdevF1">Responsive Design</span>
+              <span class="webdev-tag" data-i18n="webdevF2">Modern UI</span>
+              <span class="webdev-tag" data-i18n="webdevF3">Fast Loading</span>
+              <span class="webdev-tag" data-i18n="webdevF4">SEO Ready</span>
+            </div>
+          </div>
+          <div class="webdev-price-box">
+            <div class="webdev-price-label" data-i18n="webdevFrom">Starting from</div>
+            <div class="webdev-price">$40</div>
+            <a href="https://discord.com/users/yairg09" target="_blank" class="btn-primary" data-i18n="webdevBtn">Get
+              Started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="testimonialsLabel">Testimonials</span>
+        <h2 class="section-title" data-i18n="testimonialsTitle">What Clients Say</h2>
+        <p class="section-desc" data-i18n="testimonialsDesc">Feedback from server owners I've worked with</p>
+        <div class="divider"></div>
+      </div>
+      <div class="testimonial-carousel reveal">
+        <div class="testimonial-track" id="testimonialTrack">
+          <!-- Loaded dynamically from Firebase -->
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <p id="noReviews" style="display:none;text-align:center;color:var(--mid-gray);padding:40px;">No reviews yet — be
+          the first!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="contactLabel">Contact</span>
+        <h2 class="section-title" data-i18n="contactTitle">Let's Build Something Amazing</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="contact-box reveal">
+        <p data-i18n="contactDesc">Ready to bring your vision to life? Add me on Discord or check out my Fiverr for
+          more.</p>
+        <div class="contact-discord-info">
+          <svg viewBox="0 0 127.14 96.36" width="32" height="24" fill="#5865F2">
+            <path
+              d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z" />
+          </svg>
+          <span class="discord-username" data-i18n="contactDiscordUser">yairg09</span>
+        </div>
+        <div class="contact-buttons">
+          <a href="https://discord.com/users/yairg09" target="_blank" class="discord-btn" data-i18n="contactBtn">
+            <svg viewBox="0 0 127.14 96.36" width="24" height="18" fill="currentColor">
+              <path
+                d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z" />
+            </svg>
+            Contact on Discord
+          </a>
+          <a href="https://www.fiverr.com/itsjona09" target="_blank" class="fiverr-btn" data-i18n="contactFiverrBtn">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path
+                d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092V16h-1.722v-3.725h-.85c-.547 0-.84.41-.84 1.092V16h-1.72v-4.91h1.72v.54c.36-.47.87-.68 1.47-.68.65 0 1.17.27 1.47.78.42-.56.97-.78 1.6-.78.96 0 1.56.62 1.56 1.67V16h-1.72v-3.025c0-.682-.294-1.092-.84-1.092zm-7.622 0h-.85c-.545 0-.84.41-.84 1.092V16H11.03v-4.91h1.72v.54c.32-.41.78-.68 1.36-.68l.18.02v1.73c-.12-.04-.3-.06-.44-.06-.54 0-.92.32-1.04.82-.02.12-.04.26-.04.4v2.14H11.03v-4.91h.54zm-4.452 0c-.96 0-1.54.62-1.54 1.67V16H6.67v-3.025c0-.682-.294-1.092-.84-1.092s-.84.41-.84 1.092V16H3.27v-4.91h1.72v.54c.36-.47.87-.68 1.47-.68.65 0 1.17.27 1.47.78.42-.56.97-.78 1.6-.78.96 0 1.56.62 1.56 1.67V16h-1.72v-3.025c0-.682-.295-1.092-.84-1.092zM.996 15.588a.995.995 0 1 0 0-1.99.995.995 0 0 0 0 1.99z" />
+            </svg>
+            View Fiverr Profile
+          </a>
+          <a href="https://www.tiktok.com/@jonas09.g" target="_blank" class="tiktok-btn" data-i18n="contactTiktokBtn">
+            <svg viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
+              <path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.17h0A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z"/>
+            </svg>
+            Follow on TikTok
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">Jonas<span>Builds</span></div>
+      <div class="footer-links">
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#portfolio" data-i18n="navPortfolio">Portfolio</a>
+        <a href="#services" data-i18n="navServices">Services</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+        <a href="https://www.fiverr.com/itsjona09" target="_blank">Fiverr</a>
+      </div>
+      <p class="footer-copy" data-i18n="footerCopy">© 2026 Jonas Builds. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/main.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    async function loadTestimonials() {
+      try {
+        const snapshot = await getDocs(collection(db, "reviews"));
+        const track = document.getElementById("testimonialTrack");
+        const dotsContainer = document.getElementById("carouselDots");
+        const noReviews = document.getElementById("noReviews");
+
+        // Filter approved reviews client-side (no composite index needed)
+        const approved = [];
+        snapshot.forEach(d => {
+          const data = d.data();
+          if (data.status === "approved") approved.push(data);
+        });
+        // Sort by date descending
+        approved.sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""));
+
+        if (approved.length === 0) {
+          noReviews.style.display = "block";
+          return;
+        }
+
+        let cards = "";
+        approved.forEach(r => {
+          const stars = "★".repeat(r.stars || 5);
+          cards += `<div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <div style="color:var(--gold);font-size:1.1rem;margin-bottom:12px;">${stars}</div>
+            <p>"${r.text}"</p>
+            <div class="testimonial-author">
+              <div style="width:48px;height:48px;border-radius:50%;background:var(--pearl);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.2rem;color:var(--gold);border:2px solid var(--cream);">${r.name.charAt(0).toUpperCase()}</div>
+              <div>
+                <div class="testimonial-name">${r.name}</div>
+                <div class="testimonial-role">${r.role || "Client"}</div>
+              </div>
+            </div>
+          </div>`;
+        });
+
+        track.innerHTML = cards;
+
+        let dots = "";
+        for (let i = 0; i < approved.length; i++) {
+          dots += `<button class="carousel-dot${i === 0 ? " active" : ""}" aria-label="Slide ${i + 1}"></button>`;
+        }
+        dotsContainer.innerHTML = dots;
+
+        // Init carousel
+        if (approved.length > 1) {
+          let current = 0;
+          const newDots = dotsContainer.querySelectorAll(".carousel-dot");
+          function goTo(idx) {
+            current = idx;
+            track.style.transform = `translateX(-${current * 100}%)`;
+            newDots.forEach((d, i) => d.classList.toggle("active", i === current));
+          }
+          newDots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
+          setInterval(() => goTo((current + 1) % approved.length), 5000);
+        }
+      } catch (e) {
+        console.error("Error loading reviews:", e);
+        document.getElementById("noReviews").style.display = "block";
+      }
+    }
+
+    loadTestimonials();
+  </script>
+</body>
+
+</html>

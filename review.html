@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leave a Review — Jonas Builds</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body { background: var(--ivory); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .review-container {
+      max-width: 520px; width: 100%; margin: 40px 24px;
+      background: var(--white); padding: 48px 40px;
+      border-radius: var(--radius); box-shadow: var(--shadow-float);
+      border: 1px solid var(--cream); text-align: center;
+    }
+    .review-logo { font-family: var(--font-heading); font-size: 1.5rem; color: var(--dark); margin-bottom: 8px; }
+    .review-logo span { color: var(--gold); }
+    .review-subtitle { color: var(--mid-gray); font-size: 0.95rem; margin-bottom: 32px; }
+    .form-group { margin-bottom: 20px; text-align: left; }
+    .form-label { display: block; font-size: 0.85rem; font-weight: 500; color: var(--dark); margin-bottom: 6px; }
+    .form-input, .form-textarea {
+      width: 100%; padding: 14px 18px; border: 1.5px solid var(--cream);
+      border-radius: var(--radius-sm); font-family: var(--font-body);
+      font-size: 0.95rem; color: var(--dark); background: var(--ivory);
+      transition: border-color 0.3s; outline: none;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .stars-input { display: flex; gap: 8px; justify-content: center; margin: 12px 0 24px; }
+    .star-btn {
+      font-size: 2rem; color: var(--cream); cursor: pointer;
+      transition: color 0.2s, transform 0.2s; background: none; border: none; padding: 4px;
+    }
+    .star-btn.active, .star-btn:hover { color: var(--gold); transform: scale(1.15); }
+    .submit-btn {
+      width: 100%; padding: 16px; background: var(--gold); color: var(--white);
+      border: none; border-radius: 50px; font-size: 1rem; font-weight: 600;
+      cursor: pointer; transition: all 0.3s; letter-spacing: 0.03em;
+    }
+    .submit-btn:hover { background: var(--gold-dark); }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .msg { padding: 14px; border-radius: var(--radius-sm); margin-top: 16px; font-size: 0.9rem; display: none; }
+    .msg.success { display: block; background: #e8f5e9; color: #2e7d32; }
+    .msg.error { display: block; background: #fce4ec; color: #c62828; }
+    .invalid-token { text-align: center; padding: 60px 24px; }
+    .invalid-token h2 { font-family: var(--font-heading); color: var(--dark); margin-bottom: 12px; }
+    .invalid-token p { color: var(--mid-gray); }
+  </style>
+</head>
+<body>
+
+  <!-- Invalid token view -->
+  <div class="review-container" id="invalidView" style="display:none;">
+    <div class="invalid-token">
+      <h2>Invalid Link</h2>
+      <p>This review link is invalid or has already been used. Please contact Jonas for a new link.</p>
+    </div>
+  </div>
+
+  <!-- Review form -->
+  <div class="review-container" id="reviewForm" style="display:none;">
+    <div class="review-logo">Jonas<span>Builds</span></div>
+    <p class="review-subtitle">Thank you for working with me! I'd love to hear your feedback.</p>
+    <form id="testimonialForm">
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-input" id="reviewName" placeholder="e.g. Alex" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Role (optional)</label>
+        <input type="text" class="form-input" id="reviewRole" placeholder="e.g. Server Owner, YouTuber, etc.">
+      </div>
+      <div class="form-group" style="text-align:center;">
+        <label class="form-label" style="text-align:center;">Rating</label>
+        <div class="stars-input" id="starsInput">
+          <button type="button" class="star-btn" data-star="1">★</button>
+          <button type="button" class="star-btn" data-star="2">★</button>
+          <button type="button" class="star-btn" data-star="3">★</button>
+          <button type="button" class="star-btn" data-star="4">★</button>
+          <button type="button" class="star-btn" data-star="5">★</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Review</label>
+        <textarea class="form-textarea" id="reviewText" placeholder="Tell others about your experience..." required></textarea>
+      </div>
+      <button type="submit" class="submit-btn" id="submitBtn">Submit Review</button>
+      <div class="msg" id="formMsg"></div>
+    </form>
+  </div>
+
+  <!-- Success view -->
+  <div class="review-container" id="successView" style="display:none;">
+    <div style="font-size:3rem;margin-bottom:16px;">✨</div>
+    <h2 style="font-family:var(--font-heading);margin-bottom:12px;">Thank You!</h2>
+    <p style="color:var(--mid-gray);">Your review has been submitted and is pending approval. It will appear on the website once approved.</p>
+  </div>
+
+  <script src="js/firebase-config.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+    import { getFirestore, doc, getDoc, setDoc, addDoc, collection, updateDoc } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+
+    async function init() {
+      if (!token) { document.getElementById("invalidView").style.display = "block"; return; }
+
+      try {
+        const tokenDoc = await getDoc(doc(db, "review_tokens", token));
+        if (!tokenDoc.exists() || tokenDoc.data().used) {
+          document.getElementById("invalidView").style.display = "block";
+          return;
+        }
+        document.getElementById("reviewForm").style.display = "block";
+      } catch (e) {
+        document.getElementById("invalidView").style.display = "block";
+      }
+    }
+
+    // Stars
+    let selectedStars = 5;
+    document.querySelectorAll(".star-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        selectedStars = parseInt(btn.dataset.star);
+        document.querySelectorAll(".star-btn").forEach((b, i) => {
+          b.classList.toggle("active", i < selectedStars);
+        });
+      });
+    });
+    // Default 5 stars
+    document.querySelectorAll(".star-btn").forEach(b => b.classList.add("active"));
+
+    // Submit
+    document.getElementById("testimonialForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById("submitBtn");
+      const msg = document.getElementById("formMsg");
+      btn.disabled = true;
+      btn.textContent = "Submitting...";
+
+      try {
+        const name = document.getElementById("reviewName").value.trim();
+        const role = document.getElementById("reviewRole").value.trim() || "Client";
+        const text = document.getElementById("reviewText").value.trim();
+
+        await addDoc(collection(db, "reviews"), {
+          name, role, text, stars: selectedStars,
+          token, status: "pending",
+          createdAt: new Date().toISOString()
+        });
+
+        await updateDoc(doc(db, "review_tokens", token), { used: true });
+
+        document.getElementById("reviewForm").style.display = "none";
+        document.getElementById("successView").style.display = "block";
+      } catch (err) {
+        msg.className = "msg error";
+        msg.textContent = "Something went wrong. Please try again.";
+        btn.disabled = false;
+        btn.textContent = "Submit Review";
+      }
+    });
+
+    init();
+  </script>
+</body>
+</html>
