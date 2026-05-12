@@ -303,21 +303,27 @@
     };
 
     window.approveReview = async function(id) {
-      await updateDoc(doc(db, "reviews", id), { status: "approved" });
-      loadReviews();
+      if(confirm("¿Aprobar esta reseña para que aparezca en el portafolio?")) {
+        await updateDoc(doc(db, "reviews", id), { status: "approved" });
+        loadReviews();
+      }
     };
 
     window.rejectReview = async function(id) {
-      await updateDoc(doc(db, "reviews", id), { status: "rejected" });
-      loadReviews();
-    };
-
-    window.deleteReview = async function(id) {
-      if (confirm("Delete this review permanently?")) {
+      if(confirm("¿Rechazar y eliminar esta reseña?")) {
         await deleteDoc(doc(db, "reviews", id));
         loadReviews();
       }
     };
+
+    window.deleteReview = async function(id) {
+      if(confirm("¿Eliminar permanentemente esta reseña aprobada?")) {
+        await deleteDoc(doc(db, "reviews", id));
+        loadReviews();
+      }
+    };
+
+
 
     async function loadReviews() {
       const snapshot = await getDocs(query(collection(db, "reviews"), orderBy("createdAt", "desc")));
