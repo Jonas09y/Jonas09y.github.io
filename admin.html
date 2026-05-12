@@ -280,7 +280,10 @@
     };
 
     window.generateToken = async function() {
-      const token = crypto.randomUUID();
+      // Fallback if crypto.randomUUID is not available (like on HTTP)
+      const token = (typeof crypto !== "undefined" && crypto.randomUUID) 
+        ? crypto.randomUUID() 
+        : Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
       await setDoc(doc(db, "review_tokens", token), {
         used: false,
         createdAt: new Date().toISOString()
