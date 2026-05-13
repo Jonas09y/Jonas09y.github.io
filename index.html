@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="#" class="nav-logo">Jonas<span>Builds</span></a>
@@ -30,7 +31,15 @@
       </button>
     </div>
   </nav>
+
   <section class="hero" id="hero">
+    <div class="hero-star s1">✦</div>
+    <div class="hero-star s2">✦</div>
+    <div class="hero-star s3">✦</div>
+    <div class="hero-star s4">✦</div>
+    <div class="hero-star s5">✦</div>
+    <div class="hero-star s6">✦</div>
+    
     <div class="hero-content">
       <div class="hero-badge" data-i18n="heroBadge">Minecraft Builder</div>
       <h1>
@@ -45,6 +54,7 @@
       </div>
     </div>
   </section>
+
   <section class="section about" id="about">
     <div class="container">
       <div class="section-header reveal">
@@ -69,8 +79,8 @@
             <span class="tool-tag">Axiom</span>
             <span class="tool-tag">VoxelSniper</span>
             <span class="tool-tag">goPaint</span>
-            <span class="tool-tag">Java Edition</span>
-            <span class="tool-tag">Bedrock</span>
+            <span class="tool-tag tool-tag--lime">Java Edition</span>
+            <span class="tool-tag tool-tag--lime">Bedrock</span>
           </div>
         </div>
       </div>
@@ -90,6 +100,7 @@
       </div>
     </div>
   </section>
+
   <section class="section portfolio" id="portfolio">
     <div class="container">
       <div class="section-header reveal">
@@ -108,8 +119,7 @@
       </div>
       <div class="portfolio-grid">
         <div class="portfolio-card reveal" data-category="lobbies">
-          <img src="assets/images/MedievalHub.png"
-            alt="Medieval Hub">
+          <img src="assets/images/MedievalHub.png" alt="Medieval Hub">
           <div class="portfolio-overlay">
             <h4 data-i18n="p1">Medieval Hub</h4>
             <span>Lobby</span>
@@ -123,56 +133,49 @@
           </div>
         </div>
         <div class="portfolio-card reveal" data-category="terrains">
-          <img src="assets/images/Terreno.png"
-            alt="Fantasy Terrain">
+          <img src="assets/images/Terreno.png" alt="Fantasy Terrain">
           <div class="portfolio-overlay">
             <h4 data-i18n="p3">Fantasy Terrain</h4>
             <span>Terrain</span>
           </div>
         </div>
         <div class="portfolio-card reveal" data-category="arenas">
-          <img src="assets/images/Battle_Arena.png"
-            alt="Battle Arena">
+          <img src="assets/images/Battle_Arena.png" alt="Battle Arena">
           <div class="portfolio-overlay">
             <h4 data-i18n="p4">Battle Arena</h4>
             <span>Arena</span>
           </div>
         </div>
         <div class="portfolio-card reveal" data-category="spawns">
-          <img src="assets/images/Terrain_1.png"
-            alt="Fantasy Terrain">
+          <img src="assets/images/Terrain_1.png" alt="Fantasy Terrain">
           <div class="portfolio-overlay">
             <h4 data-i18n="p5">Fantasy Terrain</h4>
             <span>Terrain</span>
           </div>
         </div>
         <div class="portfolio-card reveal" data-category="terrains">
-          <img src="assets/images/Montañas.png"
-            alt="Mountain World">
+          <img src="assets/images/Montañas.png" alt="Mountain World">
           <div class="portfolio-overlay">
             <h4 data-i18n="p6">Mountain World</h4>
             <span>Terrain</span>
           </div>
         </div>
         <div class="portfolio-card reveal" data-category="arenas">
-          <img src="assets/images/Nether.png"
-            alt="Nether Arena">
+          <img src="assets/images/Nether.png" alt="Nether Arena">
           <div class="portfolio-overlay">
             <h4 data-i18n="p7">Nether Arena</h4>
             <span>Arena</span>
           </div>
         </div>
         <div class="portfolio-card reveal" data-category="lobbies">
-          <img src="assets/images/Galactic_Lobby.png"
-            alt="Galactic Lobby">
+          <img src="assets/images/Galactic_Lobby.png" alt="Galactic Lobby">
           <div class="portfolio-overlay">
             <h4 data-i18n="p8">Galactic Lobby</h4>
             <span>Lobby</span>
           </div>
         </div>
         <div class="portfolio-card reveal" data-category="events">
-          <img src="assets/images/Evento_navidad.png"
-            alt="Christmas Event">
+          <img src="assets/images/Evento_navidad.png" alt="Christmas Event">
           <div class="portfolio-overlay">
             <h4 data-i18n="p9">Christmas Event</h4>
             <span>Event</span>
@@ -187,6 +190,7 @@
       </div>
     </div>
   </section>
+
   <section class="section services" id="services">
     <div class="container">
       <div class="section-header reveal">
@@ -219,6 +223,7 @@
       </div>
     </div>
   </section>
+
   <section class="section webdev" id="webdev">
     <div class="container">
       <div class="section-header reveal">
@@ -238,8 +243,8 @@
             <div class="webdev-features">
               <span class="webdev-tag" data-i18n="webdevF1">Responsive Design</span>
               <span class="webdev-tag" data-i18n="webdevF2">Modern UI</span>
-              <span class="webdev-tag" data-i18n="webdevF3">Fast Loading</span>
-              <span class="webdev-tag" data-i18n="webdevF4">SEO Ready</span>
+              <span class="webdev-tag webdev-tag--lime" data-i18n="webdevF3">Fast Loading</span>
+              <span class="webdev-tag webdev-tag--lime" data-i18n="webdevF4">SEO Ready</span>
             </div>
           </div>
           <div class="webdev-price-box">
@@ -252,6 +257,7 @@
       </div>
     </div>
   </section>
+
   <section class="section testimonials" id="testimonials">
     <div class="container">
       <div class="section-header reveal">
@@ -262,14 +268,21 @@
       </div>
       <div class="testimonial-carousel reveal">
         <div class="testimonial-track" id="testimonialTrack">
-          <!-- Loaded dynamically from Firebase -->
         </div>
-        <div class="carousel-dots" id="carouselDots"></div>
+        
+        <div id="expandReviewsContainer" style="display:none; text-align:center; margin-top:32px;">
+          <button id="expandReviewsBtn" class="btn-secondary" style="padding:10px 24px; font-size: 0.85rem; display:inline-flex; align-items:center; gap:8px;">
+            Ver más
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </div>
+
         <p id="noReviews" style="display:none;text-align:center;color:var(--mid-gray);padding:40px;">No reviews yet — be
           the first!</p>
       </div>
     </div>
   </section>
+
   <section class="section contact" id="contact">
     <div class="container">
       <div class="section-header reveal">
@@ -312,6 +325,7 @@
       </div>
     </div>
   </section>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-logo">Jonas<span>Builds</span></div>
@@ -340,8 +354,8 @@
       try {
         const snapshot = await getDocs(collection(db, "reviews"));
         const track = document.getElementById("testimonialTrack");
-        const dotsContainer = document.getElementById("carouselDots");
         const noReviews = document.getElementById("noReviews");
+
         const approved = [];
         snapshot.forEach(d => {
           const data = d.data();
@@ -355,9 +369,10 @@
         }
 
         let cards = "";
-        approved.forEach(r => {
+        approved.forEach((r, idx) => {
           const stars = "★".repeat(r.stars || 5);
-          cards += `<div class="testimonial-card">
+          const hiddenStyle = idx >= 2 ? 'style="display:none;" class="testimonial-card hidden-review"' : 'class="testimonial-card"';
+          cards += `<div ${hiddenStyle}>
             <div class="testimonial-quote">"</div>
             <div style="color:var(--gold);font-size:1.1rem;margin-bottom:12px;">${stars}</div>
             <p>"${r.text}"</p>
@@ -365,7 +380,7 @@
               <div style="width:48px;height:48px;border-radius:50%;background:var(--pearl);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.2rem;color:var(--gold);border:2px solid var(--cream);">${r.name.charAt(0).toUpperCase()}</div>
               <div>
                 <div class="testimonial-name">${r.name}</div>
-                <div class="testimonial-role">${r.role || "Client"}</div>
+                <div class="testimonial-role">${r.role || "Client"} ${r.price ? ' • ' + r.price : ''}</div>
               </div>
             </div>
           </div>`;
@@ -373,25 +388,22 @@
 
         track.innerHTML = cards;
 
-        let dots = "";
-        for (let i = 0; i < approved.length; i++) {
-          dots += `<button class="carousel-dot${i === 0 ? " active" : ""}" aria-label="Slide ${i + 1}"></button>`;
+        if (approved.length > 2) {
+          const expandBtnContainer = document.getElementById("expandReviewsContainer");
+          const expandBtn = document.getElementById("expandReviewsBtn");
+          expandBtnContainer.style.display = "block";
+          expandBtn.addEventListener("click", () => {
+            document.querySelectorAll(".hidden-review").forEach(el => {
+              el.style.display = "block";
+              // force a small reflow to allow transition if we add fade in
+              el.style.animation = "fadeIn 0.5s ease forwards";
+            });
+            expandBtnContainer.style.display = "none";
+          });
         }
-        dotsContainer.innerHTML = dots;
 
-        if (approved.length > 1) {
-          let current = 0;
-          const newDots = dotsContainer.querySelectorAll(".carousel-dot");
-          function goTo(idx) {
-            current = idx;
-            track.style.transform = `translateX(-${current * 100}%)`;
-            newDots.forEach((d, i) => d.classList.toggle("active", i === current));
-          }
-          newDots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
-          setInterval(() => goTo((current + 1) % approved.length), 5000);
-        }
+
       } catch (e) {
-        console.error("Error loading reviews:", e);
         document.getElementById("noReviews").style.display = "block";
       }
     }
