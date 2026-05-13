@@ -70,6 +70,23 @@
         <label class="form-label">Your Role (optional)</label>
         <input type="text" class="form-input" id="reviewRole" placeholder="e.g. Server Owner, YouTuber, etc.">
       </div>
+      <div class="form-group">
+        <label class="form-label">Order Value (optional)</label>
+        <select class="form-input" id="reviewPrice">
+          <option value="" disabled selected>Select an option</option>
+          <option value="$10+">$10+</option>
+          <option value="$20+">$20+</option>
+          <option value="$30+">$30+</option>
+          <option value="$40+">$40+</option>
+          <option value="$50+">$50+</option>
+          <option value="$70+">$70+</option>
+          <option value="$80+">$80+</option>
+          <option value="$100+">$100+</option>
+          <option value="$150+">$150+</option>
+          <option value="$300+">$300+</option>
+          <option value="$500+">$500+</option>
+        </select>
+      </div>
       <div class="form-group" style="text-align:center;">
         <label class="form-label" style="text-align:center;">Rating</label>
         <div class="stars-input" id="starsInput">
@@ -146,10 +163,11 @@
       try {
         const name = document.getElementById("reviewName").value.trim();
         const role = document.getElementById("reviewRole").value.trim() || "Client";
+        const price = document.getElementById("reviewPrice").value;
         const text = document.getElementById("reviewText").value.trim();
 
         await addDoc(collection(db, "reviews"), {
-          name, role, text, stars: selectedStars,
+          name, role, price, text, stars: selectedStars,
           token, status: "pending",
           createdAt: new Date().toISOString()
         });
