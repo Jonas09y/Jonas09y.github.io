@@ -11,8 +11,6 @@
 </head>
 
 <body>
-
-  <!-- ========== NAVBAR ========== -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="#" class="nav-logo">Jonas<span>Builds</span></a>
@@ -32,8 +30,6 @@
       </button>
     </div>
   </nav>
-
-  <!-- ========== HERO ========== -->
   <section class="hero" id="hero">
     <div class="hero-content">
       <div class="hero-badge" data-i18n="heroBadge">Minecraft Builder</div>
@@ -49,8 +45,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ========== ABOUT ========== -->
   <section class="section about" id="about">
     <div class="container">
       <div class="section-header reveal">
@@ -96,8 +90,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ========== PORTFOLIO ========== -->
   <section class="section portfolio" id="portfolio">
     <div class="container">
       <div class="section-header reveal">
@@ -195,8 +187,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ========== SERVICES ========== -->
   <section class="section services" id="services">
     <div class="container">
       <div class="section-header reveal">
@@ -229,8 +219,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ========== WEB DEVELOPMENT ========== -->
   <section class="section webdev" id="webdev">
     <div class="container">
       <div class="section-header reveal">
@@ -264,8 +252,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ========== TESTIMONIALS ========== -->
   <section class="section testimonials" id="testimonials">
     <div class="container">
       <div class="section-header reveal">
@@ -284,8 +270,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ========== CONTACT ========== -->
   <section class="section contact" id="contact">
     <div class="container">
       <div class="section-header reveal">
@@ -328,8 +312,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-logo">Jonas<span>Builds</span></div>
@@ -360,14 +342,11 @@
         const track = document.getElementById("testimonialTrack");
         const dotsContainer = document.getElementById("carouselDots");
         const noReviews = document.getElementById("noReviews");
-
-        // Filter approved reviews client-side (no composite index needed)
         const approved = [];
         snapshot.forEach(d => {
           const data = d.data();
           if (data.status === "approved") approved.push(data);
         });
-        // Sort by date descending
         approved.sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""));
 
         if (approved.length === 0) {
@@ -400,7 +379,6 @@
         }
         dotsContainer.innerHTML = dots;
 
-        // Init carousel
         if (approved.length > 1) {
           let current = 0;
           const newDots = dotsContainer.querySelectorAll(".carousel-dot");
