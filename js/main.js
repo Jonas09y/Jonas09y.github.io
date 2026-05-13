@@ -1,4 +1,3 @@
-/* ========== LANGUAGE DATA ========== */
 const translations = {
   en: {
     navAbout: "About",
@@ -82,7 +81,6 @@ const translations = {
     webdevFrom: "Starting from",
     webdevBtn: "Get Started",
     footerCopy: "© 2026 Jonas Builds. All rights reserved.",
-    // Portfolio project names
     p1: "Medieval Hub", p2: "Sky Lobby", p3: "Fantasy Terrain", p4: "Battle Arena",
     p5: "Fantasy Terrain", p6: "Mountain World", p7: "Nether Arena", p8: "Galactic Lobby",
     p9: "Christmas Event",
@@ -198,7 +196,6 @@ function setLanguage(lang) {
   document.documentElement.lang = lang;
 }
 
-/* ========== NAVBAR SCROLL ========== */
 function initNavbar() {
   const navbar = document.querySelector(".navbar");
   window.addEventListener("scroll", () => {
@@ -206,7 +203,6 @@ function initNavbar() {
   });
 }
 
-/* ========== HAMBURGER MENU ========== */
 function initHamburger() {
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
@@ -223,7 +219,6 @@ function initHamburger() {
   });
 }
 
-/* ========== SCROLL REVEAL ========== */
 function initScrollReveal() {
   const reveals = document.querySelectorAll(".reveal");
   const observer = new IntersectionObserver((entries) => {
@@ -236,7 +231,6 @@ function initScrollReveal() {
   reveals.forEach(el => observer.observe(el));
 }
 
-/* ========== PORTFOLIO FILTER ========== */
 function initPortfolioFilter() {
   const filterBtns = document.querySelectorAll(".filter-btn");
   const cards = document.querySelectorAll(".portfolio-card");
@@ -256,7 +250,6 @@ function initPortfolioFilter() {
   });
 }
 
-/* ========== TESTIMONIAL CAROUSEL ========== */
 function initCarousel() {
   const track = document.querySelector(".testimonial-track");
   const dots = document.querySelectorAll(".carousel-dot");
@@ -279,7 +272,6 @@ function initCarousel() {
   }, 5000);
 }
 
-/* ========== STAT COUNTER ANIMATION ========== */
 function initCounters() {
   const stats = document.querySelectorAll(".stat-number");
   const observer = new IntersectionObserver((entries) => {
@@ -310,7 +302,6 @@ function initCounters() {
   });
 }
 
-/* ========== SMOOTH SCROLL FOR NAV LINKS ========== */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
@@ -323,7 +314,8 @@ function initSmoothScroll() {
   });
 }
 
-/* ========== INIT ========== */
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const savedLang = localStorage.getItem("jb-lang") || "en";
   setLanguage(savedLang);
@@ -331,7 +323,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initHamburger();
   initScrollReveal();
   initPortfolioFilter();
-  initCarousel();
   initCounters();
   initSmoothScroll();
 });
