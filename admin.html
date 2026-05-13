@@ -458,6 +458,14 @@
 
       } catch (e) {
         console.error("Analytics error:", e);
+        document.getElementById("totalViews").textContent = "Error";
+        document.getElementById("todayViews").textContent = "Error";
+        document.getElementById("weekViews").textContent = "Error";
+        document.getElementById("totalClicks").textContent = "Error";
+        document.getElementById("clickBars").innerHTML = '<p class="empty-msg" style="padding:12px; color: #c62828;">Faltan permisos en Firebase Rules</p>';
+        document.getElementById("deviceBars").innerHTML = '<p class="empty-msg" style="padding:12px; color: #c62828;">Faltan permisos</p>';
+        document.getElementById("sectionBars").innerHTML = '<p class="empty-msg" style="padding:12px; color: #c62828;">Faltan permisos</p>';
+        document.getElementById("visitorsList").innerHTML = '<p class="empty-msg" style="padding:12px; color: #c62828;">Faltan permisos</p>';
       }
     }
 
