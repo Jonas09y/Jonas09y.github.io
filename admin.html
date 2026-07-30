@@ -254,7 +254,7 @@
 
     // Simple admin password (change this!)
     const ADMIN_PASS_HASH = "Cosmo21k!";
-    let baseUrl = window.location.origin + window.location.pathname.replace("admin.html", "review.html");
+    let baseUrl = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1) + "review.html";
 
     // Expose functions to window
     window.tryLogin = function() {
