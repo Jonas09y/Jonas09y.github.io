@@ -87,6 +87,9 @@ const translations = {
     filterEvents: "Events",
     portfolioMoreText: "Want to see more of my work?",
     portfolioMoreBtn: "View Extra Photos on Behance",
+    view3d: "View in 3D",
+    viewerKicker: "3D Preview",
+    viewerHint: "Drag to rotate · Scroll to zoom · Right-click to pan",
   },
   es: {
     navAbout: "Sobre Mí",
@@ -176,6 +179,9 @@ const translations = {
     filterEvents: "Eventos",
     portfolioMoreText: "¿Quieres ver más de mi trabajo?",
     portfolioMoreBtn: "Ver Fotos Extra en Behance",
+    view3d: "Ver en 3D",
+    viewerKicker: "Vista 3D",
+    viewerHint: "Arrastra para girar · Rueda para zoom · Clic derecho para mover",
   }
 };
 
