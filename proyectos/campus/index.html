@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Campus Virtual de Holy Spirit Bilingual School — Plataforma educativa integral para alumnos, docentes y padres de familia.">
+    <title>Campus Virtual — Holy Spirit Bilingual School</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+    <!-- ===== LOGIN MODAL ===== -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-modal">
+            <button class="login-close" id="loginClose" aria-label="Cerrar">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="login-header">
+                <img src="assets/img/logo.png" alt="HSBS Logo" class="login-logo">
+                <h2>Iniciar Sesión</h2>
+                <p>Accede a tu Campus Virtual</p>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="userRole">Tipo de Usuario</label>
+                    <select id="userRole">
+                        <option value="student">Alumno</option>
+                        <option value="teacher">Docente</option>
+                        <option value="parent">Padre de Familia</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">Correo Electrónico</label>
+                    <input type="email" id="userEmail" placeholder="usuario@hsbs.edu.hn" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPassword">Contraseña</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="userPassword" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Recordarme</span>
+                    </label>
+                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="btn-login" id="btnLogin">
+                    <span>Ingresar al Campus</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+            <div class="login-footer">
+                <p>¿Necesitas ayuda? <a href="#">Contactar soporte</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="assets/img/logo.png" alt="HSBS">
+                <div class="nav-logo-text">
+                    <span class="nav-school-name">Holy Spirit</span>
+                    <span class="nav-school-sub">Bilingual School</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#funcionalidades" class="nav-link">Funcionalidades</a></li>
+                <li><a href="#portales" class="nav-link">Portales</a></li>
+                <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-accent" id="openLogin">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Ingresar</span>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg">
+            <img src="assets/img/hero.png" alt="Campus HSBS">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-dove"></i>
+                <span>Plataforma Educativa 2026</span>
+            </div>
+            <h1 class="hero-title">
+                Campus Virtual
+                <span class="hero-highlight">Holy Spirit</span>
+            </h1>
+            <p class="hero-subtitle">
+                Conectamos alumnos, docentes y padres de familia en una experiencia educativa digital integral — desde Pre-Básica hasta Bachillerato.
+            </p>
+            <div class="hero-cta">
+                <button class="btn-primary" id="heroLogin">
+                    <i class="fas fa-rocket"></i>
+                    <span>Acceder al Campus</span>
+                </button>
+                <a href="#funcionalidades" class="btn-outline">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Ver Demo</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-target="850">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Alumnos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="45">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Docentes</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="3">0</span>
+                    <span class="stat-label">Niveles</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="100">0</span><span class="stat-plus">%</span>
+                    <span class="stat-label">Bilingüe</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#funcionalidades">
+                <span>Descubre más</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="features" id="funcionalidades">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Funcionalidades</span>
+                <h2 class="section-title">Todo lo que necesita <span class="text-gradient">su colegio</span></h2>
+                <p class="section-desc">Una plataforma completa diseñada específicamente para las necesidades de Holy Spirit Bilingual School</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon" style="--accent: #6366f1;">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Gestión Académica</h3>
+                    <p>Calificaciones, asistencia, horarios y planificación docente en un solo lugar.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Registro de notas en tiempo real</li>
+                        <li><i class="fas fa-check"></i> Boletas digitales automáticas</li>
+                        <li><i class="fas fa-check"></i> Compatible con SACE</li>
+                    </ul>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon" style="--accent: #06b6d4;">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Material de Apoyo</h3>
+                    <p>Biblioteca digital, tareas, foros de discusión y recursos organizados por materia.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Recepción de tareas digitales</li>
+                        <li><i class="fas fa-check"></i> Biblioteca de recursos y lecturas</li>
+                        <li><i class="fas fa-check"></i> Foros de discusión por grado</li>
+                    </ul>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon" style="--accent: #f59e0b;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Portal de Padres</h3>
+                    <p>Seguimiento del avance académico de sus hijos desde cualquier dispositivo.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Notas y asistencia en vivo</li>
+                        <li><i class="fas fa-check"></i> Mensajería con docentes</li>
+                        <li><i class="fas fa-check"></i> Notificaciones push</li>
+                    </ul>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon" style="--accent: #10b981;">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Comunicación</h3>
+                    <p>Circulares digitales, calendario de eventos y mensajería interna segura.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Circulares con confirmación</li>
+                        <li><i class="fas fa-check"></i> Calendario institucional</li>
+                        <li><i class="fas fa-check"></i> Chat seguro interno</li>
+                    </ul>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon" style="--accent: #ef4444;">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Seguridad</h3>
+                    <p>Protección de datos de menores cumpliendo la legislación hondureña vigente.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Encriptación SSL/TLS</li>
+                        <li><i class="fas fa-check"></i> Roles de acceso diferenciados</li>
+                        <li><i class="fas fa-check"></i> Cumple Art. 32 Código de la Niñez</li>
+                    </ul>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon" style="--accent: #8b5cf6;">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>App Educativa Oficial</h3>
+                    <p>Acceso desde cualquier smartphone usando la aplicación oficial Moodle Mobile.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Notificaciones push</li>
+                        <li><i class="fas fa-check"></i> Modo offline</li>
+                        <li><i class="fas fa-check"></i> Diseño intuitivo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTALS PREVIEW ===== -->
+    <section class="portals" id="portales">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Portales</span>
+                <h2 class="section-title">Una experiencia para <span class="text-gradient">cada usuario</span></h2>
+                <p class="section-desc">Cada tipo de usuario accede a su propio portal personalizado</p>
+            </div>
+            <div class="portal-tabs">
+                <button class="portal-tab active" data-portal="student">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Alumno</span>
+                </button>
+                <button class="portal-tab" data-portal="teacher">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>Docente</span>
+                </button>
+                <button class="portal-tab" data-portal="parent">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Padre</span>
+                </button>
+                <button class="portal-tab" data-portal="admin">
+                    <i class="fas fa-cogs"></i>
+                    <span>Admin</span>
+                </button>
+            </div>
+            <div class="portal-content">
+                <!-- Student Portal -->
+                <div class="portal-panel active" id="portal-student">
+                    <div class="portal-info">
+                        <h3>Portal del Alumno</h3>
+                        <p>Un espacio digital donde los estudiantes pueden ver sus notas, acceder a tareas, revisar su progreso y gestionar su vida académica.</p>
+                        <ul class="portal-features">
+                            <li><i class="fas fa-chart-line"></i> Dashboard con promedio general y por materia</li>
+                            <li><i class="fas fa-tasks"></i> Lista de tareas pendientes con fechas límite</li>
+                            <li><i class="fas fa-bullhorn"></i> Acceso a circulares y avisos oficiales</li>
+                            <li><i class="fas fa-book-open"></i> Biblioteca digital por materia</li>
+                            <li><i class="fas fa-trophy"></i> Sistema de logros y gamificación</li>
+                        </ul>
+                        <button class="btn-primary" onclick="document.getElementById('loginOverlay').classList.add('active')">
+                            <span>Ver Portal Demo</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="portal-preview">
+                        <div class="mock-dashboard">
+                            <div class="mock-sidebar">
+                                <div class="mock-avatar"></div>
+                                <div class="mock-menu-item active"></div>
+                                <div class="mock-menu-item"></div>
+                                <div class="mock-menu-item"></div>
+                                <div class="mock-menu-item"></div>
+                                <div class="mock-menu-item"></div>
+                            </div>
+                            <div class="mock-main">
+                                <div class="mock-topbar">
+                                    <div class="mock-greeting">
+                                        <div class="mock-text-lg">¡Hola, María! 👋</div>
+                                        <div class="mock-text-sm">Martes, 10 de Agosto 2026</div>
+                                    </div>
+                                    <div class="mock-actions">
+                                        <div class="mock-icon-btn"><i class="fas fa-bell"></i><span class="mock-badge">3</span></div>
+                                        <div class="mock-icon-btn"><i class="fas fa-envelope"></i></div>
+                                    </div>
+                                </div>
+                                <div class="mock-cards">
+                                    <div class="mock-card blue">
+                                        <div class="mock-card-icon"><i class="fas fa-chart-line"></i></div>
+                                        <div class="mock-card-value">92%</div>
+                                        <div class="mock-card-label">Promedio General</div>
+                                    </div>
+                                    <div class="mock-card green">
+                                        <div class="mock-card-icon"><i class="fas fa-check-circle"></i></div>
+                                        <div class="mock-card-value">97%</div>
+                                        <div class="mock-card-label">Asistencia</div>
+                                    </div>
+                                    <div class="mock-card purple">
+                                        <div class="mock-card-icon"><i class="fas fa-tasks"></i></div>
+                                        <div class="mock-card-value">5</div>
+                                        <div class="mock-card-label">Tareas Pendientes</div>
+                                    </div>
+                                    <div class="mock-card orange">
+                                        <div class="mock-card-icon"><i class="fas fa-trophy"></i></div>
+                                        <div class="mock-card-value">12</div>
+                                        <div class="mock-card-label">Logros</div>
+                                    </div>
+                                </div>
+                                <div class="mock-table">
+                                    <div class="mock-table-header">
+                                        <span>Próximas Entregas</span>
+                                        <span class="mock-link">Ver todo →</span>
+                                    </div>
+                                    <div class="mock-table-row">
+                                        <span class="mock-subject-dot" style="background:#6366f1"></span>
+                                        <span>Matemáticas</span>
+                                        <span class="mock-time">Guía Práctica</span>
+                                        <span class="mock-status live">Hoy</span>
+                                    </div>
+                                    <div class="mock-table-row">
+                                        <span class="mock-subject-dot" style="background:#06b6d4"></span>
+                                        <span>English</span>
+                                        <span class="mock-time">Essay Draft</span>
+                                        <span class="mock-status upcoming">Mañana</span>
+                                    </div>
+                                    <div class="mock-table-row">
+                                        <span class="mock-subject-dot" style="background:#10b981"></span>
+                                        <span>Ciencias</span>
+                                        <span class="mock-time">Proyecto</span>
+                                        <span class="mock-status upcoming">Viernes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Teacher Portal -->
+                <div class="portal-panel" id="portal-teacher">
+                    <div class="portal-info">
+                        <h3>Portal del Docente</h3>
+                        <p>Herramientas completas para gestionar cursos, evaluar alumnos, registrar asistencia y comunicarse con padres de familia.</p>
+                        <ul class="portal-features">
+                            <li><i class="fas fa-edit"></i> Registro de calificaciones con rúbricas</li>
+                            <li><i class="fas fa-clipboard-check"></i> Control de asistencia digital</li>
+                            <li><i class="fas fa-file-upload"></i> Subir material y crear evaluaciones</li>
+                            <li><i class="fas fa-comments"></i> Chat directo con padres</li>
+                            <li><i class="fas fa-chart-bar"></i> Reportes de rendimiento por grupo</li>
+                        </ul>
+                        <button class="btn-primary" onclick="document.getElementById('loginOverlay').classList.add('active')">
+                            <span>Ver Portal Demo</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="portal-preview">
+                        <div class="mock-dashboard teacher-theme">
+                            <div class="mock-sidebar">
+                                <div class="mock-avatar"></div>
+                                <div class="mock-menu-item active"></div>
+                                <div class="mock-menu-item"></div>
+                                <div class="mock-menu-item"></div>
+                                <div class="mock-menu-item"></div>
+                                <div class="mock-menu-item"></div>
+                            </div>
+                            <div class="mock-main">
+                                <div class="mock-topbar">
+                                    <div class="mock-greeting">
+                                        <div class="mock-text-lg">Buenos días, Prof. López 📚</div>
+                                        <div class="mock-text-sm">3 clases programadas hoy</div>
+                                    </div>
+                                </div>
+                                <div class="mock-cards">
+                                    <div class="mock-card blue">
+                                        <div class="mock-card-icon"><i class="fas fa-users"></i></div>
+                                        <div class="mock-card-value">128</div>
+                                        <div class="mock-card-label">Alumnos</div>
+                                    </div>
+                                    <div class="mock-card green">
+                                        <div class="mock-card-icon"><i class="fas fa-book"></i></div>
+                                        <div class="mock-card-value">4</div>
+                                        <div class="mock-card-label">Secciones</div>
+                                    </div>
+                                    <div class="mock-card purple">
+                                        <div class="mock-card-icon"><i class="fas fa-file-alt"></i></div>
+                                        <div class="mock-card-value">12</div>
+                                        <div class="mock-card-label">Tareas por revisar</div>
+                                    </div>
+                                    <div class="mock-card orange">
+                                        <div class="mock-card-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                                        <div class="mock-card-value">3</div>
+                                        <div class="mock-card-label">Alertas académicas</div>
+                                    </div>
+                                </div>
+                                <div class="mock-table">
+                                    <div class="mock-table-header">
+                                        <span>Calificaciones Recientes</span>
+                                        <span class="mock-link">Gestionar →</span>
+                                    </div>
+                                    <div class="mock-table-row">
+                                        <span class="mock-subject-dot" style="background:#10b981"></span>
+                                        <span>7° Grado A</span>
+                                        <span class="mock-time">Examen parcial</span>
+                                        <span class="mock-status live">Publicado</span>
+                                    </div>
+                                    <div class="mock-table-row">
+                                        <span class="mock-subject-dot" style="background:#f59e0b"></span>
+                                        <span>8° Grado B</span>
+                                        <span class="mock-time">Tarea #5</span>
+                                        <span class="mock-status upcoming">Pendiente</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Parent Portal -->
+                <div class="portal-panel" id="portal-parent">
+                    <div class="portal-info">
+                        <h3>Portal de Padres</h3>
+                        <p>Acceso total al progreso académico de sus hijos. Notas, asistencia, comunicados y pagos — todo desde su celular.</p>
+                        <ul class="portal-features">
+                            <li><i class="fas fa-eye"></i> Ver notas y promedios en tiempo real</li>
+                            <li><i class="fas fa-calendar-check"></i> Historial de asistencia diaria</li>
+                            <li><i class="fas fa-newspaper"></i> Circulares y comunicados oficiales</li>
+                            <li><i class="fas fa-credit-card"></i> Estado de cuenta y pagos en línea</li>
+                            <li><i class="fas fa-comment-dots"></i> Mensajería directa con docentes</li>
+                        </ul>
+                        <button class="btn-primary" onclick="document.getElementById('loginOverlay').classList.add('active')">
+                            <span>Ver Portal Demo</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="portal-preview">
+                        <div class="mock-dashboard parent-theme">
+                            <div class="mock-sidebar">
+                                <div class="mock-avatar"></div>
+                                <div class="mock-menu-item active"></div>
+                                <div class="mock-menu-item"></div>
+                                <div class="mock-menu-item"></div>
+                                <div class="mock-menu-item"></div>
+                            </div>
+                            <div class="mock-main">
+                                <div class="mock-topbar">
+                                    <div class="mock-greeting">
+                                        <div class="mock-text-lg">Bienvenida, Sra. Martínez 👨‍👩‍👧</div>
+                                        <div class="mock-text-sm">Hija: María Fernanda — 8° Grado</div>
+                                    </div>
+                                </div>
+                                <div class="mock-cards">
+                                    <div class="mock-card blue">
+                                        <div class="mock-card-icon"><i class="fas fa-star"></i></div>
+                                        <div class="mock-card-value">92%</div>
+                                        <div class="mock-card-label">Promedio</div>
+                                    </div>
+                                    <div class="mock-card green">
+                                        <div class="mock-card-icon"><i class="fas fa-calendar-check"></i></div>
+                                        <div class="mock-card-value">97%</div>
+                                        <div class="mock-card-label">Asistencia</div>
+                                    </div>
+                                    <div class="mock-card purple">
+                                        <div class="mock-card-icon"><i class="fas fa-envelope-open"></i></div>
+                                        <div class="mock-card-value">2</div>
+                                        <div class="mock-card-label">Circulares nuevas</div>
+                                    </div>
+                                    <div class="mock-card orange">
+                                        <div class="mock-card-icon"><i class="fas fa-wallet"></i></div>
+                                        <div class="mock-card-value">Al día</div>
+                                        <div class="mock-card-label">Pagos</div>
+                                    </div>
+                                </div>
+                                <div class="mock-table">
+                                    <div class="mock-table-header">
+                                        <span>Últimas Calificaciones</span>
+                                        <span class="mock-link">Ver historial →</span>
+                                    </div>
+                                    <div class="mock-table-row">
+                                        <span class="mock-subject-dot" style="background:#6366f1"></span>
+                                        <span>Matemáticas</span>
+                                        <span class="mock-time">Parcial II</span>
+                                        <span class="mock-status live">95%</span>
+                                    </div>
+                                    <div class="mock-table-row">
+                                        <span class="mock-subject-dot" style="background:#06b6d4"></span>
+                                        <span>English</span>
+                                        <span class="mock-time">Proyecto</span>
+                                        <span class="mock-status live">88%</span>
+                                    </div>
+                                    <div class="mock-table-row">
+                                        <span class="mock-subject-dot" style="background:#10b981"></span>
+                                        <span>Ciencias</span>
+                                        <span class="mock-time">Quiz</span>
+                                        <span class="mock-status upcoming">Pendiente</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Admin Portal -->
+                <div class="portal-panel" id="portal-admin">
+                    <div class="portal-info">
+                        <h3>Panel Administrativo</h3>
+                        <p>Control total del colegio. Métricas, inscripciones, reportes oficiales, gestión de usuarios y configuración del sistema.</p>
+                        <ul class="portal-features">
+                            <li><i class="fas fa-tachometer-alt"></i> Dashboard ejecutivo con KPIs</li>
+                            <li><i class="fas fa-user-plus"></i> Gestión de inscripciones y matrícula</li>
+                            <li><i class="fas fa-file-export"></i> Reportes para la Secretaría de Educación</li>
+                            <li><i class="fas fa-money-bill-wave"></i> Control de colegiaturas y pagos</li>
+                            <li><i class="fas fa-cog"></i> Configuración de ciclos y permisos</li>
+                        </ul>
+                        <button class="btn-primary" onclick="document.getElementById('loginOverlay').classList.add('active')">
+                            <span>Ver Portal Demo</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="portal-preview">
+                        <div class="mock-dashboard admin-theme">
+                            <div class="mock-sidebar">
+                                <div class="mock-avatar"></div>
+                                <div class="mock-menu-item active"></div>
+                                <div class="mock-menu-item"></div>
+                                <div class="mock-menu-item"></div>
+                                <div class="mock-menu-item"></div>
+                                <div class="mock-menu-item"></div>
+                                <div class="mock-menu-item"></div>
+                            </div>
+                            <div class="mock-main">
+                                <div class="mock-topbar">
+                                    <div class="mock-greeting">
+                                        <div class="mock-text-lg">Panel Administrativo ⚙️</div>
+                                        <div class="mock-text-sm">Ciclo Escolar 2026</div>
+                                    </div>
+                                </div>
+                                <div class="mock-cards">
+                                    <div class="mock-card blue">
+                                        <div class="mock-card-icon"><i class="fas fa-user-graduate"></i></div>
+                                        <div class="mock-card-value">856</div>
+                                        <div class="mock-card-label">Alumnos Activos</div>
+                                    </div>
+                                    <div class="mock-card green">
+                                        <div class="mock-card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                                        <div class="mock-card-value">47</div>
+                                        <div class="mock-card-label">Docentes</div>
+                                    </div>
+                                    <div class="mock-card purple">
+                                        <div class="mock-card-icon"><i class="fas fa-money-bill-wave"></i></div>
+                                        <div class="mock-card-value">94%</div>
+                                        <div class="mock-card-label">Cobranza</div>
+                                    </div>
+                                    <div class="mock-card orange">
+                                        <div class="mock-card-icon"><i class="fas fa-chart-pie"></i></div>
+                                        <div class="mock-card-value">87%</div>
+                                        <div class="mock-card-label">Promedio Inst.</div>
+                                    </div>
+                                </div>
+                                <div class="mock-table">
+                                    <div class="mock-table-header">
+                                        <span>Actividad Reciente</span>
+                                        <span class="mock-link">Reportes →</span>
+                                    </div>
+                                    <div class="mock-table-row">
+                                        <span class="mock-subject-dot" style="background:#10b981"></span>
+                                        <span>15 nuevas inscripciones</span>
+                                        <span class="mock-time">Hoy</span>
+                                        <span class="mock-status live">Activo</span>
+                                    </div>
+                                    <div class="mock-table-row">
+                                        <span class="mock-subject-dot" style="background:#f59e0b"></span>
+                                        <span>Reporte SACE exportado</span>
+                                        <span class="mock-time">Ayer</span>
+                                        <span class="mock-status upcoming">Completo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BENEFITS ===== -->
+    <section class="benefits" id="beneficios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Beneficios</span>
+                <h2 class="section-title">¿Por qué elegir <span class="text-gradient">nuestro Campus?</span></h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-number">01</div>
+                    <h3>Imagen Institucional Premium</h3>
+                    <p>Posicione a Holy Spirit como líder en innovación educativa en Santa Cruz de Yojoa y toda la región.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">02</div>
+                    <h3>Retención de Familias</h3>
+                    <p>Los padres valoran la transparencia y el acceso inmediato al avance de sus hijos. Reduce la deserción escolar.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">03</div>
+                    <h3>Eficiencia Operativa</h3>
+                    <p>Automatice boletas, circulares, asistencia y reportes. Ahorre +20 horas semanales de trabajo administrativo.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">04</div>
+                    <h3>Modernización Académica</h3>
+                    <p>Todo el historial del alumno en un solo lugar. Recepción de tareas y comunicación constante — siempre.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">05</div>
+                    <h3>Seguridad Legal</h3>
+                    <p>Cumplimiento del Art. 32 del Código de la Niñez con datos encriptados, consentimiento informado y Habeas Data.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">06</div>
+                    <h3>Bilingüe de Origen</h3>
+                    <p>Plataforma en español e inglés, alineada con la filosofía bilingüe de Holy Spirit Bilingual School.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT / CTA ===== -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <span class="section-tag">Contáctenos</span>
+                    <h2 class="section-title light">Llevemos a Holy Spirit al <span class="text-gradient">siguiente nivel</span></h2>
+                    <p>Estamos listos para presentar esta propuesta en detalle y adaptar cada módulo a las necesidades específicas del colegio.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Ubicación del Colegio</strong>
+                                <span>Barrio El Centro, Santa Cruz de Yojoa, Cortés, Honduras</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Teléfono</strong>
+                                <span>9996-0054</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-facebook"></i>
+                            <div>
+                                <strong>Facebook</strong>
+                                <span>@HolySpiritBilingualSchool</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <h3>Agendar Presentación</h3>
+                    <div class="form-group">
+                        <label for="contactName">Nombre Completo</label>
+                        <input type="text" id="contactName" placeholder="Ej. Director(a) del colegio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Correo Electrónico</label>
+                        <input type="email" id="contactEmail" placeholder="director@hsbs.edu.hn" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactPhone">Teléfono</label>
+                        <input type="tel" id="contactPhone" placeholder="+504 ____-____">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Mensaje</label>
+                        <textarea id="contactMessage" rows="4" placeholder="¿Qué módulos le interesan más?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Enviar Solicitud</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="assets/img/logo.png" alt="HSBS" class="footer-logo">
+                    <p>Campus Virtual — Holy Spirit Bilingual School<br>Educación bilingüe, tecnológica y con principios cristianos.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Plataforma</h4>
+                    <a href="#funcionalidades">Funcionalidades</a>
+                    <a href="#portales">Portales</a>
+                    <a href="#beneficios">Beneficios</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos de Uso</a>
+                    <a href="#">Protección de Datos</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Soporte</h4>
+                    <a href="#">Centro de Ayuda</a>
+                    <a href="#">Capacitación</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Campus Virtual HSBS. Todos los derechos reservados.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/p/Holy-Spirit-Bilingual-School-100064025734164/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

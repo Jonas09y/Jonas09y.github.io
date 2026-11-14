@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOTA — Restaurante · Café · Bar | Lago de Yojoa, Honduras</title>
+  <meta name="description" content="KOTA Restaurante, Café y Bar a orillas del Lago de Yojoa, Honduras. Café de especialidad, mariscos frescos, cócteles artesanales y naturaleza. Parada obligatoria en la CA-5.">
+  <meta property="og:title" content="KOTA — Restaurante · Café · Bar">
+  <meta property="og:description" content="Somos esencia de lo natural. Vive una experiencia gastronómica única a orillas del Lago de Yojoa.">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:locale" content="es_HN">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #2E7D32; --green-dark: #1B5E20; --green-light: #4CAF50;
+      --brown: #5D4037; --brown-dark: #3E2723; --brown-light: #8D6E63;
+      --teal: #00838F; --teal-dark: #006064; --teal-light: #26C6DA;
+      --cream: #FFF8E1; --cream-dark: #F5F0DC;
+      --white: #FFFFFF; --black: #1a1a1a; --gray: #666; --gray-light: #f5f5f5;
+      --whatsapp: #25D366; --gold: #C9A84C;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.15);
+      --radius: 16px; --radius-sm: 10px;
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+
+    html { 
+      scroll-behavior: smooth; 
+      scroll-padding-top: 80px; 
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    .section-label {
+      font-family: var(--font-body); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 4px; text-transform: uppercase; color: var(--teal);
+      margin-bottom: 12px; display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700; line-height: 1.15; margin-bottom: 20px;
+    }
+
+    .section-desc { font-size: 1.05rem; color: var(--gray); max-width: 600px; line-height: 1.7; }
+
+    /* ---- REVEAL ANIMATIONS ---- */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-60px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(60px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .reveal-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+    .reveal-delay-4 { transition-delay: 0.6s; }
+    .reveal-delay-5 { transition-delay: 0.75s; }
+
+    /* ---- NAVBAR ---- */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000; padding: 20px 0; transition: var(--transition);
+    }
+    .navbar.scrolled {
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px); padding: 12px 0;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+
+    .nav-logo {
+      font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700;
+      text-decoration: none; color: var(--white); transition: var(--transition);
+      display: flex; align-items: center; gap: 2px;
+    }
+    .nav-logo .logo-o {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; background: var(--brown);
+      border-radius: 50%; font-size: 0.9rem; position: relative; top: -1px;
+    }
+    .navbar.scrolled .nav-logo { color: var(--green-dark); }
+
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: rgba(255,255,255,0.85); font-size: 0.9rem;
+      font-weight: 500; letter-spacing: 0.3px; transition: var(--transition); position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0;
+      height: 2px; background: var(--teal-light); transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .navbar.scrolled .nav-links a { color: var(--black); }
+
+    .nav-cta {
+      background: var(--teal) !important; color: var(--white) !important;
+      padding: 10px 22px; border-radius: 50px; font-weight: 600 !important;
+      transition: var(--transition);
+    }
+    .nav-cta:hover { background: var(--teal-dark) !important; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,131,143,0.3); }
+    .nav-cta::after { display: none !important; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: 1001; }
+    .hamburger span { width: 24px; height: 2.5px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+    .navbar.scrolled .hamburger span { background: var(--black); }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* ---- HERO ---- */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+    }
+
+    .hero-bg-image {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('img/309577934_1700180953697872_8005575703192463941_n-683x1024.jpg') center/cover no-repeat;
+      transform: scale(1.1);
+      will-change: transform;
+    }
+
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(135deg,
+        rgba(27, 94, 32, 0.82) 0%,
+        rgba(0, 96, 100, 0.75) 40%,
+        rgba(62, 39, 35, 0.8) 100%);
+    }
+
+    .hero-overlay::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* Floating shapes */
+    .hero-shapes { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+    .shape {
+      position: absolute; border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      animation: float-shape 20s ease-in-out infinite;
+    }
+    .shape-1 { width: 400px; height: 400px; top: -100px; right: -100px; animation-delay: 0s; }
+    .shape-2 { width: 300px; height: 300px; bottom: -80px; left: -80px; animation-delay: -7s; }
+    .shape-3 { width: 200px; height: 200px; top: 40%; left: 10%; animation-delay: -14s; }
+
+    @keyframes float-shape {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(30px, -30px) rotate(5deg); }
+      50% { transform: translate(-20px, 20px) rotate(-3deg); }
+      75% { transform: translate(15px, 10px) rotate(2deg); }
+    }
+
+    .hero-content { position: relative; z-index: 2; color: var(--white); padding: 0 24px; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+      padding: 8px 20px; border-radius: 50px; font-size: 0.82rem;
+      font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 32px; border: 1px solid rgba(255,255,255,0.15);
+      animation: fadeInDown 1s ease 0.2s both;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading); font-size: clamp(3.5rem, 10vw, 7rem);
+      font-weight: 700; line-height: 1; margin-bottom: 8px;
+      animation: fadeInUp 1s ease 0.4s both; letter-spacing: -1px;
+    }
+
+    .hero-title .logo-o-hero {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: clamp(50px, 8vw, 95px); height: clamp(50px, 8vw, 95px);
+      background: var(--brown); border-radius: 50%;
+      position: relative; top: -4px;
+      box-shadow: 0 4px 20px rgba(93,64,55,0.4);
+    }
+    .hero-title .logo-o-hero::after {
+      content: ''; width: 40%; height: 55%;
+      background: linear-gradient(135deg, var(--green-light), var(--green-dark));
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      transform: rotate(-20deg);
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body); font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-weight: 300; letter-spacing: 6px; text-transform: uppercase;
+      opacity: 0.8; margin-bottom: 20px; animation: fadeInUp 1s ease 0.6s both;
+    }
+
+    .hero-slogan {
+      font-family: var(--font-heading); font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-style: italic; opacity: 0.9; margin-bottom: 48px;
+      animation: fadeInUp 1s ease 0.8s both;
+    }
+
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: fadeInUp 1s ease 1s both; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 36px; border-radius: 50px; font-family: var(--font-body);
+      font-size: 0.95rem; font-weight: 600; text-decoration: none;
+      cursor: pointer; border: none; transition: var(--transition);
+    }
+    .btn-primary { background: var(--white); color: var(--green-dark); }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(255,255,255,0.25); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.4); }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-3px); }
+
+    .hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 2; animation: bounce 2s infinite; }
+    .hero-scroll span { display: block; width: 28px; height: 44px; border: 2px solid rgba(255,255,255,0.4); border-radius: 20px; position: relative; }
+    .hero-scroll span::after {
+      content: ''; width: 4px; height: 8px; background: rgba(255,255,255,0.7);
+      border-radius: 2px; position: absolute; top: 8px; left: 50%;
+      transform: translateX(-50%); animation: scroll-dot 2s infinite;
+    }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(10px); } }
+    @keyframes scroll-dot { 0% { opacity: 1; top: 8px; } 100% { opacity: 0; top: 28px; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ---- PARALLAX IMAGE DIVIDERS ---- */
+    .parallax-divider {
+      position: relative; height: 50vh; min-height: 350px;
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
+    }
+    .parallax-divider .parallax-img {
+      position: absolute; inset: -20%; width: 140%; height: 140%;
+      object-fit: cover; will-change: transform;
+    }
+    .parallax-divider .parallax-overlay {
+      position: absolute; inset: 0; z-index: 1;
+    }
+    .parallax-divider .parallax-content {
+      position: relative; z-index: 2; text-align: center;
+      color: var(--white); padding: 0 24px;
+    }
+    .parallax-divider .parallax-content h3 {
+      font-family: var(--font-heading); font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700; margin-bottom: 12px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .parallax-divider .parallax-content p {
+      font-size: 1.1rem; opacity: 0.9; max-width: 500px; margin: 0 auto;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+    }
+
+    /* ---- ABOUT ---- */
+    .about { padding: 120px 0; background: var(--cream); position: relative; overflow: hidden; }
+    .about::before {
+      content: ''; position: absolute; top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(46,125,50,0.06) 0%, transparent 70%);
+      border-radius: 50%; animation: float-shape 25s ease-in-out infinite;
+    }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+    .about-text .section-title span { color: var(--green); }
+    .about-text p { color: var(--gray); font-size: 1.05rem; line-height: 1.8; margin-bottom: 16px; }
+
+    .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+
+    .about-feature {
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 20px; background: var(--white);
+      border-radius: var(--radius-sm); box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: var(--transition);
+    }
+    .about-feature:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+    .about-feature .icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700; flex-shrink: 0;
+      font-family: var(--font-body);
+    }
+    .about-feature:nth-child(1) .icon { background: rgba(46,125,50,0.1); color: var(--green); }
+    .about-feature:nth-child(2) .icon { background: rgba(0,131,143,0.1); color: var(--teal); }
+    .about-feature:nth-child(3) .icon { background: rgba(93,64,55,0.1); color: var(--brown); }
+    .about-feature:nth-child(4) .icon { background: rgba(201,168,76,0.15); color: var(--gold); }
+
+    .about-feature .info h4 { font-size: 1.1rem; font-weight: 700; color: var(--black); }
+    .about-feature .info h4 .counter { display: inline; }
+    .about-feature .info p { font-size: 0.82rem; color: var(--gray); margin: 0; line-height: 1.3; }
+
+    .about-image { position: relative; height: 520px; border-radius: 24px; overflow: hidden; }
+    .about-img-main { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; transition: transform 8s ease; }
+    .about-image:hover .about-img-main { transform: scale(1.05); }
+
+    .about-image-badge {
+      position: absolute; bottom: 24px; left: 24px;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      padding: 16px 24px; border-radius: var(--radius-sm); box-shadow: var(--shadow);
+    }
+    .about-image-badge .rating { font-size: 1.5rem; font-weight: 700; color: var(--black); display: flex; align-items: center; gap: 6px; }
+    .about-image-badge .rating-stars { color: var(--gold); font-size: 1rem; }
+    .about-image-badge p { font-size: 0.8rem; color: var(--gray); margin: 0; }
+
+    /* ---- MENU ---- */
+    .menu { position: relative; padding: 120px 0; overflow: hidden; }
+    .menu-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('img/555961753_1352214622941156_5150434707241264583_n.jpg') center/cover no-repeat fixed;
+    }
+    .menu-bg-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(6px);
+    }
+    .menu .container { position: relative; z-index: 2; }
+
+    .menu-header { text-align: center; margin-bottom: 50px; }
+    .menu-header .section-desc { margin: 0 auto; }
+
+    .menu-tabs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 48px; }
+
+    .menu-tab {
+      padding: 12px 24px; border: none; background: rgba(0,0,0,0.04);
+      color: var(--gray); font-family: var(--font-body); font-size: 0.88rem;
+      font-weight: 600; border-radius: 50px; cursor: pointer; transition: var(--transition);
+    }
+    .menu-tab:hover { background: rgba(46,125,50,0.08); color: var(--green); }
+    .menu-tab.active { background: var(--green-dark); color: var(--white); box-shadow: 0 4px 15px rgba(46,125,50,0.25); }
+
+    .menu-category { display: none; animation: fadeIn 0.5s ease; }
+    .menu-category.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 48px; max-width: 900px; margin: 0 auto; }
+
+    .menu-item {
+      display: flex; align-items: baseline; justify-content: space-between;
+      padding: 14px 0; border-bottom: 1px solid rgba(0,0,0,0.05); transition: var(--transition);
+    }
+    .menu-item:hover { background: rgba(46,125,50,0.03); padding-left: 10px; padding-right: 10px; border-radius: 8px; }
+    .menu-item-name { font-weight: 500; color: var(--black); font-size: 0.95rem; flex: 1; }
+    .menu-item-dots { flex: 1; border-bottom: 2px dotted rgba(0,0,0,0.1); margin: 0 12px; min-width: 30px; position: relative; top: -4px; }
+    .menu-item-price { font-weight: 700; color: var(--green-dark); font-size: 0.95rem; white-space: nowrap; }
+    .menu-note { text-align: center; margin-top: 32px; font-size: 0.85rem; color: var(--gray); font-style: italic; }
+
+    /* ---- GALLERY ---- */
+    .gallery { padding: 120px 0; background: var(--green-dark); color: var(--white); position: relative; overflow: hidden; }
+    .gallery::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--green-dark) 0%, rgba(0,96,100,0.6) 100%);
+    }
+    .gallery .container { position: relative; z-index: 1; }
+
+    .gallery-header { text-align: center; margin-bottom: 60px; }
+    .gallery-header .section-label { color: var(--teal-light); }
+    .gallery-header .section-desc { color: rgba(255,255,255,0.7); margin: 0 auto; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 180px;
+      gap: 16px;
+    }
+
+    .gallery-item {
+      position: relative; border-radius: var(--radius); overflow: hidden; cursor: pointer;
+    }
+    .gallery-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
+    .gallery-item:nth-child(2) { grid-column: span 4; grid-row: span 1; }
+    .gallery-item:nth-child(3) { grid-column: span 3; grid-row: span 1; }
+    .gallery-item:nth-child(4) { grid-column: span 4; grid-row: span 1; }
+    .gallery-item:nth-child(5) { grid-column: span 3; grid-row: span 1; }
+
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s ease;
+    }
+    .gallery-item .placeholder-img {
+      width: 100%; height: 100%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px; font-size: 2rem;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:nth-child(1) .placeholder-img { background: linear-gradient(135deg, #1B5E20, #004D40); }
+    .gallery-item:nth-child(2) .placeholder-img { background: linear-gradient(135deg, #00695C, #00838F); }
+    .gallery-item:nth-child(3) .placeholder-img { background: linear-gradient(135deg, #3E2723, #5D4037); }
+    .gallery-item:nth-child(4) .placeholder-img { background: linear-gradient(135deg, #004D40, #006064); }
+    .gallery-item:nth-child(5) .placeholder-img { background: linear-gradient(135deg, #33691E, #1B5E20); }
+    .placeholder-img span { font-size: 0.85rem; font-weight: 500; opacity: 0.9; }
+
+    .gallery-item::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+      opacity: 0; transition: opacity 0.4s ease;
+    }
+    .gallery-item:hover::after { opacity: 1; }
+    .gallery-item:hover img, .gallery-item:hover .placeholder-img { transform: scale(1.1); }
+    .gallery-item:hover img { filter: brightness(1.05); }
+
+    .gallery-item-label {
+      position: absolute; bottom: 16px; left: 16px; right: 16px; z-index: 2;
+      font-weight: 600; font-size: 0.95rem; opacity: 0;
+      transform: translateY(10px); transition: var(--transition);
+    }
+    .gallery-item:hover .gallery-item-label { opacity: 1; transform: translateY(0); }
+
+    /* ---- LOCATIONS ---- */
+    .locations { position: relative; padding: 120px 0; overflow: hidden; }
+    .locations-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('img/images (1).jpg') center/cover no-repeat;
+    }
+    .locations-bg-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(135deg, rgba(255,248,225,0.95), rgba(255,255,255,0.92));
+      backdrop-filter: blur(4px);
+    }
+    .locations .container { position: relative; z-index: 2; }
+
+    .locations-header { text-align: center; margin-bottom: 60px; }
+    .locations-header .section-desc { margin: 0 auto; }
+
+    .locations-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-bottom: 48px; }
+
+    .location-card {
+      background: rgba(255,255,255,0.85); backdrop-filter: blur(16px);
+      border-radius: var(--radius); padding: 36px;
+      box-shadow: var(--shadow); transition: var(--transition);
+      position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.5);
+    }
+    .location-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--teal));
+    }
+    .location-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); background: rgba(255,255,255,0.95); }
+
+    .location-card .badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+    .location-badge { padding: 5px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .badge-principal { background: rgba(46,125,50,0.1); color: var(--green-dark); }
+    .badge-sucursal { background: rgba(0,131,143,0.1); color: var(--teal-dark); }
+    .badge-24h { background: rgba(201,168,76,0.15); color: #8D6E14; }
+    .location-card h3 { font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 16px; color: var(--black); }
+
+    .location-detail { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-size: 0.92rem; color: var(--gray); }
+    .location-detail .icon-loc { font-size: 0.85rem; flex-shrink: 0; margin-top: 4px; color: var(--teal); font-weight: 600; }
+
+    .location-services { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; margin-bottom: 24px; }
+    .service-tag { padding: 6px 14px; background: rgba(0,0,0,0.04); border-radius: 50px; font-size: 0.78rem; font-weight: 500; color: var(--gray); }
+
+    .location-card .btn-map {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; background: var(--green); color: var(--white);
+      border-radius: 50px; text-decoration: none; font-size: 0.9rem;
+      font-weight: 600; transition: var(--transition); border: none; cursor: pointer;
+    }
+    .location-card .btn-map:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(46,125,50,0.25); }
+
+    .map-container { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); height: 350px; }
+    .map-container iframe { width: 100%; height: 100%; border: none; }
+
+    /* ---- CONTACT ---- */
+    .contact { padding: 120px 0; background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+    .contact-info h3 { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 24px; margin-top: 36px; color: var(--black); }
+    .contact-info h3:first-of-type { margin-top: 24px; }
+
+    .contact-item { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .contact-item .c-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700; font-family: var(--font-body); flex-shrink: 0;
+    }
+    .contact-item:nth-child(1) .c-icon { background: rgba(37,211,102,0.1); color: #25D366; }
+    .contact-item:nth-child(2) .c-icon { background: rgba(66,103,178,0.1); color: #4267B2; }
+    .contact-item:nth-child(3) .c-icon { background: rgba(0,131,143,0.1); color: var(--teal); }
+
+    .contact-item .c-info h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; }
+    .contact-item .c-info p { font-size: 0.85rem; color: var(--gray); }
+    .contact-item .c-info a { color: var(--teal); text-decoration: none; font-weight: 500; }
+
+    .contact-form { background: var(--gray-light); padding: 40px; border-radius: var(--radius); }
+    .contact-form h3 { font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 24px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--black); }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 14px 18px; border: 2px solid transparent;
+      background: var(--white); border-radius: var(--radius-sm);
+      font-family: var(--font-body); font-size: 0.95rem; transition: var(--transition); outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 4px rgba(0,131,143,0.08); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      width: 100%; padding: 16px; background: var(--green); color: var(--white);
+      border: none; border-radius: var(--radius-sm); font-family: var(--font-body);
+      font-size: 1rem; font-weight: 600; cursor: pointer; transition: var(--transition);
+    }
+    .form-submit:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(46,125,50,0.25); }
+
+    /* ---- FOOTER ---- */
+    .footer { background: var(--black); color: rgba(255,255,255,0.7); padding: 80px 0 30px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 48px; margin-bottom: 60px; }
+
+    .footer-brand .footer-logo {
+      font-family: var(--font-heading); font-size: 2rem; font-weight: 700;
+      color: var(--white); margin-bottom: 16px; display: flex; align-items: center; gap: 2px;
+    }
+    .footer-brand .footer-logo .logo-o {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 26px; height: 26px; background: var(--brown); border-radius: 50%; font-size: 0.75rem;
+    }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-socials a {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: rgba(255,255,255,0.08); display: flex; align-items: center;
+      justify-content: center; color: rgba(255,255,255,0.7);
+      text-decoration: none; font-size: 1.1rem; transition: var(--transition);
+    }
+    .footer-socials a:hover { background: var(--green); color: var(--white); transform: translateY(-3px); }
+
+    .footer h4 { color: var(--white); font-size: 0.95rem; font-weight: 600; margin-bottom: 20px; letter-spacing: 0.5px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+    .footer-links a:hover { color: var(--white); padding-left: 4px; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px; font-size: 0.82rem;
+    }
+
+    /* ---- WHATSAPP ---- */
+    .whatsapp-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 60px; height: 60px; background: var(--whatsapp);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35); cursor: pointer;
+      text-decoration: none; transition: var(--transition); animation: pulse-wa 2s infinite;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+    .whatsapp-float svg { width: 30px; height: 30px; fill: var(--white); }
+    @keyframes pulse-wa {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.35); }
+      50% { box-shadow: 0 4px 20px rgba(37,211,102,0.55), 0 0 0 12px rgba(37,211,102,0.1); }
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1024px) {
+      .about-grid, .contact-grid { gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+        background: var(--white); flex-direction: column; justify-content: center;
+        padding: 40px; gap: 24px; box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+        transition: right 0.4s ease;
+      }
+      .nav-links.open { right: 0; }
+      .nav-links a { color: var(--black) !important; font-size: 1.1rem; }
+      .about-grid, .locations-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-image { height: 350px; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+      .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+      .gallery-item:nth-child(2), .gallery-item:nth-child(3), .gallery-item:nth-child(4),
+      .gallery-item:nth-child(5), .gallery-item:nth-child(6) { grid-column: span 1; grid-row: span 1; }
+      .hero-title { font-size: 3.2rem; }
+      .parallax-divider { height: 35vh; min-height: 250px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2.5rem; }
+      .hero-title .logo-o-hero { width: 40px; height: 40px; }
+      .hero-subtitle { font-size: 0.85rem; letter-spacing: 3px; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .about-features { grid-template-columns: 1fr; }
+      .menu-tabs { gap: 6px; }
+      .menu-tab { padding: 10px 16px; font-size: 0.8rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item:nth-child(1) { grid-column: span 1; }
+      .contact-form { padding: 24px; }
+      .section-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#hero" class="nav-logo">
+        <span>K</span><span class="logo-o">☕</span><span>TA</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#nosotros" onclick="closeMenu()">Nosotros</a></li>
+        <li><a href="#menu" onclick="closeMenu()">Menú</a></li>
+        <li><a href="#galeria" onclick="closeMenu()">Galería</a></li>
+        <li><a href="#ubicaciones" onclick="closeMenu()">Ubicaciones</a></li>
+        <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
+        <li><a href="https://wa.me/5049555591?text=Hola%2C%20me%20gustaría%20hacer%20una%20reservación%20en%20KOTA" target="_blank" class="nav-cta">Reservar</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-image" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">Lago de Yojoa, Honduras</div>
+      <h1 class="hero-title">K<span class="logo-o-hero"></span>TA</h1>
+      <p class="hero-subtitle">Restaurante · Café · Bar</p>
+      <p class="hero-slogan">¡Somos esencia de lo natural!</p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-primary">Ver Menú</a>
+        <a href="#ubicaciones" class="btn btn-outline">Cómo Llegar</a>
+      </div>
+    </div>
+    <div class="hero-scroll"><span></span></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="nosotros">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-label reveal">Nuestra Esencia</span>
+          <h2 class="section-title reveal reveal-delay-1">Un nuevo concepto <span>para todos</span></h2>
+          <p class="reveal reveal-delay-2">
+            En KOTA creemos que la mejor experiencia gastronómica nace donde la naturaleza y el sabor se encuentran. Ubicados a orillas del majestuoso Lago de Yojoa, ofrecemos mucho más que comida — ofrecemos un escape.
+          </p>
+          <p class="reveal reveal-delay-2">
+            Nuestro café de especialidad local, mariscos frescos del lago, cócteles artesanales y un ambiente rodeado de naturaleza tropical hacen de cada visita un momento inolvidable. Somos la parada obligatoria en la CA-5.
+          </p>
+          <div class="about-features">
+            <div class="about-feature reveal reveal-delay-2">
+              <div class="icon">★</div>
+              <div class="info">
+                <h4><span class="counter" data-target="4.3" data-decimals="1">0</span> Rating</h4>
+                <p>En Google Maps</p>
+              </div>
+            </div>
+            <div class="about-feature reveal reveal-delay-3">
+              <div class="icon">+</div>
+              <div class="info">
+                <h4><span class="counter" data-target="173" data-decimals="0">0</span>+ Reseñas</h4>
+                <p>Clientes satisfechos</p>
+              </div>
+            </div>
+            <div class="about-feature reveal reveal-delay-4">
+              <div class="icon">C</div>
+              <div class="info">
+                <h4>Café Local</h4>
+                <p>Especialidad Agualpa</p>
+              </div>
+            </div>
+            <div class="about-feature reveal reveal-delay-5">
+              <div class="icon">2</div>
+              <div class="info">
+                <h4>Ubicaciones</h4>
+                <p>Lago de Yojoa & CA-5</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-image reveal-right">
+          <img class="about-img-main" src="img/555961753_1352214622941156_5150434707241264583_n.jpg" alt="KOTA Restaurante - Interior y platos" onerror="this.style.display='none';">
+          <div class="about-image-badge">
+            <div class="rating">4.3 <span class="rating-stars">★★★★☆</span></div>
+            <p>173 opiniones en Google</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARALLAX DIVIDER 1 -->
+  <div class="parallax-divider" id="divider1">
+    <img class="parallax-img" src="img/734685078_1018342697612830_8463359805473263527_n.jpg" alt="KOTA experiencia" loading="lazy">
+    <div class="parallax-overlay" style="background: linear-gradient(135deg, rgba(27,94,32,0.75), rgba(0,96,100,0.7));"></div>
+    <div class="parallax-content">
+      <h3 class="reveal">Tu viaje en la CA-5 pasa por aquí</h3>
+      <p class="reveal reveal-delay-1">Áreas verdes, naturaleza y un menú que no vas a olvidar</p>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <section class="menu" id="menu">
+    <div class="menu-bg"></div>
+    <div class="menu-bg-overlay"></div>
+    <div class="container">
+      <div class="menu-header">
+        <span class="section-label reveal">Sabores Únicos</span>
+        <h2 class="section-title reveal reveal-delay-1">Nuestro Menú</h2>
+        <p class="section-desc reveal reveal-delay-2">Desde café de especialidad local hasta cócteles artesanales, cada sorbo y cada bocado cuentan una historia de la región.</p>
+      </div>
+      <div class="menu-tabs reveal">
+        <button class="menu-tab active" onclick="switchTab('calientes')">Bebidas Calientes</button>
+        <button class="menu-tab" onclick="switchTab('frias')">Frappes y Frías</button>
+        <button class="menu-tab" onclick="switchTab('smoothies')">Smoothies</button>
+        <button class="menu-tab" onclick="switchTab('alcohol')">Cócteles</button>
+        <button class="menu-tab" onclick="switchTab('platos')">Platos</button>
+      </div>
+
+      <div class="menu-category active" id="cat-calientes">
+        <div class="menu-grid">
+          <div class="menu-item"><span class="menu-item-name">Espresso Sencillo</span><span class="menu-item-dots"></span><span class="menu-item-price">L 25</span></div>
+          <div class="menu-item"><span class="menu-item-name">Espresso Doble</span><span class="menu-item-dots"></span><span class="menu-item-price">L 28</span></div>
+          <div class="menu-item"><span class="menu-item-name">Espresso Largo</span><span class="menu-item-dots"></span><span class="menu-item-price">L 28</span></div>
+          <div class="menu-item"><span class="menu-item-name">Maquiatto</span><span class="menu-item-dots"></span><span class="menu-item-price">L 28</span></div>
+          <div class="menu-item"><span class="menu-item-name">Cortadito</span><span class="menu-item-dots"></span><span class="menu-item-price">L 28</span></div>
+          <div class="menu-item"><span class="menu-item-name">Americano Pequeño</span><span class="menu-item-dots"></span><span class="menu-item-price">L 40</span></div>
+          <div class="menu-item"><span class="menu-item-name">Americano Grande</span><span class="menu-item-dots"></span><span class="menu-item-price">L 45</span></div>
+          <div class="menu-item"><span class="menu-item-name">Cappuccino Pequeño</span><span class="menu-item-dots"></span><span class="menu-item-price">L 45</span></div>
+          <div class="menu-item"><span class="menu-item-name">Cappuccino Grande</span><span class="menu-item-dots"></span><span class="menu-item-price">L 55</span></div>
+          <div class="menu-item"><span class="menu-item-name">Latte Pequeño</span><span class="menu-item-dots"></span><span class="menu-item-price">L 45</span></div>
+          <div class="menu-item"><span class="menu-item-name">Latte Grande</span><span class="menu-item-dots"></span><span class="menu-item-price">L 55</span></div>
+          <div class="menu-item"><span class="menu-item-name">Caramel Cappuccino Peq.</span><span class="menu-item-dots"></span><span class="menu-item-price">L 55</span></div>
+          <div class="menu-item"><span class="menu-item-name">Caramel Cappuccino Grande</span><span class="menu-item-dots"></span><span class="menu-item-price">L 65</span></div>
+          <div class="menu-item"><span class="menu-item-name">Mocca Pequeño</span><span class="menu-item-dots"></span><span class="menu-item-price">L 55</span></div>
+          <div class="menu-item"><span class="menu-item-name">Mocca Grande</span><span class="menu-item-dots"></span><span class="menu-item-price">L 65</span></div>
+          <div class="menu-item"><span class="menu-item-name">Latte Saborizado Peq.</span><span class="menu-item-dots"></span><span class="menu-item-price">L 55</span></div>
+          <div class="menu-item"><span class="menu-item-name">Latte Saborizado Grande</span><span class="menu-item-dots"></span><span class="menu-item-price">L 65</span></div>
+          <div class="menu-item"><span class="menu-item-name">Chocolate Caliente</span><span class="menu-item-dots"></span><span class="menu-item-price">L 75</span></div>
+          <div class="menu-item"><span class="menu-item-name">Chai Caliente</span><span class="menu-item-dots"></span><span class="menu-item-price">L 75</span></div>
+          <div class="menu-item"><span class="menu-item-name">Dirty Chai Caliente</span><span class="menu-item-dots"></span><span class="menu-item-price">L 80</span></div>
+          <div class="menu-item"><span class="menu-item-name">Té Caliente</span><span class="menu-item-dots"></span><span class="menu-item-price">L 45</span></div>
+          <div class="menu-item"><span class="menu-item-name">Especialidad Agualpa</span><span class="menu-item-dots"></span><span class="menu-item-price">L 80</span></div>
+        </div>
+      </div>
+      <div class="menu-category" id="cat-frias">
+        <div class="menu-grid">
+          <div class="menu-item"><span class="menu-item-name">Frappe de Café</span><span class="menu-item-dots"></span><span class="menu-item-price">L 60</span></div>
+          <div class="menu-item"><span class="menu-item-name">Frappe de Café con Oreo</span><span class="menu-item-dots"></span><span class="menu-item-price">L 75</span></div>
+          <div class="menu-item"><span class="menu-item-name">Americano Frío</span><span class="menu-item-dots"></span><span class="menu-item-price">L 50</span></div>
+          <div class="menu-item"><span class="menu-item-name">Latte Frío</span><span class="menu-item-dots"></span><span class="menu-item-price">L 55</span></div>
+          <div class="menu-item"><span class="menu-item-name">Mocca Frío</span><span class="menu-item-dots"></span><span class="menu-item-price">L 75</span></div>
+          <div class="menu-item"><span class="menu-item-name">Malteada de Chocolate</span><span class="menu-item-dots"></span><span class="menu-item-price">L 75</span></div>
+          <div class="menu-item"><span class="menu-item-name">Chai Frío</span><span class="menu-item-dots"></span><span class="menu-item-price">L 70</span></div>
+          <div class="menu-item"><span class="menu-item-name">Dirty Chai Frío</span><span class="menu-item-dots"></span><span class="menu-item-price">L 75</span></div>
+        </div>
+      </div>
+      <div class="menu-category" id="cat-smoothies">
+        <div class="menu-grid">
+          <div class="menu-item"><span class="menu-item-name">Limonada con Menta</span><span class="menu-item-dots"></span><span class="menu-item-price">L 60</span></div>
+          <div class="menu-item"><span class="menu-item-name">Limonada con Fresa</span><span class="menu-item-dots"></span><span class="menu-item-price">L 65</span></div>
+          <div class="menu-item"><span class="menu-item-name">Smoothie de Fresa</span><span class="menu-item-dots"></span><span class="menu-item-price">L 70</span></div>
+          <div class="menu-item"><span class="menu-item-name">Smoothie de Piña</span><span class="menu-item-dots"></span><span class="menu-item-price">L 70</span></div>
+          <div class="menu-item"><span class="menu-item-name">Smoothie de Sandía</span><span class="menu-item-dots"></span><span class="menu-item-price">L 70</span></div>
+          <div class="menu-item"><span class="menu-item-name">Smoothie de Melón</span><span class="menu-item-dots"></span><span class="menu-item-price">L 70</span></div>
+          <div class="menu-item"><span class="menu-item-name">Smoothie de Piña Colada</span><span class="menu-item-dots"></span><span class="menu-item-price">L 70</span></div>
+          <div class="menu-item"><span class="menu-item-name">Smoothie de Mango Verde</span><span class="menu-item-dots"></span><span class="menu-item-price">L 70</span></div>
+          <div class="menu-item"><span class="menu-item-name">Smoothie de Fresa Limón</span><span class="menu-item-dots"></span><span class="menu-item-price">L 70</span></div>
+        </div>
+      </div>
+      <div class="menu-category" id="cat-alcohol">
+        <div class="menu-grid">
+          <div class="menu-item"><span class="menu-item-name">Margarita Agualpa</span><span class="menu-item-dots"></span><span class="menu-item-price">L 85</span></div>
+          <div class="menu-item"><span class="menu-item-name">Daiquiri de Fresa</span><span class="menu-item-dots"></span><span class="menu-item-price">L 85</span></div>
+          <div class="menu-item"><span class="menu-item-name">Mojito Estilo Agualpa</span><span class="menu-item-dots"></span><span class="menu-item-price">L 85</span></div>
+          <div class="menu-item"><span class="menu-item-name">Cranberry con Vodka</span><span class="menu-item-dots"></span><span class="menu-item-price">L 85</span></div>
+          <div class="menu-item"><span class="menu-item-name">Michelada Agualpa</span><span class="menu-item-dots"></span><span class="menu-item-price">L 85</span></div>
+        </div>
+      </div>
+      <div class="menu-category" id="cat-platos">
+        <div class="menu-grid" style="max-width: 600px; grid-template-columns: 1fr;">
+          <div class="menu-item"><span class="menu-item-name">Pescado Grande</span><span class="menu-item-dots"></span><span class="menu-item-price">Estrella</span></div>
+          <div class="menu-item"><span class="menu-item-name">Sopa de Mariscos</span><span class="menu-item-dots"></span><span class="menu-item-price">Estrella</span></div>
+          <div class="menu-item"><span class="menu-item-name">Cheesecake</span><span class="menu-item-dots"></span><span class="menu-item-price">Postre</span></div>
+        </div>
+        <p class="menu-note" style="margin-top: 24px; font-style: normal; color: var(--teal); font-weight: 500;">Consulta nuestro menú completo de platos directamente en el restaurante o por WhatsApp</p>
+      </div>
+      <p class="menu-note reveal">Precios en Lempiras (L). No incluyen impuesto.</p>
+    </div>
+  </section>
+
+  <!-- PARALLAX DIVIDER 2 -->
+  <div class="parallax-divider" id="divider2">
+    <img class="parallax-img" src="img/images (2).jpg" alt="Caminos de KOTA" loading="lazy">
+    <div class="parallax-overlay" style="background: linear-gradient(135deg, rgba(62,39,35,0.7), rgba(27,94,32,0.65));"></div>
+    <div class="parallax-content">
+      <h3 class="reveal">Más que un restaurante</h3>
+      <p class="reveal reveal-delay-1">Una experiencia completa rodeada de naturaleza</p>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="galeria">
+    <div class="container">
+      <div class="gallery-header">
+        <span class="section-label reveal">Momentos</span>
+        <h2 class="section-title reveal reveal-delay-1">Vive la Experiencia KOTA</h2>
+        <p class="section-desc reveal reveal-delay-2">Cada rincón de KOTA está diseñado para crear recuerdos. Naturaleza, sabor y momentos únicos a orillas del lago.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal-scale">
+          <img src="img/309577934_1700180953697872_8005575703192463941_n-683x1024.jpg" alt="I Love KOTA - Lago de Yojoa" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="placeholder-img" style="display:none;">Vista al Lago</div>
+          <span class="gallery-item-label">I Love KOTA — Vista al Lago</span>
+        </div>
+        <div class="gallery-item reveal-scale reveal-delay-1">
+          <img src="img/555961753_1352214622941156_5150434707241264583_n.jpg" alt="Sopa de mariscos KOTA" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="placeholder-img" style="display:none;">Sopa de Mariscos</div>
+          <span class="gallery-item-label">Sopa de Mariscos con Cangrejo</span>
+        </div>
+        <div class="gallery-item reveal-scale reveal-delay-2">
+          <img src="img/307851964_1700180637031237_7334344366546499621_n-683x1024.jpg" alt="Tucán escultura KOTA" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="placeholder-img" style="display:none;">Esculturas</div>
+          <span class="gallery-item-label">Esculturas Tropicales</span>
+        </div>
+        <div class="gallery-item reveal-scale reveal-delay-2">
+          <img src="img/images (1).jpg" alt="Áreas verdes KOTA restaurante" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="placeholder-img" style="display:none;">Áreas Verdes</div>
+          <span class="gallery-item-label">Nuestras Áreas Verdes</span>
+        </div>
+        <div class="gallery-item reveal-scale reveal-delay-3">
+          <img src="img/images (2).jpg" alt="Caminos del restaurante KOTA" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="placeholder-img" style="display:none;">Recorridos</div>
+          <span class="gallery-item-label">Recorrido Natural</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="locations" id="ubicaciones">
+    <div class="locations-bg"></div>
+    <div class="locations-bg-overlay"></div>
+    <div class="container">
+      <div class="locations-header">
+        <span class="section-label reveal">Visítanos</span>
+        <h2 class="section-title reveal reveal-delay-1">Encuéntranos</h2>
+        <p class="section-desc reveal reveal-delay-2">Dos ubicaciones para disfrutar la experiencia KOTA. Tu parada obligatoria en el Lago de Yojoa.</p>
+      </div>
+      <div class="locations-grid">
+        <div class="location-card reveal-left">
+          <div class="badge-row"><span class="location-badge badge-principal">Principal</span></div>
+          <h3>KOTA — Lago de Yojoa</h3>
+          <div class="location-detail"><span class="icon-loc">—</span><p>Sector Lago de Yojoa, Cortés, Honduras</p></div>
+          <div class="location-detail"><span class="icon-loc">—</span><p>4.3 estrellas — 173 opiniones en Google</p></div>
+          <div class="location-detail"><span class="icon-loc">—</span><p>L 100 – 500 por persona</p></div>
+          <div class="location-services">
+            <span class="service-tag">Consumo en el lugar</span>
+            <span class="service-tag">Para llevar</span>
+            <span class="service-tag">Áreas verdes</span>
+            <span class="service-tag">Punto fotográfico</span>
+          </div>
+          <a href="https://www.google.com/maps/search/KOTA+Restaurante+Lago+de+Yojoa+Cortés" target="_blank" class="btn-map">Ver en Google Maps</a>
+        </div>
+        <div class="location-card reveal-right">
+          <div class="badge-row">
+            <span class="location-badge badge-sucursal">Sucursal CA-5</span>
+            <span class="location-badge badge-24h">24 Horas</span>
+          </div>
+          <h3>KOTA — Carretera CA-5</h3>
+          <div class="location-detail"><span class="icon-loc">—</span><p>Carretera CA-5, Kilómetro 166, Lago de Yojoa</p></div>
+          <div class="location-detail"><span class="icon-loc">—</span><p>9555-5911</p></div>
+          <div class="location-detail"><span class="icon-loc">—</span><p>Abierto las 24 horas</p></div>
+          <div class="location-detail"><span class="icon-loc">—</span><p>L 100 – 400 por persona</p></div>
+          <div class="location-services">
+            <span class="service-tag">Consumo en el lugar</span>
+            <span class="service-tag">Drive-thru</span>
+          </div>
+          <a href="https://www.google.com/maps/search/KOTA+Restaurante+CA-5+Kilometro+166+Lago+de+Yojoa" target="_blank" class="btn-map">Ver en Google Maps</a>
+        </div>
+      </div>
+      <div class="map-container reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61847.94!2d-87.89!3d14.84!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6510b8e30ac4d1%3A0x2b1c4a7d8e8b3e2a!2sLago%20de%20Yojoa!5e0!3m2!1ses!2shn!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa Lago de Yojoa"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contacto">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="section-label reveal">Hablemos</span>
+          <h2 class="section-title reveal reveal-delay-1">Contáctanos</h2>
+          <p class="section-desc reveal reveal-delay-2">¿Tienes preguntas, quieres reservar o planear un evento? Estamos para servirte.</p>
+          <h3 class="reveal">Canales directos</h3>
+          <div class="contact-item reveal">
+            <div class="c-icon">W</div>
+            <div class="c-info"><h4>WhatsApp</h4><p><a href="https://wa.me/50495555911?text=Hola%2C%20me%20gustaría%20información%20sobre%20KOTA" target="_blank">+504 9555-5911</a></p></div>
+          </div>
+          <div class="contact-item reveal reveal-delay-1">
+            <div class="c-icon">f</div>
+            <div class="c-info"><h4>Facebook</h4><p><a href="https://www.facebook.com/Kota-Restaurante-Cafe-Bar-100175952656769/" target="_blank">Kota Restaurante Cafe Bar</a></p></div>
+          </div>
+          <div class="contact-item reveal reveal-delay-2">
+            <div class="c-icon">T</div>
+            <div class="c-info"><h4>Teléfono</h4><p><a href="tel:+5049555591">9555-5911</a></p></div>
+          </div>
+        </div>
+        <div class="contact-form reveal-right">
+          <h3>Envíanos un mensaje</h3>
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-group"><label for="name">Nombre completo</label><input type="text" id="name" placeholder="Tu nombre" required></div>
+            <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" placeholder="tu@email.com" required></div>
+            <div class="form-group"><label for="phone">Teléfono</label><input type="tel" id="phone" placeholder="+504 0000-0000"></div>
+            <div class="form-group"><label for="message">Mensaje</label><textarea id="message" placeholder="¿En qué podemos ayudarte?" required></textarea></div>
+            <button type="submit" class="form-submit">Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><span>K</span><span class="logo-o">☕</span><span>TA</span></div>
+          <p>Restaurante · Café · Bar a orillas del Lago de Yojoa. Somos esencia de lo natural. Tu parada obligatoria en la CA-5.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/Kota-Restaurante-Cafe-Bar-100175952656769/" target="_blank" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://wa.me/50495555911" target="_blank" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          </div>
+        </div>
+        <div><h4>Navegación</h4><ul class="footer-links"><li><a href="#hero">Inicio</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#menu">Menú</a></li><li><a href="#galeria">Galería</a></li></ul></div>
+        <div><h4>Más</h4><ul class="footer-links"><li><a href="#ubicaciones">Ubicaciones</a></li><li><a href="#contacto">Contacto</a></li><li><a href="https://wa.me/50495555911" target="_blank">Reservaciones</a></li></ul></div>
+        <div><h4>Ubicación Principal</h4><ul class="footer-links"><li><a href="#">Sector Lago de Yojoa, Cortés</a></li><li><a href="tel:+50495555911">9555-5911</a></li><li><a href="#">Café de Especialidad</a></li><li><a href="#">Mariscos Frescos</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 KOTA Restaurante · Café · Bar. Todos los derechos reservados.</p>
+        <p>Lago de Yojoa, Honduras</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/50495555911?text=Hola%2C%20me%20gustaría%20hacer%20una%20reservación%20en%20KOTA" target="_blank" class="whatsapp-float" aria-label="Chat en WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+      document.getElementById('hamburger').classList.toggle('active');
+    }
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('active');
+    }
+
+    // Menu tabs
+    function switchTab(cat) {
+      document.querySelectorAll('.menu-category').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.menu-tab').forEach(el => el.classList.remove('active'));
+      document.getElementById('cat-' + cat).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    // Contact form → WhatsApp
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const msg = document.getElementById('message').value;
+      const waUrl = `https://wa.me/50495555911?text=${encodeURIComponent(`Hola, soy ${name}. ${msg}`)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    // Scroll reveal (all types)
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => revealObserver.observe(el));
+
+    // Parallax on scroll
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          // Hero parallax
+          const heroBg = document.getElementById('heroBg');
+          if (heroBg) heroBg.style.transform = `scale(1.1) translateY(${scrollY * 0.3}px)`;
+          // Divider parallax
+          document.querySelectorAll('.parallax-img').forEach(img => {
+            const parent = img.closest('.parallax-divider');
+            const rect = parent.getBoundingClientRect();
+            const speed = 0.15;
+            img.style.transform = `translateY(${rect.top * speed}px)`;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Counter animation
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseFloat(el.dataset.target);
+          const decimals = parseInt(el.dataset.decimals);
+          const duration = 2000;
+          const start = performance.now();
+
+          function update(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = (target * eased).toFixed(decimals);
+            if (progress < 1) requestAnimationFrame(update);
+          }
+          requestAnimationFrame(update);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+  </script>
+
+</body>
+</html>

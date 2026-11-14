@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseño Web — Jonas Builds | Prototipos & Conceptos Web</title>
+  <meta name="description" content="Portafolio de diseño web de Jonas Builds: prototipos y conceptos para restaurantes, escuelas, negocios y servidores de Minecraft. Landing pages desde $150.">
+  <meta property="og:title" content="Diseño Web — Jonas Builds">
+  <meta property="og:description" content="Diseños web modernos y a medida. Explora mis prototipos y conceptos visuales.">
+  <meta property="og:image" content="assets/web/kota.webp">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232a2520'/><text x='50' y='66' font-family='Georgia' font-size='46' text-anchor='middle' fill='%23c9a96e'>JB</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/webdev.css">
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="brand">Jonas<span>Builds</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#work" data-i18n="navWork">Trabajos</a>
+        <a href="#services" data-i18n="navServices">Servicios</a>
+        <a href="#pricing" data-i18n="navPricing">Precios</a>
+        <a href="#process" data-i18n="navProcess">Proceso</a>
+        <a href="#faq">FAQ</a>
+        <a href="minecraft.html" class="nav-mc">Minecraft ↗</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang"><button data-lang="es">ES</button><button data-lang="en">EN</button></div>
+        <a href="#contact" class="btn btn-dark btn-sm" data-i18n="navCta">Cotizar</a>
+        <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow reveal"><span class="dot"></span><span data-i18n="heroEyebrow">Disponible para nuevos proyectos</span></span>
+        <h1 class="reveal">
+          <span data-i18n="heroT1">Sitios web que</span><br>
+          <em data-i18n="heroT2">hacen crecer</em> <span data-i18n="heroT3">tu negocio.</span>
+        </h1>
+        <p class="lead reveal" data-i18n="heroLead">Diseño y desarrollo páginas web modernas, rápidas y a medida — desde landing pages para restaurantes hasta sistemas de gestión y tiendas online. Sin plantillas genéricas.</p>
+        <div class="hero-ctas reveal">
+          <a href="#work" class="btn btn-gold"><span data-i18n="heroBtn1">Ver mis trabajos</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          <a href="#contact" class="btn btn-ghost" data-i18n="heroBtn2">Hablemos de tu proyecto</a>
+        </div>
+        <div class="hero-stats reveal">
+          <div><b data-count="9">9</b><span data-i18n="stat1">Proyectos destacados</span></div>
+          <div><b>5</b><span data-i18n="stat2">Industrias</span></div>
+          <div><b>$150</b><span data-i18n="stat3">Landing desde</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="mock mock-back">
+          <div class="mock-bar"><i></i><i></i><i></i></div>
+          <img src="assets/web/gympanel.webp" alt="GymPanel Pro">
+        </div>
+        <div class="mock mock-front">
+          <div class="mock-bar"><i></i><i></i><i></i><span>KOTA · Prototipo UI</span></div>
+          <img src="assets/web/kota.webp" alt="KOTA Restaurante">
+        </div>
+        <div class="phone">
+          <img src="assets/web/snaplist.webp" alt="SnapList app">
+        </div>
+        <div class="float-badge fb1">⚡ <span data-i18n="fb1">Carga rápida</span></div>
+        <div class="float-badge fb2">📱 <span data-i18n="fb2">100% responsive</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ TECH MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Vite</span><span>Firebase</span><span>Node.js</span><span>Express</span><span>Discord.js</span><span>PWA</span><span>Chart.js</span><span>Gemini AI</span><span>SEO</span>
+      <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Vite</span><span>Firebase</span><span>Node.js</span><span>Express</span><span>Discord.js</span><span>PWA</span><span>Chart.js</span><span>Gemini AI</span><span>SEO</span>
+    </div>
+  </div>
+
+  <!-- ============ FEATURED ============ -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="label" data-i18n="workLabel">Portafolio</span>
+        <h2 data-i18n="workTitle">Trabajos seleccionados</h2>
+        <p data-i18n="workDesc">Proyectos reales y demos funcionales. Pasa el cursor sobre cada pantalla para recorrer la página completa.</p>
+      </div>
+
+      <article class="featured reveal" data-open="kota" style="cursor:zoom-in">
+        <div class="featured-shot">
+          <div class="frame frame-lg">
+            <div class="mock-bar"><i></i><i></i><i></i><span>KOTA — Prototipo UI / UX</span></div>
+            <div class="screen"><img src="assets/web/kota-full.webp" alt="KOTA diseño completo" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="featured-info">
+          <span class="pill" data-i18n="featTag">Concepto de diseño · Restaurante</span>
+          <h3>KOTA</h3>
+          <p data-i18n="featDesc">Propuesta de diseño web para un restaurante, café y bar a orillas del Lago de Yojoa, Honduras. Estructurado para presentar el menú digital, galería fotográfica, ubicaciones con mapa y botón de reservas por WhatsApp.</p>
+          <ul class="checks">
+            <li data-i18n="featL1">Menú digital por categorías</li>
+            <li data-i18n="featL2">Reservas y contacto por WhatsApp</li>
+            <li data-i18n="featL3">Galería y ubicaciones con mapa</li>
+            <li data-i18n="featL4">Optimizado para móvil y SEO local</li>
+          </ul>
+          <div class="row-btns">
+            <button class="btn btn-dark" data-open="kota"><span data-i18n="viewDesign">Ver diseño completo</span> 🔍</button>
+            <a href="#contact" class="btn btn-ghost-dark" data-i18n="navCta">Cotizar uno similar</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="filters reveal" id="filters">
+        <button class="active" data-filter="all" data-i18n="fAll">Todos</button>
+        <button data-filter="business" data-i18n="fBusiness">Negocios & Turismo</button>
+        <button data-filter="apps" data-i18n="fApps">Sistemas & Apps</button>
+        <button data-filter="shop" data-i18n="fShop">E-commerce</button>
+        <button data-filter="gaming" data-i18n="fGaming">Gaming</button>
+      </div>
+
+      <div class="grid" id="grid"><!-- rendered by js --></div>
+
+      <p class="note reveal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <span data-i18n="demoNote">Aviso: Todos los proyectos expuestos son conceptos de diseño UI/UX y prototipos demostrativos para exhibir habilidades visuales y de maquetación web. No corresponden a sitios activos en producción ni procesan datos reales.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section section-pearl" id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="label" data-i18n="svcLabel">Servicios</span>
+        <h2 data-i18n="svcTitle">¿Qué puedo construir para ti?</h2>
+        <p data-i18n="svcDesc">Cada sitio se diseña desde cero según tu marca y tus objetivos.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc reveal"><div class="svc-ic">🚀</div><h4 data-i18n="s1t">Landing Pages</h4><p data-i18n="s1d">Una página impactante para presentar tu negocio, producto o evento y conseguir clientes.</p></div>
+        <div class="svc reveal"><div class="svc-ic">🍽️</div><h4 data-i18n="s2t">Restaurantes & Turismo</h4><p data-i18n="s2d">Menú digital, galería, reservas, mapa y WhatsApp. Ideal para restaurantes, hoteles y cafés.</p></div>
+        <div class="svc reveal"><div class="svc-ic">📊</div><h4 data-i18n="s3t">Sistemas de gestión</h4><p data-i18n="s3d">Paneles administrativos con clientes, pagos, reportes PDF y gráficas en tiempo real.</p></div>
+        <div class="svc reveal"><div class="svc-ic">🛒</div><h4 data-i18n="s4t">Tiendas online</h4><p data-i18n="s4d">Catálogos de productos con carrito de compras y una experiencia de compra fluida.</p></div>
+        <div class="svc reveal"><div class="svc-ic">🎓</div><h4 data-i18n="s5t">Plataformas educativas</h4><p data-i18n="s5d">Campus virtuales con portales para alumnos, docentes y padres de familia.</p></div>
+        <div class="svc reveal"><div class="svc-ic">⛏️</div><h4 data-i18n="s6t">Webs para servidores</h4><p data-i18n="s6d">Sitios para servidores de Minecraft con rangos, tienda, Discord e integración con bots.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="label" data-i18n="priceLabel">Precios</span>
+        <h2 data-i18n="priceTitle">Planes claros, sin sorpresas</h2>
+        <p data-i18n="priceDesc">Elige un punto de partida. Cada proyecto se ajusta a lo que realmente necesitas.</p>
+      </div>
+      <div class="price-grid">
+        <div class="plan reveal">
+          <h4 data-i18n="p1t">Landing Page</h4>
+          <p class="plan-sub" data-i18n="p1s">Perfecta para empezar a tener presencia online.</p>
+          <div class="plan-price"><small data-i18n="from">Desde</small>$150</div>
+          <ul class="checks">
+            <li data-i18n="p1l1">Diseño 100% personalizado</li>
+            <li data-i18n="p1l2">Adaptada a celular y tablet</li>
+            <li data-i18n="p1l3">Botón de WhatsApp / contacto</li>
+            <li data-i18n="p1l4">SEO básico y carga rápida</li>
+            <li data-i18n="p1l5">Publicación en internet</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost-dark btn-block" data-i18n="choose">Empezar</a>
+        </div>
+        <div class="plan plan-hot reveal">
+          <span class="plan-flag" data-i18n="popular">Más popular</span>
+          <h4 data-i18n="p2t">Sitio para Negocio</h4>
+          <p class="plan-sub" data-i18n="p2s">Varias secciones para restaurantes, hoteles y empresas.</p>
+          <div class="plan-price plan-quote" data-i18n="quote">A cotizar</div>
+          <ul class="checks">
+            <li data-i18n="p2l1">Todo lo de Landing Page</li>
+            <li data-i18n="p2l2">Menú digital / catálogo</li>
+            <li data-i18n="p2l3">Galería, mapa y reservas</li>
+            <li data-i18n="p2l4">Español e inglés</li>
+            <li data-i18n="p2l5">Animaciones premium</li>
+          </ul>
+          <a href="#contact" class="btn btn-gold btn-block" data-i18n="ask">Pedir cotización</a>
+        </div>
+        <div class="plan reveal">
+          <h4 data-i18n="p3t">Sistema / App Web</h4>
+          <p class="plan-sub" data-i18n="p3s">Herramientas a medida para tu negocio.</p>
+          <div class="plan-price plan-quote" data-i18n="quote">A cotizar</div>
+          <ul class="checks">
+            <li data-i18n="p3l1">Panel de administración</li>
+            <li data-i18n="p3l2">Base de datos en la nube</li>
+            <li data-i18n="p3l3">Reportes PDF / Excel y gráficas</li>
+            <li data-i18n="p3l4">Login y roles de usuario</li>
+            <li data-i18n="p3l5">Instalable como app (PWA)</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost-dark btn-block" data-i18n="ask">Pedir cotización</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="section section-dark" id="process">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="label" data-i18n="procLabel">Proceso</span>
+        <h2 data-i18n="procTitle">De la idea a tu sitio publicado</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><span>01</span><h4 data-i18n="st1t">Conversamos</h4><p data-i18n="st1d">Me cuentas tu negocio, tus objetivos y lo que te gusta. Te doy un precio claro.</p></div>
+        <div class="step reveal"><span>02</span><h4 data-i18n="st2t">Diseño</h4><p data-i18n="st2d">Creo una propuesta visual con tu marca, colores y contenido.</p></div>
+        <div class="step reveal"><span>03</span><h4 data-i18n="st3t">Desarrollo</h4><p data-i18n="st3d">Construyo el sitio, te muestro avances y aplico tus cambios.</p></div>
+        <div class="step reveal"><span>04</span><h4 data-i18n="st4t">Entrega</h4><p data-i18n="st4d">Publicamos tu web y te acompaño con soporte después del lanzamiento.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="wrap wrap-narrow">
+      <div class="sec-head reveal">
+        <span class="label">FAQ</span>
+        <h2 data-i18n="faqTitle">Preguntas frecuentes</h2>
+      </div>
+      <div class="faq">
+        <details class="reveal"><summary data-i18n="q1">¿Cuánto tarda en estar lista mi página?</summary><p data-i18n="a1">Depende del tamaño del proyecto. Una landing page es lo más rápido; un sitio con varias secciones o un sistema toma más tiempo. Antes de empezar te doy un tiempo estimado.</p></details>
+        <details class="reveal"><summary data-i18n="q2">¿Mi sitio se verá bien en celulares?</summary><p data-i18n="a2">Sí. Todos mis sitios son 100% responsive y se prueban en celular, tablet y computadora.</p></details>
+        <details class="reveal"><summary data-i18n="q3">¿Puedo pedir cambios?</summary><p data-i18n="a3">Claro. Durante el desarrollo te muestro avances para que puedas pedir ajustes antes de la entrega final.</p></details>
+        <details class="reveal"><summary data-i18n="q4">¿Incluye dominio y hosting?</summary><p data-i18n="a4">Te ayudo a publicar el sitio y a conectar tu propio dominio (por ejemplo tunegocio.com). El costo del dominio depende del proveedor.</p></details>
+        <details class="reveal"><summary data-i18n="q5">¿Cómo se realiza el pago?</summary><p data-i18n="a5">Puedes contratarme a través de Fiverr o contactarme directamente por Discord para acordar el método de pago.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="cta-glow"></div>
+        <span class="label label-light" data-i18n="ctaLabel">Contacto</span>
+        <h2 data-i18n="ctaTitle">¿Listo para tener una web que venda por ti?</h2>
+        <p data-i18n="ctaDesc">Escríbeme y cuéntame tu idea. Te respondo con una propuesta y un precio sin compromiso.</p>
+        <div class="cta-btns">
+          <a href="https://discord.com/users/yairg09" target="_blank" rel="noopener" class="btn btn-discord">
+            <svg viewBox="0 0 127.14 96.36" width="22" height="17" fill="currentColor"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
+            Discord · yairg09</a>
+          <a href="https://www.fiverr.com/itsjona09" target="_blank" rel="noopener" class="btn btn-fiverr">Fiverr</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <a href="index.html" class="brand">Jonas<span>Builds</span></a>
+      <div class="footer-links">
+        <a href="index.html" data-i18n="fHome">Inicio</a>
+        <a href="minecraft.html">Minecraft</a>
+        <a href="#work" data-i18n="navWork">Trabajos</a>
+        <a href="#contact" data-i18n="ctaLabel">Contacto</a>
+      </div>
+      <p>© 2026 Jonas Builds</p>
+    </div>
+  </footer>
+
+  <!-- ============ MODAL ============ -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel">
+      <button class="modal-close" data-close aria-label="Close">✕</button>
+      <div class="modal-shot">
+        <div class="mock-bar"><i></i><i></i><i></i><span id="mUrl"></span></div>
+        <div class="modal-scroll" id="mScroll"><img id="mImg" alt=""></div>
+      </div>
+      <div class="modal-info">
+        <span class="pill" id="mCat"></span>
+        <h3 id="mTitle"></h3>
+        <p id="mDesc"></p>
+        <h5 data-i18n="mFeatures">Características</h5>
+        <ul class="checks" id="mFeatures"></ul>
+        <div class="tags" id="mTags"></div>
+        <div class="row-btns" id="mBtns"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/webdev.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>
+

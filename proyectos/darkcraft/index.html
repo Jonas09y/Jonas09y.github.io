@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DarkCraft — Servidor de Minecraft con modos de juego épicos, comunidad activa y rangos exclusivos. Únete a la aventura oscura.">
+  <meta name="keywords" content="DarkCraft, Minecraft, servidor, factions, survival, skyblock, PvP, rangos, tienda">
+  <meta name="theme-color" content="#7b2ff2">
+  <title>DarkCraft — Servidor de Minecraft</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<body>
+
+  <!-- ===== PARTICLES CANVAS ===== -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <a href="#home" class="nav-logo">
+      <img src="assets/logo.png" alt="DarkCraft Logo">
+      <span class="nav-logo-text"><span class="dark">DARK</span><span class="craft">CRAFT</span></span>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="active">Inicio</a></li>
+      <li><a href="#features">Características</a></li>
+      <li><a href="#world">Mundo</a></li>
+      <li><a href="#gamemodes">Modos</a></li>
+      <li><a href="#store">Tienda</a></li>
+      <li><a href="#community">Comunidad</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="https://discord.gg/darkcraft" target="_blank" class="btn-discord">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
+        Discord
+      </a>
+      <a href="#store" class="btn-play">⚔ Jugar Ahora</a>
+    </div>
+
+    <div class="nav-hamburger" id="nav-hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="assets/hero_bg.png" alt="DarkCraft World">
+    </div>
+    <div class="hero-content">
+      <img src="assets/logo.png" alt="DarkCraft" class="hero-logo">
+      <h1 class="hero-title">
+        ENTRA AL <span class="highlight">REINO OSCURO</span>
+      </h1>
+      <p class="hero-subtitle">
+        Sobrevive, conquista y domina en el servidor de Minecraft más épico. 
+        Aventura oscura, combate brutal y una comunidad que nunca duerme.
+      </p>
+      <div class="hero-ip" onclick="copyIP()">
+        <div>
+          <span class="ip-label">IP del Servidor</span>
+          <span class="ip-address">play.darkcraft.net</span>
+        </div>
+        <svg class="copy-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        <span class="copied-toast" id="copied-toast">¡Copiado!</span>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="stat-players">347</span>
+          <span class="hero-stat-label">Jugadores Online</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">24/7</span>
+          <span class="hero-stat-label">Servidor Activo</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">1.8 – 1.21</span>
+          <span class="hero-stat-label">Versiones</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Descubre más</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="section features-section" id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-badge">⚡ Por qué DarkCraft</span>
+        <h2 class="section-title">Una Experiencia <span class="accent">Sin Igual</span></h2>
+        <p class="section-desc">No somos un servidor más. DarkCraft es un mundo diseñado para jugadores que buscan desafío real, contenido único y una comunidad que vale la pena.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon purple">⚔️</div>
+          <h3 class="feature-title">PvP Competitivo</h3>
+          <p class="feature-desc">Arenas rankeadas, torneos semanales con premios reales y un sistema de ELO que pone a prueba tu habilidad real.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon orange">🏰</div>
+          <h3 class="feature-title">Facciones Épicas</h3>
+          <p class="feature-desc">Crea tu facción, recluta aliados, construye fortalezas y declara guerra. El dominio del mapa está en tus manos.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon green">🌍</div>
+          <h3 class="feature-title">Mundo Custom</h3>
+          <p class="feature-desc">Terrenos generados a mano con biomas únicos, dungeons secretos, bosses exclusivos y tesoros ocultos por todo el mapa.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon blue">🛡️</div>
+          <h3 class="feature-title">Anti-Cheat Brutal</h3>
+          <p class="feature-desc">Sistema anti-trampas de nivel competitivo. Aquí se juega limpio o no se juega. Cero tolerancia con hackers.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon gold">💰</div>
+          <h3 class="feature-title">Economía Viva</h3>
+          <p class="feature-desc">Mercado entre jugadores, subastas, sistema de trabajos y una economía balanceada que recompensa el esfuerzo real.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon red">🔥</div>
+          <h3 class="feature-title">Eventos Diarios</h3>
+          <p class="feature-desc">Drop parties, raids de bosses, eventos de construcción y competencias con recompensas exclusivas cada día.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORLD SHOWCASE ===== -->
+  <section class="section world-section" id="world">
+    <div class="container">
+      <div class="world-content">
+        <div class="world-image-wrapper reveal">
+          <img src="assets/world_map.png" alt="Mapa del mundo DarkCraft">
+        </div>
+        <div class="world-info reveal">
+          <span class="section-badge">🗺️ El Mundo</span>
+          <h2>Explora el <span class="accent">Reino Oscuro</span></h2>
+          <p>Un mundo masivo diseñado a detalle con biomas que no encontrarás en ningún otro servidor. Cada rincón esconde secretos, cada cueva tiene historia.</p>
+          <ul class="world-features">
+            <li>
+              <span class="wf-icon">🏔️</span>
+              <span><strong>Biomas Exclusivos</strong> — Bosques malditos, desiertos de ceniza, montañas de cristal oscuro</span>
+            </li>
+            <li>
+              <span class="wf-icon">🐉</span>
+              <span><strong>Bosses Únicos</strong> — 12 jefes custom con mecánicas originales y loot exclusivo</span>
+            </li>
+            <li>
+              <span class="wf-icon">🏛️</span>
+              <span><strong>Dungeons Secretos</strong> — Mazmorras procedurales con dificultad adaptativa</span>
+            </li>
+            <li>
+              <span class="wf-icon">⚗️</span>
+              <span><strong>Items Legendarios</strong> — Armas y armaduras únicas con habilidades especiales</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GAMEMODES ===== -->
+  <section class="section gamemodes-section" id="gamemodes">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-badge">🎮 Modos de Juego</span>
+        <h2 class="section-title">Elige Tu <span class="accent">Batalla</span></h2>
+        <p class="section-desc">Cuatro modos de juego únicos, cada uno con su propia progresión, economía y comunidad. Siempre hay algo para ti.</p>
+      </div>
+      <div class="gamemodes-grid">
+        <div class="gamemode-card reveal">
+          <div class="gamemode-banner">
+            <div class="gamemode-banner-bg survival"></div>
+            <span class="gamemode-emoji">🌲</span>
+          </div>
+          <div class="gamemode-body">
+            <span class="gamemode-tag popular">Popular</span>
+            <h3 class="gamemode-name">Survival</h3>
+            <p class="gamemode-desc">La experiencia clásica potenciada. Tierras protegidas, economía, McMMO y contenido endgame que te mantendrá ocupado por meses.</p>
+            <div class="gamemode-players"><span class="dot"></span> 142 jugando ahora</div>
+          </div>
+        </div>
+        <div class="gamemode-card reveal">
+          <div class="gamemode-banner">
+            <div class="gamemode-banner-bg factions"></div>
+            <span class="gamemode-emoji">⚔️</span>
+          </div>
+          <div class="gamemode-body">
+            <span class="gamemode-tag hardcore">Hardcore</span>
+            <h3 class="gamemode-name">Factions</h3>
+            <p class="gamemode-desc">Guerra total. Raidea bases enemigas, protege tu territorio con cañones y trampas. Solo los más fuertes sobreviven.</p>
+            <div class="gamemode-players"><span class="dot"></span> 89 jugando ahora</div>
+          </div>
+        </div>
+        <div class="gamemode-card reveal">
+          <div class="gamemode-banner">
+            <div class="gamemode-banner-bg skyblock"></div>
+            <span class="gamemode-emoji">☁️</span>
+          </div>
+          <div class="gamemode-body">
+            <span class="gamemode-tag new">Nuevo</span>
+            <h3 class="gamemode-name">Skyblock</h3>
+            <p class="gamemode-desc">Construye tu isla desde cero en el vacío. Misiones custom, generadores exclusivos y rankings competitivos de islas.</p>
+            <div class="gamemode-players"><span class="dot"></span> 76 jugando ahora</div>
+          </div>
+        </div>
+        <div class="gamemode-card reveal">
+          <div class="gamemode-banner">
+            <div class="gamemode-banner-bg pvp"></div>
+            <span class="gamemode-emoji">🏹</span>
+          </div>
+          <div class="gamemode-body">
+            <span class="gamemode-tag classic">Clásico</span>
+            <h3 class="gamemode-name">KitPvP</h3>
+            <p class="gamemode-desc">Acción pura. Elige tu kit, entra a la arena y demuestra quién es el mejor. Ranking global y recompensas por racha.</p>
+            <div class="gamemode-players"><span class="dot"></span> 40 jugando ahora</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STORE / RANKS ===== -->
+  <section class="section store-section" id="store">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-badge">👑 Tienda</span>
+        <h2 class="section-title">Rangos <span class="accent">Exclusivos</span></h2>
+        <p class="section-desc">Apoya al servidor y desbloquea beneficios únicos. Cada rango viene con permisos, cosméticos y ventajas que mejoran tu experiencia.</p>
+      </div>
+      <div class="store-grid">
+        <!-- VIP -->
+        <div class="rank-card reveal">
+          <div class="rank-image">
+            <img src="assets/rank_vip.png" alt="Rango VIP">
+          </div>
+          <div class="rank-body">
+            <span class="rank-tier vip">Rango I</span>
+            <h3 class="rank-name">VIP</h3>
+            <div class="rank-price">
+              <span class="currency">$</span>
+              <span class="amount">9.99</span>
+              <span class="period">USD</span>
+            </div>
+            <ul class="rank-perks">
+              <li><span class="perk-check">✓</span> Prefijo [VIP] en chat</li>
+              <li><span class="perk-check">✓</span> 3 homes adicionales</li>
+              <li><span class="perk-check">✓</span> Kit VIP diario</li>
+              <li><span class="perk-check">✓</span> Acceso a /fly en lobby</li>
+              <li><span class="perk-check">✓</span> Cosméticos exclusivos</li>
+              <li><span class="perk-check">✓</span> Rol VIP en Discord</li>
+            </ul>
+            <button class="btn-rank vip" onclick="window.open('https://tienda.darkcraft.net', '_blank')">Obtener VIP</button>
+          </div>
+        </div>
+
+        <!-- LEGEND -->
+        <div class="rank-card featured reveal">
+          <span class="rank-featured-badge">★ Más Popular</span>
+          <div class="rank-image">
+            <img src="assets/rank_legend.png" alt="Rango Legend">
+          </div>
+          <div class="rank-body">
+            <span class="rank-tier legend">Rango II</span>
+            <h3 class="rank-name">Legend</h3>
+            <div class="rank-price">
+              <span class="currency">$</span>
+              <span class="amount">24.99</span>
+              <span class="period">USD</span>
+            </div>
+            <ul class="rank-perks">
+              <li><span class="perk-check">✓</span> Todo lo de VIP</li>
+              <li><span class="perk-check">✓</span> Prefijo [LEGEND] animado</li>
+              <li><span class="perk-check">✓</span> 8 homes adicionales</li>
+              <li><span class="perk-check">✓</span> Kit Legend diario</li>
+              <li><span class="perk-check">✓</span> /nick personalizado</li>
+              <li><span class="perk-check">✓</span> Partículas exclusivas</li>
+              <li><span class="perk-check">✓</span> Acceso prioritario</li>
+            </ul>
+            <button class="btn-rank legend" onclick="window.open('https://tienda.darkcraft.net', '_blank')">Obtener Legend</button>
+          </div>
+        </div>
+
+        <!-- GOD -->
+        <div class="rank-card reveal">
+          <div class="rank-image">
+            <img src="assets/rank_god.png" alt="Rango God">
+          </div>
+          <div class="rank-body">
+            <span class="rank-tier god">Rango III</span>
+            <h3 class="rank-name">God</h3>
+            <div class="rank-price">
+              <span class="currency">$</span>
+              <span class="amount">49.99</span>
+              <span class="period">USD</span>
+            </div>
+            <ul class="rank-perks">
+              <li><span class="perk-check">✓</span> Todo lo de Legend</li>
+              <li><span class="perk-check">✓</span> Prefijo [GOD] con aura</li>
+              <li><span class="perk-check">✓</span> Homes ilimitados</li>
+              <li><span class="perk-check">✓</span> Kit God diario</li>
+              <li><span class="perk-check">✓</span> /fly en survival</li>
+              <li><span class="perk-check">✓</span> Mascota exclusiva</li>
+              <li><span class="perk-check">✓</span> Canal privado Discord</li>
+              <li><span class="perk-check">✓</span> Nombre en créditos</li>
+            </ul>
+            <button class="btn-rank god" onclick="window.open('https://tienda.darkcraft.net', '_blank')">Obtener God</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMMUNITY / DISCORD ===== -->
+  <section class="section community-section" id="community">
+    <div class="container">
+      <div class="community-content">
+        <div class="discord-widget reveal">
+          <div class="discord-header">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
+            <div class="discord-header-info">
+              <h3>DarkCraft Community</h3>
+              <span><span class="dot"></span> 1,247 miembros online</span>
+            </div>
+          </div>
+          <ul class="discord-channels">
+            <li><span class="channel-hash">#</span> bienvenida</li>
+            <li><span class="channel-hash">#</span> chat-general</li>
+            <li><span class="channel-hash">#</span> buscar-equipo</li>
+            <li><span class="channel-hash">#</span> clips-y-momentos</li>
+            <li><span class="channel-hash">#</span> soporte-tickets</li>
+            <li><span class="channel-hash">#</span> sugerencias</li>
+          </ul>
+          <button class="btn-join-discord" onclick="window.open('https://discord.gg/darkcraft', '_blank')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z"/></svg>
+            Unirse al Discord
+          </button>
+        </div>
+        <div class="community-info reveal">
+          <span class="section-badge">💬 Comunidad</span>
+          <h2>Únete a la <span class="accent">Familia</span></h2>
+          <p>DarkCraft no es solo un servidor, es una comunidad. Más de 5,000 jugadores ya forman parte. Conecta tu cuenta, obtén tu rol y accede a contenido exclusivo.</p>
+          <ul class="community-perks">
+            <li>
+              <span class="cp-icon">🎭</span>
+              <div>
+                <strong>Roles Automáticos</strong>
+                <span>Conecta tu cuenta de Minecraft y recibe tu rol al instante</span>
+              </div>
+            </li>
+            <li>
+              <span class="cp-icon">🎁</span>
+              <div>
+                <strong>Giveaways Semanales</strong>
+                <span>Rangos, items y keys gratis solo por ser parte activa</span>
+              </div>
+            </li>
+            <li>
+              <span class="cp-icon">📢</span>
+              <div>
+                <strong>Soporte 24/7</strong>
+                <span>Staff activo siempre listo para ayudarte con lo que necesites</span>
+              </div>
+            </li>
+            <li>
+              <span class="cp-icon">🏆</span>
+              <div>
+                <strong>Torneos Exclusivos</strong>
+                <span>Participa en eventos solo para miembros del Discord</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-badge">❓ Preguntas Frecuentes</span>
+        <h2 class="section-title">¿Dudas? Las <span class="accent">Resolvemos</span></h2>
+        <p class="section-desc">Todo lo que necesitas saber antes de entrar al Reino Oscuro.</p>
+      </div>
+      <div class="faq-container">
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Cómo me conecto al servidor?
+            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Abre Minecraft Java Edition (versiones 1.8 a 1.21), ve a Multijugador, agrega un servidor y escribe la IP: <strong>play.darkcraft.net</strong>. ¡Así de fácil!
+            </div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Qué versiones son compatibles?
+            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Soportamos desde la versión 1.8 hasta la 1.21. Recomendamos jugar en 1.20+ para la mejor experiencia con todos los features activados.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Los rangos son permanentes?
+            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sí, todos los rangos son de por vida. Una vez que compras tu rango, lo conservas para siempre en todos los modos de juego del servidor.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Cómo conecto mi Discord con el servidor?
+            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Únete a nuestro Discord y usa el comando <strong>/vincular</strong> en el canal #verificación. El bot te pedirá tu nombre de Minecraft y recibirás tu rol automáticamente.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Es servidor premium o no-premium?
+            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              DarkCraft es un servidor premium (solo cuentas originales de Minecraft). Esto garantiza seguridad para todos los jugadores y protección de cuentas.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Puedo pedir reembolso de un rango?
+            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Ofrecemos reembolso dentro de las primeras 48 horas si no has utilizado los beneficios del rango. Contacta al staff por Discord para procesarlo.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/logo.png" alt="DarkCraft">
+          <span><span style="color: var(--silver)">DARK</span><span style="color: var(--crystal-purple)">CRAFT</span></span>
+        </div>
+        <p>El servidor de Minecraft más épico de habla hispana. Aventura oscura, combate real y una comunidad que te espera.</p>
+        <div class="footer-socials">
+          <a href="https://discord.gg/darkcraft" target="_blank" aria-label="Discord">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z"/></svg>
+          </a>
+          <a href="https://twitter.com/darkcraft" target="_blank" aria-label="Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://youtube.com/@darkcraft" target="_blank" aria-label="YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://tiktok.com/@darkcraft" target="_blank" aria-label="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Servidor</h4>
+        <ul>
+          <li><a href="#features">Características</a></li>
+          <li><a href="#gamemodes">Modos de Juego</a></li>
+          <li><a href="#world">El Mundo</a></li>
+          <li><a href="#store">Tienda</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Comunidad</h4>
+        <ul>
+          <li><a href="https://discord.gg/darkcraft" target="_blank">Discord</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Reglas</a></li>
+          <li><a href="#">Staff</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Términos de Uso</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+          <li><a href="#">Reembolsos</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 DarkCraft. Todos los derechos reservados. No afiliado con Mojang Studios.</span>
+      <span>Hecho con 💜 para la comunidad</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

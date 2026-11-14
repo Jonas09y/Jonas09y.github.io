@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centro Turístico La Naturaleza | Lago de Yojoa</title>
+  <meta name="description" content="Alojamiento, Restaurante, Centro de Convenciones y Naturaleza en el Lago de Yojoa, Honduras.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Íconos de Google -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <style>
+    :root {
+      --green-dark: #1b4332;
+      --green-main: #2d6a4f;
+      --green-light: #40916c;
+      --green-accent: #52b788;
+      --yellow: #ffb703;
+      --yellow-hover: #fb8500;
+      --text-dark: #1f2937;
+      --text-light: #4b5563;
+      --bg-light: #f3f4f6;
+      --white: #ffffff;
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      background-color: var(--white);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* ---- NAVBAR ---- */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--green-dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-logo span { color: var(--yellow); }
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--green-main); }
+    .nav-btn {
+      background: var(--yellow);
+      color: var(--text-dark);
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .nav-btn:hover {
+      background: var(--yellow-hover);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(27, 67, 50, 0.6), rgba(27, 67, 50, 0.7)), url('https://picsum.photos/id/28/1920/1080') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 5%;
+      margin-top: 0;
+    }
+    .hero-content { max-width: 800px; }
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      color: var(--white);
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .hero-title span { color: var(--yellow); }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+    .btn {
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--text-dark);
+    }
+    .btn-primary:hover {
+      background: var(--yellow-hover);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(251, 133, 0, 0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--green-dark);
+      transform: translateY(-3px);
+    }
+
+    /* ---- SECTIONS COMMON ---- */
+    .section { padding: 100px 5%; }
+    .bg-light { background-color: var(--bg-light); }
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+    .section-tag {
+      color: var(--green-main);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--green-dark);
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .section-desc { color: var(--text-light); font-size: 1.1rem; }
+
+    /* ---- ALOJAMIENTO ---- */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    .card-img {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .card-content { padding: 30px; }
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+    }
+    .card-price {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--white);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    .card-desc { color: var(--text-light); font-size: 0.95rem; margin-bottom: 20px; }
+    .card-features {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      color: var(--green-main);
+    }
+    .feature { display: flex; align-items: center; gap: 5px; font-size: 0.9rem; font-weight: 600;}
+    
+    /* ---- RESTAURANTE & MENU ---- */
+    .restaurant-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .restaurant-img {
+      border-radius: var(--radius);
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .feature-list { list-style: none; margin: 30px 0; }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .feature-icon {
+      background: rgba(45, 106, 79, 0.1);
+      color: var(--green-main);
+      padding: 12px;
+      border-radius: 50%;
+      display: flex;
+    }
+    .feature-text h4 { font-size: 1.1rem; color: var(--green-dark); margin-bottom: 5px; }
+    .feature-text p { color: var(--text-light); font-size: 0.95rem; }
+
+    /* ---- SOSTENIBILIDAD ---- */
+    .sustainability {
+      background: linear-gradient(rgba(27, 67, 50, 0.8), rgba(27, 67, 50, 0.9)), url('https://picsum.photos/id/30/1920/1080') center/cover;
+      color: var(--white);
+      text-align: center;
+      padding: 80px 5%;
+    }
+    .sustainability h2 { font-size: 2.2rem; margin-bottom: 20px; }
+    .sustainability p { max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem; opacity: 0.9; }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 60px 5% 30px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-title {
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: var(--transition); }
+    .footer-links a:hover { color: var(--yellow); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .restaurant-layout { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#" class="nav-logo">
+      <span class="material-icons-outlined">eco</span> La Naturaleza
+    </a>
+    <ul class="nav-links">
+      <li><a href="#alojamiento">Alojamiento</a></li>
+      <li><a href="#restaurante">Restaurante</a></li>
+      <li><a href="#convenciones">Convenciones</a></li>
+      <li><a href="#actividades">Actividades</a></li>
+    </ul>
+    <a href="tel:+50499285930" class="nav-btn">Llamar Ahora</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Vive una <span>experiencia</span> inolvidable en el Lago de Yojoa</h1>
+      <p class="hero-subtitle">Conexión auténtica con la naturaleza, alojamiento excepcional, y la mejor gastronomía en el corazón de Honduras.</p>
+      <div class="hero-buttons">
+        <a href="#alojamiento" class="btn btn-primary">Ver Habitaciones</a>
+        <a href="https://menu.lanaturaleza.hn/" target="_blank" class="btn btn-outline">Ver Menú Digital</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ALOJAMIENTO -->
+  <section id="alojamiento" class="section bg-light">
+    <div class="section-header">
+      <span class="section-tag">Naturaleza y Descanso</span>
+      <h2 class="section-title">Nuestro Alojamiento</h2>
+      <p class="section-desc">Comodidades modernas y vistas panorámicas al lago para una estancia perfecta.</p>
+    </div>
+    <div class="grid-3">
+      <!-- Habitación 1 -->
+      <div class="card">
+        <img src="https://picsum.photos/id/1018/600/400" alt="Habitación Doble" class="card-img">
+        <div class="card-content">
+          <div class="card-price">Desde L. 2,200.00</div>
+          <h3 class="card-title">Habitación Doble</h3>
+          <div class="card-features">
+            <span class="feature"><span class="material-icons-outlined">person</span> 2</span>
+            <span class="feature"><span class="material-icons-outlined">bed</span> 2 Camas Queen</span>
+          </div>
+          <p class="card-desc">Dos camas queen con vistas al lago, balcón con hamaca y sillas de descanso para relajarte rodeado de la belleza natural.</p>
+          <a href="#" class="btn btn-outline" style="color: var(--green-main); border-color: var(--green-main); width: 100%; justify-content: center;">Más Información</a>
+        </div>
+      </div>
+      <!-- Habitación 2 -->
+      <div class="card">
+        <img src="https://picsum.photos/id/1039/600/400" alt="Habitación Triple" class="card-img">
+        <div class="card-content">
+          <div class="card-price">Desde L. 2,900.00</div>
+          <h3 class="card-title">Habitación Triple</h3>
+          <div class="card-features">
+            <span class="feature"><span class="material-icons-outlined">person</span> 3</span>
+            <span class="feature"><span class="material-icons-outlined">bed</span> 3 Camas</span>
+          </div>
+          <p class="card-desc">Experimenta la serenidad en la segunda planta. Amplio balcón con hamaca para contemplar el paraíso del lago.</p>
+          <a href="#" class="btn btn-outline" style="color: var(--green-main); border-color: var(--green-main); width: 100%; justify-content: center;">Más Información</a>
+        </div>
+      </div>
+      <!-- Habitación 3 -->
+      <div class="card">
+        <img src="https://picsum.photos/id/1025/600/400" alt="Habitación Mini Suite" class="card-img">
+        <div class="card-content">
+          <div class="card-price">Desde L. 2,300.00</div>
+          <h3 class="card-title">Mini Suite</h3>
+          <div class="card-features">
+            <span class="feature"><span class="material-icons-outlined">person</span> 2</span>
+            <span class="feature"><span class="material-icons-outlined">chair</span> Sala de Estar</span>
+          </div>
+          <p class="card-desc">Confort y estilo con sala de estar, mesa de trabajo y balcón. Perfecto para combinar descanso y productividad.</p>
+          <a href="#" class="btn btn-outline" style="color: var(--green-main); border-color: var(--green-main); width: 100%; justify-content: center;">Más Información</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESTAURANTE -->
+  <section id="restaurante" class="section">
+    <div class="restaurant-layout">
+      <div>
+        <span class="section-tag">Gastronomía Excepcional</span>
+        <h2 class="section-title">Sabores que conectan con la tierra</h2>
+        <p class="section-desc">Punto medio perfecto entre Tegucigalpa y San Pedro Sula. Disfruta de un amplio menú con áreas climatizadas y al aire libre.</p>
+        
+        <ul class="feature-list">
+          <li>
+            <div class="feature-icon"><span class="material-icons-outlined">restaurant</span></div>
+            <div class="feature-text">
+              <h4>Área Climatizada</h4>
+              <p>Un ambiente interior cómodo y controlado, ideal para relajarte mientras disfrutas tus platillos favoritos.</p>
+            </div>
+          </li>
+          <li>
+            <div class="feature-icon"><span class="material-icons-outlined">deck</span></div>
+            <div class="feature-text">
+              <h4>Ranchón al Aire Libre</h4>
+              <p>Junto a la piscina, relájate en hamacas rodeado de la belleza natural y un ambiente familiar.</p>
+            </div>
+          </li>
+          <li>
+            <div class="feature-icon"><span class="material-icons-outlined">park</span></div>
+            <div class="feature-text">
+              <h4>Casa en el Árbol</h4>
+              <p>Experimenta una comida elevada en nuestra casa de tres niveles con vistas panorámicas increíbles.</p>
+            </div>
+          </li>
+        </ul>
+        <a href="https://menu.lanaturaleza.hn/" target="_blank" class="btn btn-primary">Ver Menú Digital</a>
+      </div>
+      <div>
+        <img src="https://picsum.photos/id/111/800/1000" alt="Restaurante La Naturaleza" class="restaurant-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- SOSTENIBILIDAD -->
+  <section class="sustainability">
+    <h2>Somos parte de Proyecto Aldea Global</h2>
+    <p>Al consumir nuestros productos y servicios, contribuyes directamente a la protección y conservación del <strong>Parque Nacional Azul Meámbar (PANACAM)</strong>.</p>
+    <a href="#" class="btn btn-primary">Conocer más sobre PANACAM</a>
+  </section>
+
+  <!-- CONVENCIONES -->
+  <section id="convenciones" class="section bg-light">
+    <div class="section-header">
+      <span class="section-tag">Eventos Corporativos y Sociales</span>
+      <h2 class="section-title">Centro de Convenciones</h2>
+      <p class="section-desc">Tres salones versátiles diseñados para satisfacer tus necesidades en eventos de cualquier tamaño.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-content">
+          <div class="feature-icon" style="width: fit-content; margin-bottom: 20px;"><span class="material-icons-outlined">groups</span></div>
+          <h3 class="card-title">Salón Mariposa</h3>
+          <p class="card-desc">Ideal para reuniones y conferencias íntimas. Equipado con todo lo necesario.</p>
+          <div class="card-features" style="flex-wrap: wrap;">
+            <span class="feature"><span class="material-icons-outlined">person</span> 40 personas</span>
+            <span class="feature"><span class="material-icons-outlined">wifi</span> WiFi</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="feature-icon" style="width: fit-content; margin-bottom: 20px;"><span class="material-icons-outlined">groups</span></div>
+          <h3 class="card-title">Salón Colibrí</h3>
+          <p class="card-desc">Un espacio acogedor y tranquilo, perfecto para juntas directivas o reuniones privadas.</p>
+          <div class="card-features" style="flex-wrap: wrap;">
+            <span class="feature"><span class="material-icons-outlined">person</span> 20 personas</span>
+            <span class="feature"><span class="material-icons-outlined">wifi</span> WiFi</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="feature-icon" style="width: fit-content; margin-bottom: 20px;"><span class="material-icons-outlined">celebration</span></div>
+          <h3 class="card-title">Salón Joya de los Lagos</h3>
+          <p class="card-desc">Nuestro salón más amplio y elegante. Perfecto para bodas, conferencias y grandes eventos.</p>
+          <div class="card-features" style="flex-wrap: wrap;">
+            <span class="feature"><span class="material-icons-outlined">person</span> 200 personas</span>
+            <span class="feature"><span class="material-icons-outlined">mic</span> Audio / Proyector</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h4 class="footer-title">La Naturaleza</h4>
+        <p style="opacity: 0.8; margin-bottom: 15px;">Carretera CA-5, km 160, Centro Turístico La Naturaleza El Cacao, Sector Lago de Yojoa, Cortés.</p>
+        <p style="opacity: 0.8;"><span class="material-icons-outlined" style="vertical-align: middle;">phone</span> +504 9928-5930</p>
+      </div>
+      <div>
+        <h4 class="footer-title">Enlaces Rápidos</h4>
+        <ul class="footer-links">
+          <li><a href="#alojamiento">Alojamiento</a></li>
+          <li><a href="#restaurante">Restaurante</a></li>
+          <li><a href="#convenciones">Convenciones</a></li>
+          <li><a href="#actividades">Mariposario & Aviturismo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Sostenibilidad</h4>
+        <p style="opacity: 0.8;">Un programa más de <strong>Proyecto Aldea Global</strong> (PAG Honduras). Contribuyendo al Parque Nacional Azul Meámbar.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Centro Turístico La Naturaleza. Todos los derechos reservados.
+    </div>
+  </footer>
+
+</body>
+</html>

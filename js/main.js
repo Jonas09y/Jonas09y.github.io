@@ -1,6 +1,6 @@
 const translations = {
   en: {
-    navAbout: "About",
+    navHub: "Home", navWeb: "Web Design", navAbout: "About",
     navPortfolio: "Portfolio",
     navServices: "Services",
     navTestimonials: "Testimonials",
@@ -79,7 +79,7 @@ const translations = {
     webdevF3: "Fast Loading",
     webdevF4: "SEO Ready",
     webdevFrom: "Starting from",
-    webdevBtn: "Get Started",
+    webdevBtn: "See My Web Work",
     footerCopy: "© 2026 Jonas Builds. All rights reserved.",
     p1: "Medieval Hub", p2: "Sky Lobby", p3: "Fantasy Terrain", p4: "Battle Arena",
     p5: "Fantasy Terrain", p6: "Mountain World", p7: "Nether Arena", p8: "Galactic Lobby",
@@ -92,7 +92,7 @@ const translations = {
     viewerHint: "Drag to rotate · Scroll to zoom · Right-click to pan",
   },
   es: {
-    navAbout: "Sobre Mí",
+    navHub: "Inicio", navWeb: "Diseño Web", navAbout: "Sobre Mí",
     navPortfolio: "Portafolio",
     navServices: "Servicios",
     navTestimonials: "Testimonios",
@@ -171,7 +171,7 @@ const translations = {
     webdevF3: "Carga Rápida",
     webdevF4: "SEO Listo",
     webdevFrom: "Desde",
-    webdevBtn: "Comenzar",
+    webdevBtn: "Ver Mis Trabajos Web",
     footerCopy: "© 2026 Jonas Builds. Todos los derechos reservados.",
     p1: "Hub Medieval", p2: "Lobby Celestial", p3: "Terreno Fantasía", p4: "Arena de Batalla",
     p5: "Terreno Fantasía", p6: "Mundo Montañoso", p7: "Arena Nether", p8: "Lobby Galáctico",
