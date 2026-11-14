@@ -203,7 +203,8 @@ const T = {
     q5: "¿Cómo acordamos el pago?", a5: "Podemos trabajar de manera segura a través de mi perfil de Fiverr o coordinar directamente por Discord.",
     ctaLabel: "Contacto", ctaTitle: "¿Tienes una idea en mente?",
     ctaDesc: "Escríbeme por Discord o Fiverr. Cuéntame sobre tu proyecto y te responderé con una cotización sin compromiso.",
-    fHome: "Inicio", mFeatures: "Detalles del diseño", mClose: "Cerrar", mQuote: "Cotizar este estilo"
+    fHome: "Inicio", mFeatures: "Detalles del diseño", mClose: "Cerrar", mQuote: "Cotizar este estilo",
+    tabDesign: "Ver Diseño", tabInfo: "Detalles", zoom100: "Zoom 100%", zoomFit: "Ajustar"
   },
   en: {
     navWork: "Projects", navServices: "Services", navPricing: "Pricing", navProcess: "Process", navCta: "Get a quote",
@@ -248,7 +249,8 @@ const T = {
     q5: "How are payments handled?", a5: "We can work securely via my Fiverr profile or coordinate directly on Discord.",
     ctaLabel: "Contact", ctaTitle: "Have a project in mind?",
     ctaDesc: "Message me on Discord or Fiverr. Tell me about your idea and I will get back to you with a free quote.",
-    fHome: "Home", mFeatures: "Design highlights", mClose: "Close", mQuote: "Quote this style"
+    fHome: "Home", mFeatures: "Design highlights", mClose: "Close", mQuote: "Quote this style",
+    tabDesign: "View Design", tabInfo: "Details", zoom100: "Zoom 100%", zoomFit: "Fit screen"
   }
 };
 
@@ -307,6 +309,32 @@ $("#filters").addEventListener("click", e => {
 });
 
 const modal = $("#modal");
+
+function switchModalTab(tabName) {
+  const isPreview = tabName === "preview";
+  $("#tabPreviewBtn")?.classList.toggle("active", isPreview);
+  $("#tabInfoBtn")?.classList.toggle("active", !isPreview);
+  $("#panePreview")?.classList.toggle("active", isPreview);
+  $("#paneInfo")?.classList.toggle("active", !isPreview);
+  const zoomBtn = $("#zoomToggleBtn");
+  if (zoomBtn) zoomBtn.style.display = isPreview ? "inline-flex" : "none";
+}
+$("#tabPreviewBtn")?.addEventListener("click", () => switchModalTab("preview"));
+$("#tabInfoBtn")?.addEventListener("click", () => switchModalTab("info"));
+$("#floatInfoBtn")?.addEventListener("click", () => switchModalTab("info"));
+
+let isZoomed = false;
+function setZoom(zoomed) {
+  isZoomed = zoomed;
+  const sc = $("#mScroll");
+  sc?.classList.toggle("is-zoom", isZoomed);
+  const icon = $("#zoomIcon");
+  const label = $("#zoomLabel");
+  if (icon) icon.textContent = isZoomed ? "↔" : "🔍";
+  if (label) label.textContent = isZoomed ? t("zoomFit") : t("zoom100");
+}
+$("#zoomToggleBtn")?.addEventListener("click", () => setZoom(!isZoomed));
+
 function openModal(id) {
   const p = PROJECTS.find(x => x.id === id); if (!p) return;
   const L = p[lang];
@@ -315,7 +343,10 @@ function openModal(id) {
   sc.classList.toggle("is-phone", !!p.phone);
   $("#mImg").src = p.phone ? `assets/web/${p.img}.webp` : `assets/web/${p.img}-full.webp`;
   $("#mImg").alt = p.title;
+  switchModalTab("preview");
+  setZoom(false);
   sc.scrollTop = 0;
+  sc.scrollLeft = 0;
   $("#mCat").textContent = L.cat;
   $("#mTitle").textContent = p.title;
   $("#mDesc").textContent = L.desc;
@@ -329,6 +360,7 @@ function openModal(id) {
 function closeModal() {
   modal.classList.remove("open"); modal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
+  setZoom(false);
   if (location.hash.startsWith("#preview-")) {
     history.replaceState(null, "", "#work");
   }

@@ -274,16 +274,45 @@
   <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="modal-backdrop" data-close></div>
     <div class="modal-panel">
-      <button class="modal-close" data-close aria-label="Close">✕</button>
-      <div class="modal-shot">
+      <header class="modal-header">
+        <div class="modal-tabs">
+          <button class="modal-tab active" id="tabPreviewBtn" data-tab="preview">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span data-i18n="tabDesign">Ver Diseño</span>
+          </button>
+          <button class="modal-tab" id="tabInfoBtn" data-tab="info">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <span data-i18n="tabInfo">Detalles</span>
+          </button>
+        </div>
+        <div class="modal-header-right">
+          <button class="zoom-btn" id="zoomToggleBtn" title="Zoom">
+            <span id="zoomIcon">🔍</span> <span id="zoomLabel" data-i18n="zoom100">Zoom 100%</span>
+          </button>
+          <button class="modal-close" data-close aria-label="Close">✕</button>
+        </div>
+      </header>
+
+      <div class="modal-shot tab-pane active" id="panePreview">
         <div class="mock-bar"><i></i><i></i><i></i><span id="mUrl"></span></div>
-        <div class="modal-scroll" id="mScroll"><img id="mImg" alt=""></div>
+        <div class="modal-scroll" id="mScroll">
+          <img id="mImg" alt="">
+        </div>
+        <div class="modal-floating-bar">
+          <button class="btn btn-dark btn-sm" id="floatInfoBtn">
+            <span>📋</span> <span data-i18n="tabInfo">Detalles</span>
+          </button>
+          <a href="#contact" class="btn btn-gold btn-sm" data-close>
+            <span data-i18n="navCta">Cotizar</span>
+          </a>
+        </div>
       </div>
-      <div class="modal-info">
+
+      <div class="modal-info tab-pane" id="paneInfo">
         <span class="pill" id="mCat"></span>
         <h3 id="mTitle"></h3>
         <p id="mDesc"></p>
-        <h5 data-i18n="mFeatures">Características</h5>
+        <h5 data-i18n="mFeatures">Detalles del diseño</h5>
         <ul class="checks" id="mFeatures"></ul>
         <div class="tags" id="mTags"></div>
         <div class="row-btns" id="mBtns"></div>
