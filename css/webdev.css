@@ -448,7 +448,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .modal-backdrop { position: absolute; inset: 0; background: rgba(20,17,14,.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
 
 .modal-panel {
-  position: relative; width: min(1200px, 100%); max-height: calc(100vh - 48px);
+  position: relative; width: min(1200px, 100%); height: min(92vh, 880px); max-height: calc(100vh - 48px);
   display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: var(--ivory);
   transform: translateY(30px) scale(.98); transition: transform .45s var(--ease); box-shadow: 0 50px 120px rgba(0,0,0,.4);
 }
@@ -456,7 +456,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 
 /* Topbar */
 .modal-topbar {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
   padding: 14px 24px; background: #fff; border-bottom: 1px solid var(--line); z-index: 10;
 }
 .modal-topbar-info { display: flex; align-items: baseline; gap: 10px; }
@@ -473,26 +473,32 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 
 /* Body Container */
 .modal-body-container {
-  display: grid; grid-template-columns: 1.45fr 1fr;
-  flex: 1; min-height: 0; overflow: hidden; max-height: calc(100vh - 120px);
+  display: grid; grid-template-columns: 1.45fr 1fr; grid-template-rows: minmax(0, 1fr);
+  flex: 1 1 0%; min-height: 0; height: 100%; overflow: hidden;
 }
 
 /* Pane 1: Design Viewport */
 .modal-pane-design {
   display: flex; flex-direction: column; height: 100%; min-height: 0;
-  background: #f7f4ee; border-right: 1px solid var(--line);
+  background: #f7f4ee; border-right: 1px solid var(--line); overflow: hidden;
 }
 .design-hint {
-  display: flex; align-items: center; justify-content: center; gap: 6px;
+  display: flex; align-items: center; justify-content: center; gap: 6px; flex-shrink: 0;
   font-size: .75rem; font-weight: 600; color: var(--muted);
   background: #fff; padding: 7px 14px; border-bottom: 1px solid var(--line);
 }
 .design-hint span:first-child { font-size: .95rem; color: var(--gold-dark); }
 
 .design-viewport {
-  flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden;
+  flex: 1 1 0%; min-height: 0; height: 100%; overflow-y: auto; overflow-x: hidden;
   background: #ece7df; -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin; scrollbar-color: rgba(184, 134, 11, 0.5) rgba(0, 0, 0, 0.05);
 }
+.design-viewport::-webkit-scrollbar { width: 8px; }
+.design-viewport::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); }
+.design-viewport::-webkit-scrollbar-thumb { background: rgba(184, 134, 11, 0.5); border-radius: 4px; }
+.design-viewport::-webkit-scrollbar-thumb:hover { background: rgba(184, 134, 11, 0.8); }
+
 .browser-mock-bar {
   display: flex; align-items: center; gap: 6px; padding: 9px 16px;
   background: #f5f1eb; border-bottom: 1px solid var(--line);
@@ -524,8 +530,13 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 
 /* Pane 2: Info */
 .modal-pane-info {
-  display: block; overflow-y: auto; height: 100%; background: var(--ivory);
+  display: block; overflow-y: auto; height: 100%; min-height: 0; background: var(--ivory);
+  scrollbar-width: thin; scrollbar-color: rgba(184, 134, 11, 0.5) rgba(0, 0, 0, 0.05);
 }
+.modal-pane-info::-webkit-scrollbar { width: 8px; }
+.modal-pane-info::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); }
+.modal-pane-info::-webkit-scrollbar-thumb { background: rgba(184, 134, 11, 0.5); border-radius: 4px; }
+.modal-pane-info::-webkit-scrollbar-thumb:hover { background: rgba(184, 134, 11, 0.8); }
 .info-content { padding: 36px 32px; }
 .info-content h3 { font-family: var(--serif); font-size: 2.3rem; font-weight: 600; line-height: 1.1; margin: 14px 0 12px; }
 .info-content > p { color: var(--muted); margin-bottom: 24px; font-size: .95rem; }
