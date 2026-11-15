@@ -182,14 +182,21 @@ const T = {
     s4t: "Catálogos & Tiendas", s4d: "Catálogos visuales de productos con carrito de compras y experiencia fluida.",
     s5t: "Plataformas Educativas", s5d: "Estructuras web con portales para alumnos, profesores y padres de familia.",
     s6t: "Webs para Servidores", s6d: "Páginas temáticas para servidores de videojuegos con rangos y comunidad de Discord.",
-    priceLabel: "Precios", priceTitle: "Planes claros y transparentes", priceDesc: "Elige un punto de partida. Cada proyecto se cotiza según tus requerimientos específicos.",
-    from: "Desde", quote: "A cotizar", popular: "Más popular", choose: "Empezar", ask: "Pedir cotización",
-    p1t: "Landing Page", p1s: "Ideal para presentar tu negocio con presencia profesional.",
-    p1l1: "Diseño 100% personalizado", p1l2: "Adaptada a celular y tablet", p1l3: "Botón directo de WhatsApp / contacto", p1l4: "Carga rápida y optimización", p1l5: "Archivos listos para publicar",
-    p2t: "Sitio Completo de Negocio", p2s: "Múltiples secciones para restaurantes, turismo y empresas.",
-    p2l1: "Todo lo de Landing Page", p2l2: "Menú digital o catálogo de productos", p2l3: "Galería de fotos, mapa y ubicación", p2l4: "Bilingüe (Español / Inglés)", p2l5: "Animaciones y microinteracciones",
-    p3t: "Sistema / Dashboard a Medida", p3s: "Diseño de paneles y herramientas de gestión.",
-    p3l1: "Diseño de panel administrativo", p3l2: "Estructura para base de datos", p3l3: "Reportes en PDF y gráficas", p3l4: "Pantallas de login y permisos", p3l5: "Adaptable como app web (PWA)",
+    priceLabel: "Precios", priceTitle: "Planes claros y transparentes", priceDesc: "Elige el plan que mejor se adapte a tu objetivo. Cada propuesta se personaliza para tu negocio.",
+    from: "Desde", investment: "Inversión", quote: "A cotizar", popular: "Más popular", choose: "Empezar", ask: "Pedir cotización",
+    aiBadge: "✨ Chat IA 24/7", corpBadge: "Empresarial", from500: "Desde $500",
+    p1t: "Landing Express", p1s: "1 página moderna con botón a WhatsApp. Ideal para empezar a vender ya.",
+    p1l1: "Diseño 100% personalizado", p1l2: "Adaptada a celular y tablet", p1l3: "Botón directo a WhatsApp", p1l4: "Carga ultra rápida (< 1s)", p1l5: "SEO básico y puesta en marcha",
+    p1btn: "Empezar por $100",
+    p2t: "Negocio / Menú Pro", p2s: "Sitio multi-sección para restaurantes, clínicas y comercios locales.",
+    p2l1: "Todo lo de Landing Express", p2l2: "Menú digital o catálogo", p2l3: "Galería, mapa y horarios", p2l4: "Búsqueda local en Google", p2l5: "Animaciones e interacciones",
+    p2btn: "Pedir cotización",
+    p3t: "Web con Chatbot IA", p3s: "Atención 24/7 y captación de clientes en automático con Inteligencia Artificial.",
+    p3l1: "Todo lo de Negocio Pro", p3l2: "Chatbot IA entrenado con tu negocio", p3l3: "Respuestas automáticas 24/7", p3l4: "Captura de prospectos (leads)", p3l5: "Envío de clientes a tu WhatsApp",
+    p3btn: "Quiero Web con IA",
+    p4t: "Sistema a Medida", p4s: "Dashboards privados, control de clientes, membresías e inventario.",
+    p4l1: "Panel privado con login y roles", p4l2: "Base de datos en la nube", p4l3: "Gestión de clientes / inventario", p4l4: "Reportes PDF / Excel y gráficas", p4l5: "Instalable en móvil como PWA",
+    p4btn: "Consultar proyecto",
     procLabel: "Metodología", procTitle: "Cómo trabajo tu proyecto",
     st1t: "Conversación inicial", st1d: "Me cuentas sobre tu negocio, tus metas y tus referencias visuales.",
     st2t: "Propuesta visual", st2d: "Creo una maqueta de diseño con tus colores, tipografía y estilo.",
@@ -204,7 +211,8 @@ const T = {
     ctaLabel: "Contacto", ctaTitle: "¿Tienes una idea en mente?",
     ctaDesc: "Escríbeme por Discord o Fiverr. Cuéntame sobre tu proyecto y te responderé con una cotización sin compromiso.",
     fHome: "Inicio", mFeatures: "Detalles del diseño", mClose: "Cerrar", mQuote: "Cotizar este estilo",
-    tabDesign: "Ver Diseño", tabInfo: "Detalles", zoom100: "Zoom 100%", zoomFit: "Ajustar"
+    tabDesign: "Diseño", tabInfo: "Detalles", scrollHint: "Desliza para ver la página completa",
+    likeThis: "¿Te gustaría un diseño con este estilo?"
   },
   en: {
     navWork: "Projects", navServices: "Services", navPricing: "Pricing", navProcess: "Process", navCta: "Get a quote",
@@ -228,14 +236,21 @@ const T = {
     s4t: "Catalogs & Stores", s4d: "Visual product catalogs with a shopping cart and seamless browsing flow.",
     s5t: "Educational Platforms", s5d: "Organized web structures with dedicated portals for students, teachers, and parents.",
     s6t: "Gaming Server Websites", s6d: "Themed gaming server pages with rank cards, store layout, and Discord community integration.",
-    priceLabel: "Pricing", priceTitle: "Clear, transparent pricing", priceDesc: "Choose a starting tier. Every project is quoted based on your exact requirements.",
-    from: "Starting from", quote: "Custom quote", popular: "Most popular", choose: "Get started", ask: "Request quote",
-    p1t: "Landing Page", p1s: "Ideal to showcase your business with a professional web presence.",
-    p1l1: "100% custom visual design", p1l2: "Mobile and tablet ready", p1l3: "Direct WhatsApp / contact button", p1l4: "Fast loading and clean structure", p1l5: "Files ready for hosting",
-    p2t: "Full Business Website", p2s: "Multiple sections for restaurants, tourism, and companies.",
-    p2l1: "Everything in Landing Page", p2l2: "Digital menu or product catalog", p2l3: "Photo gallery, map, and directions", p2l4: "Bilingual (Spanish / English)", p2l5: "Animations and micro-interactions",
-    p3t: "Custom Dashboard / System", p3s: "Management dashboard and panel interfaces.",
-    p3l1: "Admin dashboard design", p3l2: "Database architecture plan", p3l3: "PDF reports and chart layouts", p3l4: "Login and permissions screens", p3l5: "Installable as a web app (PWA)",
+    priceLabel: "Pricing", priceTitle: "Clear, transparent pricing", priceDesc: "Choose the tier that best fits your goals. Every website is customized to your exact needs.",
+    from: "Starting from", investment: "Investment", quote: "Custom quote", popular: "Most popular", choose: "Get started", ask: "Request quote",
+    aiBadge: "✨ 24/7 AI Chat", corpBadge: "Enterprise", from500: "Starting at $500",
+    p1t: "Landing Express", p1s: "1 high-converting page with direct WhatsApp button. Ready to sell fast.",
+    p1l1: "100% custom visual design", p1l2: "Mobile & tablet responsive", p1l3: "Floating WhatsApp button", p1l4: "Ultra-fast load speed (< 1s)", p1l5: "Basic SEO & domain setup",
+    p1btn: "Start for $100",
+    p2t: "Business / Menu Pro", p2s: "Multi-section website for restaurants, clinics, tourism and local businesses.",
+    p2l1: "Everything in Landing Express", p2l2: "Digital menu or product catalog", p2l3: "Photo gallery, map & hours", p2l4: "Local Google SEO optimization", p2l5: "Animations & smooth interactions",
+    p2btn: "Request quote",
+    p3t: "Web with AI Chatbot", p3s: "24/7 automated client support and lead capture powered by Artificial Intelligence.",
+    p3l1: "Everything in Business Pro", p3l2: "Custom AI chatbot trained on your business", p3l3: "24/7 instant automated replies", p3l4: "Automatic lead qualification", p3l5: "Direct customer leads to WhatsApp",
+    p3btn: "Get Web with AI",
+    p4t: "Custom Web System", p4s: "Private management dashboards, customer control, memberships, and inventory.",
+    p4l1: "Secure admin panel with user roles", p4l2: "Real-time cloud database", p4l3: "Client / inventory management", p4l4: "PDF / Excel reports & charts", p4l5: "Installable as mobile app (PWA)",
+    p4btn: "Discuss custom project",
     procLabel: "Methodology", procTitle: "How I build your project",
     st1t: "Initial conversation", st1d: "We discuss your brand, goals, and visual preferences.",
     st2t: "Visual mockup", st2d: "I draft a design concept with your colors, typography, and content.",
@@ -250,7 +265,8 @@ const T = {
     ctaLabel: "Contact", ctaTitle: "Have a project in mind?",
     ctaDesc: "Message me on Discord or Fiverr. Tell me about your idea and I will get back to you with a free quote.",
     fHome: "Home", mFeatures: "Design highlights", mClose: "Close", mQuote: "Quote this style",
-    tabDesign: "View Design", tabInfo: "Details", zoom100: "Zoom 100%", zoomFit: "Fit screen"
+    tabDesign: "Design", tabInfo: "Details", scrollHint: "Scroll down to see the full page",
+    likeThis: "Would you like a design in this style?"
   }
 };
 
@@ -311,48 +327,41 @@ $("#filters").addEventListener("click", e => {
 const modal = $("#modal");
 
 function switchModalTab(tabName) {
-  const isPreview = tabName === "preview";
-  $("#tabPreviewBtn")?.classList.toggle("active", isPreview);
-  $("#tabInfoBtn")?.classList.toggle("active", !isPreview);
-  $("#panePreview")?.classList.toggle("active", isPreview);
-  $("#paneInfo")?.classList.toggle("active", !isPreview);
-  const zoomBtn = $("#zoomToggleBtn");
-  if (zoomBtn) zoomBtn.style.display = isPreview ? "inline-flex" : "none";
+  const isDesign = tabName === "design";
+  $("#segDesignBtn")?.classList.toggle("active", isDesign);
+  $("#segInfoBtn")?.classList.toggle("active", !isDesign);
+  $("#paneDesign")?.classList.toggle("active", isDesign);
+  $("#paneInfo")?.classList.toggle("active", !isDesign);
 }
-$("#tabPreviewBtn")?.addEventListener("click", () => switchModalTab("preview"));
-$("#tabInfoBtn")?.addEventListener("click", () => switchModalTab("info"));
-$("#floatInfoBtn")?.addEventListener("click", () => switchModalTab("info"));
-
-let isZoomed = false;
-function setZoom(zoomed) {
-  isZoomed = zoomed;
-  const sc = $("#mScroll");
-  sc?.classList.toggle("is-zoom", isZoomed);
-  const icon = $("#zoomIcon");
-  const label = $("#zoomLabel");
-  if (icon) icon.textContent = isZoomed ? "↔" : "🔍";
-  if (label) label.textContent = isZoomed ? t("zoomFit") : t("zoom100");
-}
-$("#zoomToggleBtn")?.addEventListener("click", () => setZoom(!isZoomed));
+$("#segDesignBtn")?.addEventListener("click", () => switchModalTab("design"));
+$("#segInfoBtn")?.addEventListener("click", () => switchModalTab("info"));
 
 function openModal(id) {
   const p = PROJECTS.find(x => x.id === id); if (!p) return;
   const L = p[lang];
-  $("#mUrl").textContent = p.mock;
+  const mTopCat = $("#mTopCat"); if (mTopCat) mTopCat.textContent = L.cat;
+  const mTopTitle = $("#mTopTitle"); if (mTopTitle) mTopTitle.textContent = p.title;
+  const mUrl = $("#mUrl"); if (mUrl) mUrl.textContent = p.mock;
+
   const sc = $("#mScroll");
-  sc.classList.toggle("is-phone", !!p.phone);
-  $("#mImg").src = p.phone ? `assets/web/${p.img}.webp` : `assets/web/${p.img}-full.webp`;
-  $("#mImg").alt = p.title;
-  switchModalTab("preview");
-  setZoom(false);
-  sc.scrollTop = 0;
-  sc.scrollLeft = 0;
-  $("#mCat").textContent = L.cat;
-  $("#mTitle").textContent = p.title;
-  $("#mDesc").textContent = L.desc;
-  $("#mFeatures").innerHTML = L.features.map(f => `<li>${esc(f)}</li>`).join("");
-  $("#mTags").innerHTML = p.tags.map(x => `<span>${esc(x)}</span>`).join("");
-  $("#mBtns").innerHTML = `<a href="#contact" class="btn btn-gold" data-close>${t("mQuote")}</a><button class="btn btn-ghost-dark" data-close>${t("mClose")}</button>`;
+  sc?.classList.toggle("is-phone", !!p.phone);
+  const img = $("#mImg");
+  if (img) {
+    img.src = p.phone ? `assets/web/${p.img}.webp` : `assets/web/${p.img}-full.webp`;
+    img.alt = p.title;
+  }
+  switchModalTab("design");
+  const vp = $("#designViewport");
+  if (vp) vp.scrollTop = 0;
+
+  const mCat = $("#mCat"); if (mCat) mCat.textContent = L.cat;
+  const mTitle = $("#mTitle"); if (mTitle) mTitle.textContent = p.title;
+  const mDesc = $("#mDesc"); if (mDesc) mDesc.textContent = L.desc;
+  const mFeatures = $("#mFeatures");
+  if (mFeatures) mFeatures.innerHTML = L.features.map(f => `<li>${esc(f)}</li>`).join("");
+  const mTags = $("#mTags");
+  if (mTags) mTags.innerHTML = p.tags.map(x => `<span>${esc(x)}</span>`).join("");
+
   modal.classList.add("open"); modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
   history.replaceState(null, "", `#preview-${p.id}`);
@@ -360,7 +369,6 @@ function openModal(id) {
 function closeModal() {
   modal.classList.remove("open"); modal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
-  setZoom(false);
   if (location.hash.startsWith("#preview-")) {
     history.replaceState(null, "", "#work");
   }

@@ -1,300 +1,370 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jonas Builds — Minecraft Builds & Web Design</title>
-  <meta name="description" content="Jonas Builds — premium Minecraft builds and modern websites for businesses, restaurants and servers.">
-  <meta property="og:title" content="Jonas Builds — Minecraft Builds & Web Design">
-  <meta property="og:description" content="Premium Minecraft builds and modern, fast websites.">
+  <title>Jonas Builds — Diseño Web, Landing Pages & Sistemas a Medida</title>
+  <meta name="description" content="Diseño y desarrollo de sitios web modernos y a medida: landing pages desde $100 con botón directo a WhatsApp, webs para negocios y restaurantes, chatbots con IA y sistemas a medida.">
+  <meta property="og:title" content="Jonas Builds — Diseño Web & Sistemas a Medida">
+  <meta property="og:description" content="Sitios web profesionales, landing pages desde $100 y sistemas web que hacen crecer tu negocio.">
   <meta property="og:image" content="assets/web/kota.webp">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232a2520'/><text x='50' y='66' font-family='Georgia' font-size='46' text-anchor='middle' fill='%23c9a96e'>JB</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --ivory: #faf8f5;
-      --pearl: #f3f0eb;
-      --dark: #1f1b17;
-      --text: #2a2520;
-      --muted: #8a8478;
-      --gold: #c9a96e;
-      --gold-light: #e2c891;
-      --wine: #8B2252;
-      --ease: cubic-bezier(0.22, 1, 0.36, 1);
-      --split: 50%;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--dark);
-      color: var(--ivory);
-      overflow: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; text-decoration: none; }
-
-    /* ---------- Top bar ---------- */
-    .topbar {
-      position: fixed; inset: 0 0 auto 0; z-index: 50;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 26px 44px;
-      pointer-events: none;
-    }
-    .topbar > * { pointer-events: auto; }
-    .brand {
-      font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em;
-    }
-    .brand span { color: var(--gold); }
-    .lang {
-      display: flex; gap: 4px; padding: 5px; border-radius: 40px;
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    }
-    .lang button {
-      border: 0; background: transparent; color: var(--ivory); cursor: pointer;
-      font: 600 0.78rem 'Inter', sans-serif; padding: 7px 14px; border-radius: 30px; transition: .3s var(--ease);
-    }
-    .lang button.active { background: var(--gold); color: var(--dark); }
-
-    /* ---------- Split ---------- */
-    .split { position: relative; height: 100vh; height: 100dvh; width: 100%; }
-    .panel {
-      position: absolute; inset: 0;
-      display: flex; align-items: center;
-      transition: clip-path 0.9s var(--ease);
-      overflow: hidden;
-    }
-    .panel.mc { clip-path: polygon(0 0, calc(var(--split) + 6vw) 0, calc(var(--split) - 6vw) 100%, 0 100%); z-index: 1; }
-    .panel.web { clip-path: polygon(calc(var(--split) + 6vw) 0, 100% 0, 100% 100%, calc(var(--split) - 6vw) 100%); z-index: 2; }
-    .split { transition: --split .9s var(--ease); }
-
-    .bg { position: absolute; inset: -4%; background-size: cover; background-position: center;
-      transform: scale(1.04); transition: transform 1.6s var(--ease), filter .9s var(--ease); filter: saturate(.75) brightness(.55); }
-    .panel:hover .bg { transform: scale(1); filter: saturate(1.05) brightness(.7); }
-    .mc .bg { background-image: url('assets/images/Monta%C3%B1as.png'); }
-    .web .bg { background-image: url('assets/web/kota.webp'); }
-    .shade { position: absolute; inset: 0; }
-    .mc .shade { background: linear-gradient(100deg, rgba(20,16,12,.85) 0%, rgba(20,16,12,.35) 55%, transparent 80%); }
-    .web .shade { background: linear-gradient(260deg, rgba(40,10,26,.88) 0%, rgba(40,10,26,.4) 55%, transparent 80%); }
-
-    .content {
-      position: relative; z-index: 3; width: 44vw; max-width: 560px;
-      padding: 0 0 0 7vw; transition: transform .8s var(--ease), opacity .6s;
-    }
-    .web .content { margin-left: auto; padding: 0 7vw 0 0; text-align: right; }
-    .web .content .chips, .web .content .cta-row { justify-content: flex-end; }
-
-    .kicker {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: .72rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-light);
-      margin-bottom: 18px;
-    }
-    .kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; }
-    .web .kicker { flex-direction: row-reverse; }
-    .title {
-      font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.02;
-      font-size: clamp(2.6rem, 5vw, 5.2rem); letter-spacing: -0.02em; margin-bottom: 18px;
-    }
-    .title em { font-style: italic; color: var(--gold); font-weight: 500; }
-    .desc { color: rgba(250,248,245,.78); font-size: 1.02rem; line-height: 1.7; margin-bottom: 26px; max-width: 440px; }
-    .web .desc { margin-left: auto; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
-    .chip { font-size: .74rem; font-weight: 500; padding: 6px 12px; border-radius: 30px;
-      border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06); backdrop-filter: blur(6px); }
-    .cta-row { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 15px 28px; border-radius: 50px; font-weight: 600; font-size: .92rem;
-      background: var(--ivory); color: var(--dark); transition: .4s var(--ease);
-    }
-    .btn svg { transition: transform .4s var(--ease); }
-    .panel:hover .btn { background: var(--gold); }
-    .panel:hover .btn svg { transform: translateX(4px); }
-    .price { font-size: .82rem; color: rgba(250,248,245,.7); line-height: 1.3; }
-    .price b { display: block; font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--ivory); font-weight: 600; }
-
-    /* Center seal */
-    .seal {
-      position: absolute; z-index: 10; top: 50%; left: var(--split); transform: translate(-50%, -50%);
-      width: 96px; height: 96px; border-radius: 50%;
-      background: #ffffff; color: var(--text);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      border: 1.5px solid var(--gold);
-      pointer-events: none;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35), 0 0 0 6px rgba(250,248,245,.12);
-      transition: left .9s var(--ease), transform .4s ease;
-    }
-    .seal-monogram {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.1rem;
-      font-weight: 600;
-      line-height: 1;
-      color: var(--dark);
-      letter-spacing: -0.02em;
-    }
-    .seal-sub {
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--wine);
-      margin-top: 3px;
-    }
-
-    /* Footer strip */
-    .footer {
-      position: fixed; inset: auto 0 0 0; z-index: 50;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 22px 44px; font-size: .78rem; color: rgba(250,248,245,.6); pointer-events: none;
-    }
-    .footer > * { pointer-events: auto; }
-    .socials { display: flex; gap: 10px; }
-    .socials a {
-      width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center;
-      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); color: var(--ivory);
-      backdrop-filter: blur(10px); transition: .3s var(--ease);
-    }
-    .socials a:hover { background: var(--gold); color: var(--dark); transform: translateY(-3px); }
-
-    /* Entry animation */
-    .content > * { opacity: 0; transform: translateY(24px); animation: rise .9s var(--ease) forwards; }
-    .content > *:nth-child(2) { animation-delay: .08s; }
-    .content > *:nth-child(3) { animation-delay: .16s; }
-    .content > *:nth-child(4) { animation-delay: .24s; }
-    .content > *:nth-child(5) { animation-delay: .32s; }
-    .web .content > * { animation-delay: calc(var(--d, 0s) + .15s); }
-    @keyframes rise { to { opacity: 1; transform: none; } }
-
-    .curtain { position: fixed; inset: 0; z-index: 999; background: var(--ivory); opacity: 0; pointer-events: none; transition: opacity .6s ease; }
-    .curtain.on { opacity: 1; pointer-events: all; }
-
-    [data-i18n] { transition: opacity .25s; }
-
-    /* ---------- Mobile ---------- */
-    @media (max-width: 860px) {
-      body { overflow: auto; }
-      .split { height: auto; }
-      .panel, .panel.mc, .panel.web { position: relative; clip-path: none !important; min-height: 50vh; min-height: 50dvh; padding: 110px 0 60px; }
-      .panel.web { padding: 60px 0 110px; }
-      .content, .web .content { width: 100%; max-width: none; padding: 0 26px; text-align: left; margin: 0; }
-      .web .kicker { flex-direction: row; }
-      .web .content .chips, .web .content .cta-row { justify-content: flex-start; }
-      .web .desc { margin-left: 0; }
-      .mc .shade, .web .shade { background: linear-gradient(180deg, rgba(20,16,12,.55), rgba(20,16,12,.85)); }
-      .seal { display: none; }
-      .topbar { padding: 20px 22px; background: linear-gradient(180deg, rgba(20,16,12,.7), transparent); }
-      .footer { position: relative; background: var(--dark); padding: 26px 22px; flex-direction: column-reverse; gap: 16px; }
-    }
-    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .content > * { opacity: 1; transform: none; } }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/webdev.css?v=20261115_1">
 </head>
 <body>
-  <div class="curtain" id="curtain"></div>
 
-  <header class="topbar">
-    <a href="index.html" class="brand">Jonas<span>Builds</span></a>
-    <div class="lang">
-      <button data-lang="en" class="active">EN</button>
-      <button data-lang="es">ES</button>
+  <!-- ============ NAV ============ -->
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="brand">Jonas<span>Builds</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#work" data-i18n="navWork">Trabajos</a>
+        <a href="#services" data-i18n="navServices">Servicios</a>
+        <a href="#pricing" data-i18n="navPricing">Precios</a>
+        <a href="#process" data-i18n="navProcess">Proceso</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang"><button data-lang="es">ES</button><button data-lang="en">EN</button></div>
+        <a href="#contact" class="btn btn-dark btn-sm" data-i18n="navCta">Cotizar</a>
+        <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow reveal"><span class="dot"></span><span data-i18n="heroEyebrow">Disponible para nuevos proyectos</span></span>
+        <h1 class="reveal">
+          <span data-i18n="heroT1">Sitios web que</span><br>
+          <em data-i18n="heroT2">hacen crecer</em> <span data-i18n="heroT3">tu negocio.</span>
+        </h1>
+        <p class="lead reveal" data-i18n="heroLead">Diseño y desarrollo páginas web modernas, rápidas y a medida — desde landing pages para restaurantes hasta sistemas de gestión y tiendas online. Sin plantillas genéricas.</p>
+        <div class="hero-ctas reveal">
+          <a href="#work" class="btn btn-gold"><span data-i18n="heroBtn1">Ver mis trabajos</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          <a href="#contact" class="btn btn-ghost" data-i18n="heroBtn2">Hablemos de tu proyecto</a>
+        </div>
+        <div class="hero-stats reveal">
+          <div><b data-count="9">9</b><span data-i18n="stat1">Proyectos destacados</span></div>
+          <div><b>5</b><span data-i18n="stat2">Industrias</span></div>
+          <div><b>$100</b><span data-i18n="stat3">Landing desde</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="mock mock-back">
+          <div class="mock-bar"><i></i><i></i><i></i></div>
+          <img src="assets/web/gympanel.webp" alt="GymPanel Pro">
+        </div>
+        <div class="mock mock-front">
+          <div class="mock-bar"><i></i><i></i><i></i><span>KOTA · Prototipo UI</span></div>
+          <img src="assets/web/kota.webp" alt="KOTA Restaurante">
+        </div>
+        <div class="phone">
+          <img src="assets/web/snaplist.webp" alt="SnapList app">
+        </div>
+        <div class="float-badge fb1">⚡ <span data-i18n="fb1">Carga rápida</span></div>
+        <div class="float-badge fb2">📱 <span data-i18n="fb2">100% responsive</span></div>
+      </div>
     </div>
   </header>
 
-  <main class="split" id="split">
-    <div class="seal" aria-hidden="true">
-      <span class="seal-monogram">JB</span>
-      <span class="seal-sub">JONAS</span>
+  <!-- ============ TECH MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Vite</span><span>Firebase</span><span>Node.js</span><span>Express</span><span>Discord.js</span><span>PWA</span><span>Chart.js</span><span>Gemini AI</span><span>SEO</span>
+      <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Vite</span><span>Firebase</span><span>Node.js</span><span>Express</span><span>Discord.js</span><span>PWA</span><span>Chart.js</span><span>Gemini AI</span><span>SEO</span>
     </div>
+  </div>
 
-    <a href="minecraft.html" class="panel mc" data-go>
-      <div class="bg"></div><div class="shade"></div>
-      <div class="content">
-        <div class="kicker" data-i18n="mcKicker">Service 01 · Gaming</div>
-        <h2 class="title">Minecraft<br><em data-i18n="mcTitle">Builds</em></h2>
-        <p class="desc" data-i18n="mcDesc">Lobbies, spawns, terrains and arenas for servers worldwide. 370+ orders delivered.</p>
-        <div class="chips"><span class="chip">Lobbies</span><span class="chip">Spawns</span><span class="chip" data-i18n="chipTerrain">Terrains</span><span class="chip" data-i18n="chip3d">3D Preview</span></div>
-        <div class="cta-row">
-          <span class="btn"><span data-i18n="mcBtn">Explore builds</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          <span class="price"><span data-i18n="from">Starting from</span><b>$25</b></span>
+  <!-- ============ FEATURED ============ -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="label" data-i18n="workLabel">Portafolio</span>
+        <h2 data-i18n="workTitle">Trabajos seleccionados</h2>
+        <p data-i18n="workDesc">Proyectos reales y demos funcionales. Pasa el cursor sobre cada pantalla para recorrer la página completa.</p>
+      </div>
+
+      <article class="featured reveal" data-open="kota" style="cursor:zoom-in">
+        <div class="featured-shot">
+          <div class="frame frame-lg">
+            <div class="mock-bar"><i></i><i></i><i></i><span>KOTA — Prototipo UI / UX</span></div>
+            <div class="screen"><img src="assets/web/kota-full.webp" alt="KOTA diseño completo" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="featured-info">
+          <span class="pill" data-i18n="featTag">Concepto de diseño · Restaurante</span>
+          <h3>KOTA</h3>
+          <p data-i18n="featDesc">Propuesta de diseño web para un restaurante, café y bar a orillas del Lago de Yojoa, Honduras. Estructurado para presentar el menú digital, galería fotográfica, ubicaciones con mapa y botón de reservas por WhatsApp.</p>
+          <ul class="checks">
+            <li data-i18n="featL1">Menú digital por categorías</li>
+            <li data-i18n="featL2">Reservas y contacto por WhatsApp</li>
+            <li data-i18n="featL3">Galería y ubicaciones con mapa</li>
+            <li data-i18n="featL4">Optimizado para móvil y SEO local</li>
+          </ul>
+          <div class="row-btns">
+            <button class="btn btn-dark" data-open="kota"><span data-i18n="viewDesign">Ver diseño completo</span> 🔍</button>
+            <a href="#contact" class="btn btn-ghost-dark" data-i18n="navCta">Cotizar uno similar</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="filters reveal" id="filters">
+        <button class="active" data-filter="all" data-i18n="fAll">Todos</button>
+        <button data-filter="business" data-i18n="fBusiness">Negocios & Turismo</button>
+        <button data-filter="apps" data-i18n="fApps">Sistemas & Apps</button>
+        <button data-filter="shop" data-i18n="fShop">E-commerce</button>
+        <button data-filter="gaming" data-i18n="fGaming">Gaming</button>
+      </div>
+
+      <div class="grid" id="grid"><!-- rendered by js --></div>
+
+      <p class="note reveal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <span data-i18n="demoNote">Aviso: Todos los proyectos expuestos son conceptos de diseño UI/UX y prototipos demostrativos para exhibir habilidades visuales y de maquetación web. No corresponden a sitios activos en producción ni procesan datos reales.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section section-pearl" id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="label" data-i18n="svcLabel">Servicios</span>
+        <h2 data-i18n="svcTitle">¿Qué puedo construir para ti?</h2>
+        <p data-i18n="svcDesc">Cada sitio se diseña desde cero según tu marca y tus objetivos.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc reveal"><div class="svc-ic">🚀</div><h4 data-i18n="s1t">Landing Pages</h4><p data-i18n="s1d">Una página impactante para presentar tu negocio, producto o evento y conseguir clientes.</p></div>
+        <div class="svc reveal"><div class="svc-ic">🍽️</div><h4 data-i18n="s2t">Restaurantes & Turismo</h4><p data-i18n="s2d">Menú digital, galería, reservas, mapa y WhatsApp. Ideal para restaurantes, hoteles y cafés.</p></div>
+        <div class="svc reveal"><div class="svc-ic">📊</div><h4 data-i18n="s3t">Sistemas de gestión</h4><p data-i18n="s3d">Paneles administrativos con clientes, pagos, reportes PDF y gráficas en tiempo real.</p></div>
+        <div class="svc reveal"><div class="svc-ic">🛒</div><h4 data-i18n="s4t">Tiendas online</h4><p data-i18n="s4d">Catálogos de productos con carrito de compras y una experiencia de compra fluida.</p></div>
+        <div class="svc reveal"><div class="svc-ic">🎓</div><h4 data-i18n="s5t">Plataformas educativas</h4><p data-i18n="s5d">Campus virtuales con portales para alumnos, docentes y padres de familia.</p></div>
+        <div class="svc reveal"><div class="svc-ic">⛏️</div><h4 data-i18n="s6t">Webs para servidores</h4><p data-i18n="s6d">Sitios para servidores de Minecraft con rangos, tienda, Discord e integración con bots.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="label" data-i18n="priceLabel">Precios</span>
+        <h2 data-i18n="priceTitle">Planes claros, sin sorpresas</h2>
+        <p data-i18n="priceDesc">Elige un punto de partida. Cada proyecto se ajusta a lo que realmente necesitas.</p>
+      </div>
+      <div class="price-grid">
+        <!-- Plan 1: Landing Express ($100) -->
+        <div class="plan reveal">
+          <h4 data-i18n="p1t">Landing Express</h4>
+          <p class="plan-sub" data-i18n="p1s">1 página moderna con botón a WhatsApp. Ideal para empezar a vender ya.</p>
+          <div class="plan-price"><small data-i18n="from">Desde</small>$100</div>
+          <ul class="checks">
+            <li data-i18n="p1l1">Diseño 100% personalizado</li>
+            <li data-i18n="p1l2">Adaptada a celular y tablet</li>
+            <li data-i18n="p1l3">Botón directo a WhatsApp</li>
+            <li data-i18n="p1l4">Carga ultra rápida (< 1s)</li>
+            <li data-i18n="p1l5">SEO básico y puesta en marcha</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost-dark btn-block" data-i18n="p1btn">Empezar por $100</a>
+        </div>
+
+        <!-- Plan 2: Negocio / Menú Pro ($220) -->
+        <div class="plan plan-hot reveal">
+          <span class="plan-flag" data-i18n="popular">Más popular</span>
+          <h4 data-i18n="p2t">Negocio / Menú Pro</h4>
+          <p class="plan-sub" data-i18n="p2s">Sitio multi-sección para restaurantes, clínicas y comercios locales.</p>
+          <div class="plan-price"><small data-i18n="investment">Inversión</small>$220</div>
+          <ul class="checks">
+            <li data-i18n="p2l1">Todo lo de Landing Express</li>
+            <li data-i18n="p2l2">Menú digital o catálogo</li>
+            <li data-i18n="p2l3">Galería, mapa y horarios</li>
+            <li data-i18n="p2l4">Búsqueda local en Google</li>
+            <li data-i18n="p2l5">Animaciones e interacciones</li>
+          </ul>
+          <a href="#contact" class="btn btn-gold btn-block" data-i18n="p2btn">Pedir cotización</a>
+        </div>
+
+        <!-- Plan 3: Web + Chatbot IA ($350) -->
+        <div class="plan plan-ai reveal">
+          <span class="plan-flag plan-ai-flag" data-i18n="aiBadge">✨ Chat IA 24/7</span>
+          <h4 data-i18n="p3t">Web con Chatbot IA</h4>
+          <p class="plan-sub" data-i18n="p3s">Atención 24/7 y captación de clientes en automático con Inteligencia Artificial.</p>
+          <div class="plan-price"><small data-i18n="investment">Inversión</small>$350</div>
+          <ul class="checks">
+            <li data-i18n="p3l1">Todo lo de Negocio Pro</li>
+            <li data-i18n="p3l2">Chatbot IA entrenado con tu negocio</li>
+            <li data-i18n="p3l3">Respuestas automáticas 24/7</li>
+            <li data-i18n="p3l4">Captura de prospectos (leads)</li>
+            <li data-i18n="p3l5">Envío de clientes a tu WhatsApp</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost-dark btn-block" data-i18n="p3btn">Quiero Web con IA</a>
+        </div>
+
+        <!-- Plan 4: Sistema / Software a Medida -->
+        <div class="plan reveal">
+          <span class="plan-flag plan-enterprise-flag" data-i18n="corpBadge">Empresarial</span>
+          <h4 data-i18n="p4t">Sistema a Medida</h4>
+          <p class="plan-sub" data-i18n="p4s">Dashboards privados, control de clientes, membresías e inventario.</p>
+          <div class="plan-price plan-quote"><small data-i18n="from500">Desde $500</small><span data-i18n="quote">A cotizar</span></div>
+          <ul class="checks">
+            <li data-i18n="p4l1">Panel privado con login y roles</li>
+            <li data-i18n="p4l2">Base de datos en la nube</li>
+            <li data-i18n="p4l3">Gestión de clientes / inventario</li>
+            <li data-i18n="p4l4">Reportes PDF / Excel y gráficas</li>
+            <li data-i18n="p4l5">Instalable en móvil como PWA</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost-dark btn-block" data-i18n="p4btn">Consultar proyecto</a>
         </div>
       </div>
-    </a>
+    </div>
+  </section>
 
-    <a href="webdev.html" class="panel web" data-go>
-      <div class="bg"></div><div class="shade"></div>
-      <div class="content">
-        <div class="kicker" data-i18n="webKicker">Service 02 · Websites</div>
-        <h2 class="title"><span data-i18n="webTitle1">Web</span><br><em data-i18n="webTitle2">Design</em></h2>
-        <p class="desc" data-i18n="webDesc">Modern websites and web apps for restaurants, schools, businesses and Minecraft servers. See 10+ real projects.</p>
-        <div class="chips"><span class="chip" data-i18n="chipLanding">Landing pages</span><span class="chip" data-i18n="chipApps">Web apps</span><span class="chip">Responsive</span><span class="chip">SEO</span></div>
-        <div class="cta-row">
-          <span class="price"><span data-i18n="from">Starting from</span><b>$150</b></span>
-          <span class="btn"><span data-i18n="webBtn">View portfolio</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  <!-- ============ PROCESS ============ -->
+  <section class="section section-dark" id="process">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="label" data-i18n="procLabel">Proceso</span>
+        <h2 data-i18n="procTitle">De la idea a tu sitio publicado</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><span>01</span><h4 data-i18n="st1t">Conversamos</h4><p data-i18n="st1d">Me cuentas tu negocio, tus objetivos y lo que te gusta. Te doy un precio claro.</p></div>
+        <div class="step reveal"><span>02</span><h4 data-i18n="st2t">Diseño</h4><p data-i18n="st2d">Creo una propuesta visual con tu marca, colores y contenido.</p></div>
+        <div class="step reveal"><span>03</span><h4 data-i18n="st3t">Desarrollo</h4><p data-i18n="st3d">Construyo el sitio, te muestro avances y aplico tus cambios.</p></div>
+        <div class="step reveal"><span>04</span><h4 data-i18n="st4t">Entrega</h4><p data-i18n="st4d">Publicamos tu web y te acompaño con soporte después del lanzamiento.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="wrap wrap-narrow">
+      <div class="sec-head reveal">
+        <span class="label">FAQ</span>
+        <h2 data-i18n="faqTitle">Preguntas frecuentes</h2>
+      </div>
+      <div class="faq">
+        <details class="reveal"><summary data-i18n="q1">¿Cuánto tarda en estar lista mi página?</summary><p data-i18n="a1">Depende del tamaño del proyecto. Una landing page es lo más rápido; un sitio con varias secciones o un sistema toma más tiempo. Antes de empezar te doy un tiempo estimado.</p></details>
+        <details class="reveal"><summary data-i18n="q2">¿Mi sitio se verá bien en celulares?</summary><p data-i18n="a2">Sí. Todos mis sitios son 100% responsive y se prueban en celular, tablet y computadora.</p></details>
+        <details class="reveal"><summary data-i18n="q3">¿Puedo pedir cambios?</summary><p data-i18n="a3">Claro. Durante el desarrollo te muestro avances para que puedas pedir ajustes antes de la entrega final.</p></details>
+        <details class="reveal"><summary data-i18n="q4">¿Incluye dominio y hosting?</summary><p data-i18n="a4">Te ayudo a publicar el sitio y a conectar tu propio dominio (por ejemplo tunegocio.com). El costo del dominio depende del proveedor.</p></details>
+        <details class="reveal"><summary data-i18n="q5">¿Cómo se realiza el pago?</summary><p data-i18n="a5">Puedes contratarme a través de Fiverr o contactarme directamente por Discord para acordar el método de pago.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="cta-glow"></div>
+        <span class="label label-light" data-i18n="ctaLabel">Contacto</span>
+        <h2 data-i18n="ctaTitle">¿Listo para tener una web que venda por ti?</h2>
+        <p data-i18n="ctaDesc">Escríbeme y cuéntame tu idea. Te respondo con una propuesta y un precio sin compromiso.</p>
+        <div class="cta-btns">
+          <a href="https://wa.me/50495555911?text=Hola%20Jonas,%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20sitio%20web" target="_blank" rel="noopener" class="btn btn-whatsapp">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span>WhatsApp directo</span></a>
+          <a href="https://discord.com/users/yairg09" target="_blank" rel="noopener" class="btn btn-discord">
+            <svg viewBox="0 0 127.14 96.36" width="22" height="17" fill="currentColor"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
+            Discord · yairg09</a>
+          <a href="https://www.fiverr.com/itsjona09" target="_blank" rel="noopener" class="btn btn-fiverr">Fiverr</a>
         </div>
       </div>
-    </a>
-  </main>
+    </div>
+  </section>
 
   <footer class="footer">
-    <span>© 2026 Jonas Builds · jonasbuilds.me</span>
-    <div class="socials">
-      <a href="https://discord.com/users/yairg09" target="_blank" rel="noopener" aria-label="Discord">
-        <svg viewBox="0 0 127.14 96.36" width="18" height="14" fill="currentColor"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.570,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.180,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg></a>
-      <a href="https://www.fiverr.com/itsjona09" target="_blank" rel="noopener" aria-label="Fiverr" style="font-weight:700;font-size:.8rem">fi</a>
+    <div class="wrap footer-inner">
+      <a href="index.html" class="brand">Jonas<span>Builds</span></a>
+      <div class="footer-links">
+        <a href="#hero" data-i18n="fHome">Inicio</a>
+        <a href="#work" data-i18n="navWork">Trabajos</a>
+        <a href="#pricing" data-i18n="navPricing">Precios</a>
+        <a href="#contact" data-i18n="ctaLabel">Contacto</a>
+      </div>
+      <p>© 2026 Jonas Builds</p>
     </div>
   </footer>
 
-  <script>
-    const T = {
-      en: {
-        mcKicker: "Service 01 · Gaming", mcTitle: "Builds",
-        mcDesc: "Lobbies, spawns, terrains and arenas for servers worldwide. 370+ orders delivered.",
-        chipTerrain: "Terrains", chip3d: "3D Preview", mcBtn: "Explore builds", from: "Starting from",
-        webKicker: "Service 02 · Websites", webTitle1: "Web", webTitle2: "Design",
-        webDesc: "Modern website designs for restaurants, schools, businesses and servers. Custom concepts and interactive demos.",
-        chipLanding: "Landing pages", chipApps: "Web apps", webBtn: "View portfolio"
-      },
-      es: {
-        mcKicker: "Servicio 01 · Gaming", mcTitle: "Builds",
-        mcDesc: "Lobbies, spawns, terrenos y arenas para servidores de todo el mundo. Más de 370 pedidos entregados.",
-        chipTerrain: "Terrenos", chip3d: "Vista 3D", mcBtn: "Ver construcciones", from: "Desde",
-        webKicker: "Servicio 02 · Sitios Web", webTitle1: "Diseño", webTitle2: "Web",
-        webDesc: "Sitios web modernos para restaurantes, negocios, escuelas y servidores. Diseños a medida y prototipos demostrativos.",
-        chipLanding: "Landing pages", chipApps: "Apps web", webBtn: "Ver portafolio"
-      }
-    };
-    function setLang(lang) {
-      localStorage.setItem('jb-lang', lang);
-      document.documentElement.lang = lang;
-      document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const v = T[lang][el.dataset.i18n]; if (v) el.textContent = v;
-      });
-    }
-    document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
-    setLang(localStorage.getItem('jb-lang') || ((navigator.language || '').startsWith('es') ? 'es' : 'en'));
+  <!-- ============ MODAL ============ -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel">
+      <!-- Header -->
+      <header class="modal-topbar">
+        <div class="modal-topbar-info">
+          <span class="modal-topbar-cat" id="mTopCat">Restaurante</span>
+          <h4 class="modal-topbar-title" id="mTopTitle">KOTA</h4>
+        </div>
+        <button class="modal-close-btn" data-close aria-label="Cerrar modal">✕</button>
+      </header>
 
-    // Split hover
-    const split = document.getElementById('split');
-    const seal = document.querySelector('.seal');
-    const wide = matchMedia('(min-width: 861px)');
-    function setSplit(v) { if (wide.matches) { split.style.setProperty('--split', v); } }
-    document.querySelector('.panel.mc').addEventListener('mouseenter', () => setSplit('58%'));
-    document.querySelector('.panel.web').addEventListener('mouseenter', () => setSplit('42%'));
-    split.addEventListener('mouseleave', () => setSplit('50%'));
+      <!-- Segmented switch for mobile -->
+      <div class="modal-segmented">
+        <button class="seg-btn active" id="segDesignBtn" data-view="design">
+          <span>🖥️</span> <span data-i18n="tabDesign">Diseño</span>
+        </button>
+        <button class="seg-btn" id="segInfoBtn" data-view="info">
+          <span>📋</span> <span data-i18n="tabInfo">Detalles</span>
+        </button>
+      </div>
 
-    // Page transition
-    document.querySelectorAll('[data-go]').forEach(a => a.addEventListener('click', e => {
-      if (e.metaKey || e.ctrlKey) return;
-      e.preventDefault();
-      document.getElementById('curtain').classList.add('on');
-      setTimeout(() => location.href = a.getAttribute('href'), 550);
-    }));
-    window.addEventListener('pageshow', () => document.getElementById('curtain').classList.remove('on'));
-  </script>
+      <!-- Main modal body with 2 panes -->
+      <div class="modal-body-container">
+        <!-- Pane 1: Design screenshot viewer -->
+        <div class="modal-pane-design active" id="paneDesign">
+          <div class="design-hint">
+            <span>↕</span> <span data-i18n="scrollHint">Desliza para ver la página completa</span>
+          </div>
+          <div class="design-viewport" id="designViewport">
+            <div class="browser-mock-bar">
+              <i></i><i></i><i></i><span id="mUrl">KOTA · Prototipo UI</span>
+            </div>
+            <div class="design-scroll-wrap" id="mScroll">
+              <img id="mImg" src="" alt="Vista previa del diseño" loading="eager">
+            </div>
+            <div class="design-footer-cta">
+              <p data-i18n="likeThis">¿Te gustaría un diseño con este estilo?</p>
+              <a href="#contact" class="btn btn-gold btn-block" data-close>
+                <span data-i18n="navCta">Pedir Cotización</span> ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pane 2: Project info & features -->
+        <div class="modal-pane-info" id="paneInfo">
+          <div class="info-content">
+            <span class="pill" id="mCat"></span>
+            <h3 id="mTitle"></h3>
+            <p id="mDesc"></p>
+            <h5 data-i18n="mFeatures">Detalles del diseño</h5>
+            <ul class="checks" id="mFeatures"></ul>
+            <div class="tags" id="mTags"></div>
+            <div class="row-btns" id="mBtns">
+              <a href="#contact" class="btn btn-gold" data-close data-i18n="mQuote">Cotizar este estilo</a>
+              <button class="btn btn-ghost-dark" data-close data-i18n="mClose">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/50495555911?text=Hola%20Jonas,%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20sitio%20web" target="_blank" rel="noopener" class="wa-float" aria-label="Escríbeme por WhatsApp" title="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="js/webdev.js?v=20261115_1"></script>
   <script src="js/firebase-config.js"></script>
   <script src="js/analytics.js"></script>
 </body>
