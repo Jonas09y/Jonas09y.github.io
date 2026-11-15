@@ -5,70 +5,70 @@
 
 const PROJECTS = [
   {
-    id: "kota", cat: "business", img: "kota", mock: "KOTA · Prototipo UI",
-    title: "KOTA",
+    id: "kota", cat: "business", img: "kota", mock: "AURA · Lakeside Bistro & Lounge",
+    title: "AURA",
     tags: ["UI / UX", "HTML", "CSS", "JavaScript", "WhatsApp", "Responsive"],
     es: {
-      cat: "Restaurante · Café · Bar",
+      cat: "Restaurante · Café · Lounge",
       badge: "Concepto UI",
-      desc: "Prototipo visual para un restaurante a orillas del Lago de Yojoa con menú digital por categorías, galería, ubicaciones y botón de reservas por WhatsApp.",
-      features: ["Menú digital estructurado por categorías", "Botón directo de WhatsApp para reservas", "Galería fotográfica y sección 'Nosotros'", "Ubicaciones con mapa y cómo llegar", "Diseño responsive adaptado a celular y computadora"]
+      desc: "Prototipo visual para un restaurante y bistro frente al lago con menú digital por categorías, coctelería de autor, galería y botón de reservas por WhatsApp.",
+      features: ["Menú digital interactivo por categorías", "Botón directo de WhatsApp para reservas", "Galería de coctelería y sección 'Nosotros'", "Ubicaciones con mapa interactivo", "Diseño responsive adaptado a celular y computadora"]
     },
     en: {
-      cat: "Restaurant · Café · Bar",
+      cat: "Restaurant · Café · Lounge",
       badge: "UI Concept",
-      desc: "Visual prototype for a lakeside restaurant at Lake Yojoa with a categorized digital menu, gallery, locations, and WhatsApp reservation button.",
-      features: ["Digital menu structured by category", "Direct WhatsApp reservation button", "Photo gallery and 'About us' section", "Locations with map and directions", "Responsive design for mobile and desktop"]
+      desc: "Visual prototype for a modern lakeside restaurant & bistro with a categorized digital menu, signature drinks gallery, and direct WhatsApp reservations.",
+      features: ["Interactive digital menu by category", "Direct WhatsApp reservation button", "Cocktails gallery and 'About us' section", "Locations with interactive map", "Responsive design for mobile and desktop"]
     }
   },
   {
-    id: "la-naturaleza", cat: "business", img: "la-naturaleza", mock: "La Naturaleza · Prototipo Web",
-    title: "Centro Turístico La Naturaleza",
+    id: "la-naturaleza", cat: "business", img: "la-naturaleza", mock: "MonteVerde · Eco-Resort & Spa",
+    title: "Reserva MonteVerde",
     tags: ["UI / UX", "HTML", "CSS", "JavaScript", "Turismo"],
     es: {
-      cat: "Turismo · Hotel",
+      cat: "Turismo · Eco-Resort",
       badge: "Concepto Web",
-      desc: "Concepto de sitio para un centro turístico con catálogo de habitaciones, menú del restaurante, centro de convenciones y actividades al aire libre.",
-      features: ["Catálogo de habitaciones y hospedaje", "Menú digital del restaurante", "Información de centro de convenciones", "Llamada directa y contacto rápido", "Estructura pensada para visitantes móviles"]
+      desc: "Concepto de sitio para un eco-resort boutique y centro de eventos con catálogo de cabañas, restaurante de montaña y senderos al aire libre.",
+      features: ["Catálogo de cabañas y hospedaje", "Menú digital del restaurante", "Centro de convenciones y retiros", "Llamada directa y reservas rápidas", "Estructura pensada para visitantes móviles"]
     },
     en: {
-      cat: "Tourism · Hotel",
+      cat: "Tourism · Eco-Resort",
       badge: "Web Concept",
-      desc: "Website concept for a tourist resort featuring lodging options, restaurant menu, convention center, and outdoor activities.",
-      features: ["Room and lodging catalog", "Restaurant digital menu", "Convention center overview", "Quick call and direct contact", "Designed for mobile visitors"]
+      desc: "Website concept for a boutique eco-resort featuring cabin catalogs, mountain dining, conference facilities, and outdoor trails.",
+      features: ["Cabin and lodging showcase", "Restaurant digital menu", "Conferences and retreats section", "Quick call and direct contact", "Designed for mobile visitors"]
     }
   },
   {
-    id: "campus", cat: "apps", img: "campus", mock: "Campus Holy Spirit · Prototipo",
-    title: "Campus Virtual Holy Spirit",
+    id: "campus", cat: "apps", img: "campus", mock: "Nova Academy · Campus Virtual",
+    title: "Nova International Academy",
     tags: ["UI / UX", "HTML", "CSS", "JavaScript", "Educación"],
     es: {
-      cat: "Educación · Plataforma",
+      cat: "Educación · Plataforma Virtual",
       badge: "Prototipo Plataforma",
-      desc: "Diseño de plataforma educativa para escuela bilingüe, con portales dedicados para alumnos, docentes y padres de familia.",
-      features: ["Portales visuales para alumnos, docentes y padres", "Presentación de funcionalidades y beneficios", "Mockup del panel interactivo del estudiante", "Formulario de contacto y solicitud de información", "Paleta institucional y tipografía cuidada"]
+      desc: "Diseño de plataforma educativa para academia internacional bilingüe, con portales dedicados para alumnos, docentes y padres de familia.",
+      features: ["Portales visuales para alumnos, docentes y padres", "Presentación de funcionalidades académicas", "Mockup del panel interactivo del estudiante", "Formulario de admisiones y contacto", "Paleta institucional y tipografía cuidada"]
     },
     en: {
-      cat: "Education · Platform",
+      cat: "Education · Virtual Campus",
       badge: "Platform Prototype",
-      desc: "Educational platform design for a bilingual school with dedicated portals for students, teachers, and parents.",
-      features: ["Visual portals for students, teachers, and parents", "Features and benefits overview", "Interactive student dashboard mockup", "Contact and info request form", "Institutional color palette and clean typography"]
+      desc: "Educational platform design for an international bilingual academy with dedicated portals for students, teachers, and parents.",
+      features: ["Visual portals for students, teachers, and parents", "Academic features and benefits overview", "Interactive student dashboard mockup", "Admissions and info request form", "Institutional color palette and clean typography"]
     }
   },
   {
-    id: "carwash", cat: "apps", img: "carwash", mock: "Carwash Don Jorge · Sistema Demo",
-    title: "Carwash Don Jorge",
+    id: "carwash", cat: "apps", img: "carwash", mock: "AutoShine Pro · Sistema Demo",
+    title: "AutoShine Pro",
     tags: ["UI / UX", "Dashboard", "Chart.js", "jsPDF", "Firebase"],
     es: {
-      cat: "Sistema de gestión",
+      cat: "Sistema de gestión & Detailing",
       badge: "Prototipo Sistema",
-      desc: "Prototipo de panel administrativo para control de car wash: servicios, registro de clientes, finanzas, métricas y reportes PDF.",
+      desc: "Prototipo de panel administrativo para control de centro de car wash y detailing: servicios, registro de clientes, métricas y reportes PDF.",
       features: ["Pantalla de acceso seguro", "Registro de servicios y clientes", "Módulo de ingresos y flujo de caja", "Gráficas de rendimiento con Chart.js", "Generación de comprobantes en PDF", "Estructura para base de datos en tiempo real"]
     },
     en: {
-      cat: "Management system",
+      cat: "Management system & Detailing",
       badge: "System Prototype",
-      desc: "Admin dashboard prototype for car wash management: services, client log, finances, metrics, and PDF reports.",
+      desc: "Admin dashboard prototype for auto detailing & car wash management: services, client log, metrics, and PDF receipts.",
       features: ["Secure login screen layout", "Service and client registry", "Income and cash flow module", "Performance charts with Chart.js", "PDF receipt generation", "Real-time database architecture"]
     }
   },
@@ -169,8 +169,8 @@ const T = {
     stat1: "Proyectos en vitrina", stat2: "Estilos visuales", stat3: "Landing desde", fb1: "Carga rápida", fb2: "100% responsive",
     workLabel: "Vitrina de Trabajos", workTitle: "Prototipos & Diseños Seleccionados",
     workDesc: "Muestras de diseño y conceptos visuales. Pasa el cursor sobre cada pantalla para ver el recorrido completo de la página, o haz clic para verla en detalle.",
-    featTag: "Concepto de diseño · Restaurante",
-    featDesc: "Propuesta de diseño web para un restaurante, café y bar a orillas del Lago de Yojoa, Honduras. Estructurado para presentar el menú digital, galería fotográfica, ubicaciones con mapa y botón de reservas por WhatsApp.",
+    featTag: "Concepto de diseño · Restaurante & Bistro",
+    featDesc: "Propuesta de diseño web para un restaurante y bistro frente al lago. Estructurado para presentar el menú digital interactivo, coctelería de autor, ubicaciones y botón de reservas por WhatsApp.",
     featL1: "Menú digital por categorías", featL2: "Reservas y contacto por WhatsApp", featL3: "Galería y ubicaciones con mapa", featL4: "Optimizado para móvil y SEO local",
     viewDesign: "Ver diseño completo", details: "Ver detalles", quoteThis: "Cotizar diseño similar",
     fAll: "Todos", fBusiness: "Negocios & Turismo", fApps: "Sistemas & Apps", fShop: "E-commerce", fGaming: "Gaming",
@@ -230,8 +230,8 @@ const T = {
     stat1: "Featured designs", stat2: "Visual styles", stat3: "Landing from", fb1: "Fast loading", fb2: "100% responsive",
     workLabel: "Work Showcase", workTitle: "Selected Prototypes & Designs",
     workDesc: "Design samples and visual concepts. Hover over any screen to scroll through the full page, or click to view details.",
-    featTag: "Design Concept · Restaurant",
-    featDesc: "Web design concept for a restaurant, café, and bar on the shore of Lake Yojoa, Honduras. Designed to display the digital menu, photo gallery, map locations, and WhatsApp reservation button.",
+    featTag: "Design Concept · Restaurant & Bistro",
+    featDesc: "Web design concept for a modern lakeside restaurant & bistro. Structured to showcase an interactive digital menu, signature drinks gallery, locations, and direct WhatsApp reservations.",
     featL1: "Digital menu by category", featL2: "Reservations and WhatsApp contact", featL3: "Gallery and locations with map", featL4: "Mobile-first and local SEO",
     viewDesign: "View full design", details: "View details", quoteThis: "Request similar design",
     fAll: "All", fBusiness: "Business & Tourism", fApps: "Systems & Apps", fShop: "E-commerce", fGaming: "Gaming",

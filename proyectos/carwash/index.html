@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoShine Pro - Gestión</title>
+    <meta name="description"
+        content="Sistema de gestión profesional para Car Wash. Controla servicios, clientes, finanzas y más.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    <link rel="stylesheet" href="styles.css?v=7">
+</head>
+
+<body>
+
+    
+    <div id="loginScreen" class="login-screen">
+        <div class="login-bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+        <div class="login-card">
+            <div class="login-logo">
+                <div class="logo-icon">
+                    <span class="material-icons-round">local_car_wash</span>
+                </div>
+                <h1>AutoShine <span>Pro</span></h1>
+                <p>Sistema de Gestión</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <span class="material-icons-round input-icon">lock</span>
+                    <input type="password" id="loginPassword" placeholder="Ingresa la contraseña"
+                        autocomplete="current-password" required>
+                    <button type="button" class="toggle-password" id="togglePasswordBtn"
+                        onclick="togglePasswordVisibility()">
+                        <span class="material-icons-round">visibility_off</span>
+                    </button>
+                </div>
+                <div id="loginError" class="login-error hidden">
+                    <span class="material-icons-round">error</span>
+                    Contraseña incorrecta
+                </div>
+                <button type="submit" class="btn-login">
+                    <span class="material-icons-round">login</span>
+                    Acceder
+                </button>
+            </form>
+        </div>
+    </div>
+
+    
+    <div id="mainApp" class="app-container hidden">
+
+        <div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <span class="material-icons-round">local_car_wash</span>
+                    <span class="logo-text" id="sidebarLogoText">AutoShine <strong>Pro</strong></span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-page="dashboard" onclick="navigateTo('dashboard')">
+                    <span class="material-icons-round">dashboard</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-page="reception" onclick="navigateTo('reception')">
+                    <span class="material-icons-round">directions_car</span>
+                    <span class="nav-text">Recepción</span>
+                    <span class="nav-badge" id="activeCarsCount">0</span>
+                </a>
+                <a href="#" class="nav-item" data-page="tires" onclick="navigateTo('tires')">
+                    <span class="material-icons-round">tire_repair</span>
+                    <span class="nav-text">Llantera</span>
+                    <span class="nav-badge" id="activeTiresCount">0</span>
+                </a>
+                <a href="#" class="nav-item" data-page="finances" onclick="navigateTo('finances')">
+                    <span class="material-icons-round">account_balance_wallet</span>
+                    <span class="nav-text">Finanzas</span>
+                </a>
+                <a href="#" class="nav-item" data-page="history" onclick="navigateTo('history')">
+                    <span class="material-icons-round">history</span>
+                    <span class="nav-text">Historial</span>
+                </a>
+                <a href="#" class="nav-item" data-page="settings" onclick="navigateTo('settings')">
+                    <span class="material-icons-round">settings</span>
+                    <span class="nav-text">Configuración</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-logout" onclick="logout()">
+                    <span class="material-icons-round">logout</span>
+                    <span class="nav-text">Cerrar Sesión</span>
+                </button>
+            </div>
+        </aside>
+
+        
+        <main class="main-content">
+            
+            <header class="topbar">
+                <button class="hamburger" onclick="toggleSidebar()">
+                    <span class="material-icons-round">menu</span>
+                </button>
+                <div class="topbar-title">
+                    <h2 id="pageTitle">Dashboard</h2>
+                    <p id="pageSubtitle">Resumen general del negocio</p>
+                </div>
+                <div class="topbar-actions">
+                    <div class="topbar-date">
+                        <span class="material-icons-round">calendar_today</span>
+                        <span id="currentDate"></span>
+                    </div>
+                </div>
+            </header>
+
+            
+            <div class="content-area">
+
+                
+                <section id="page-dashboard" class="page active">
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card stat-primary">
+                            <div class="stat-icon">
+                                <span class="material-icons-round">directions_car</span>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="statActiveCars">0</span>
+                                <span class="stat-label">Carros en Servicio</span>
+                            </div>
+                        </div>
+                        <div class="stat-card stat-success">
+                            <div class="stat-icon">
+                                <span class="material-icons-round">trending_up</span>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="statTodayIncome">$0</span>
+                                <span class="stat-label">Ingresos Hoy</span>
+                            </div>
+                        </div>
+                        <div class="stat-card stat-warning">
+                            <div class="stat-icon">
+                                <span class="material-icons-round">trending_down</span>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="statTodayExpenses">$0</span>
+                                <span class="stat-label">Gastos Hoy</span>
+                            </div>
+                        </div>
+                        <div class="stat-card stat-info">
+                            <div class="stat-icon">
+                                <span class="material-icons-round">savings</span>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="statTodayNet">$0</span>
+                                <span class="stat-label">Ganancia Neta Hoy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="material-icons-round">local_car_wash</span> Carros en Servicio</h3>
+                                <button class="btn btn-primary"
+                                    style="font-size: 1.1rem; padding: 0.8rem 1.5rem; box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4); animation: pulse 2s infinite;"
+                                    onclick="navigateTo('reception')">
+                                    <span class="material-icons-round" style="font-size: 24px;">add_circle</span> Nuevo
+                                    Servicio
+                                </button>
+                            </div>
+                            <div class="card-body" id="dashboardActiveCars">
+                                <div class="empty-state">
+                                    <span class="material-icons-round">directions_car</span>
+                                    <p>No hay carros en servicio</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="material-icons-round">schedule</span> Actividad Reciente</h3>
+                            </div>
+                            <div class="card-body" id="dashboardRecentActivity">
+                                <div class="empty-state">
+                                    <span class="material-icons-round">history</span>
+                                    <p>Sin actividad reciente</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card">
+                        <div class="card-header"
+                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                            <h3 style="margin: 0;"><span class="material-icons-round">bar_chart</span> Ingresos</h3>
+                            <div class="period-selector" style="margin: 0; padding: 2px;">
+                                <button class="period-btn" data-chart-period="day"
+                                    onclick="updateDashboardChart('day')">Hoy</button>
+                                <button class="period-btn active" data-chart-period="week"
+                                    onclick="updateDashboardChart('week')">Semana</button>
+                                <button class="period-btn" data-chart-period="month"
+                                    onclick="updateDashboardChart('month')">Mes</button>
+                                <button class="period-btn" data-chart-period="year"
+                                    onclick="updateDashboardChart('year')">Año</button>
+                            </div>
+                        </div>
+                        <div class="card-body chart-container">
+                            <canvas id="weeklyChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                
+                <section id="page-reception" class="page">
+                    
+                    <div class="card form-card">
+                        <div class="card-header">
+                            <h3><span class="material-icons-round">add_circle</span> Registrar Nuevo Servicio</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="addCarForm" class="form-grid">
+                                <div class="form-group">
+                                    <label for="clientName">
+                                        <span class="material-icons-round">person</span> Nombre del Cliente
+                                    </label>
+                                    <input type="text" id="clientName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientPhone">
+                                        <span class="material-icons-round">phone</span> Teléfono (WhatsApp)
+                                    </label>
+                                    <input type="tel" id="clientPhone" value="504" required>
+                                    <small>Incluir código de país (504 para Honduras)</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="carModel">
+                                        <span class="material-icons-round">directions_car</span> Modelo del Carro
+                                    </label>
+                                    <input type="text" id="carModel">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>
+                                        <span class="material-icons-round">build</span> Tipos de Servicio
+                                    </label>
+                                    <div class="multi-select-container">
+                                        <div class="multi-select-header" id="multiSelectHeader"
+                                            onclick="document.getElementById('serviceTypeContainer').classList.toggle('open')">
+                                            <span id="multiSelectText">Seleccionar servicios...</span>
+                                            <span class="material-icons-round">expand_more</span>
+                                        </div>
+                                        <div id="serviceTypeContainer" class="multi-select-options">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="serviceWorker">
+                                        <span class="material-icons-round">badge</span> Trabajador
+                                    </label>
+                                    <select id="serviceWorker">
+                                        <option value="">Sin asignar</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="servicePrice">
+                                        <span class="material-icons-round">attach_money</span> Precio
+                                    </label>
+                                    <input type="number" id="servicePrice" placeholder="0.00" min="0" step="0.01"
+                                        required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="serviceNotes">
+                                        <span class="material-icons-round">notes</span> Notas Adicionales
+                                    </label>
+                                    <textarea id="serviceNotes"
+                                        placeholder="Observaciones del vehículo, peticiones especiales, etc."
+                                        rows="2"></textarea>
+                                </div>
+                                <div class="form-actions full-width">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <span class="material-icons-round">add</span>
+                                        Registrar Servicio
+                                    </button>
+                                    <button type="reset" class="btn btn-ghost">
+                                        <span class="material-icons-round">clear</span>
+                                        Limpiar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><span class="material-icons-round">local_car_wash</span> Servicios Activos</h3>
+                            <span class="badge badge-primary" id="activeServicesCount">0</span>
+                        </div>
+                        <div class="card-body" id="activeServicesList">
+                            <div class="empty-state">
+                                <span class="material-icons-round">directions_car</span>
+                                <p>No hay servicios activos</p>
+                                <small>Registra un nuevo servicio arriba</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== LLANTERA PAGE ===== -->
+                <section id="page-tires" class="page">
+                    <!-- Tire Service Form -->
+                    <div class="card form-card">
+                        <div class="card-header">
+                            <h3><span class="material-icons-round">add_circle</span> Registrar Servicio de Llantera</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="addTireForm" class="form-grid">
+                                <div class="form-group">
+                                    <label for="tireServiceType">
+                                        <span class="material-icons-round">tire_repair</span> Tipo de Servicio
+                                    </label>
+                                    <select id="tireServiceType" required>
+                                        <option value="">Seleccionar...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tireWorker">
+                                        <span class="material-icons-round">badge</span> Trabajador
+                                    </label>
+                                    <select id="tireWorker">
+                                        <option value="">Sin asignar</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tirePrice">
+                                        <span class="material-icons-round">attach_money</span> Precio
+                                    </label>
+                                    <input type="number" id="tirePrice" placeholder="0.00" min="0" step="0.01" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tireClientName">
+                                        <span class="material-icons-round">person</span> Cliente (opcional)
+                                    </label>
+                                    <input type="text" id="tireClientName" placeholder="Nombre del cliente">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tireVehicle">
+                                        <span class="material-icons-round">directions_car</span> Vehículo (opcional)
+                                    </label>
+                                    <input type="text" id="tireVehicle" placeholder="Modelo del vehículo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tireNotes">
+                                        <span class="material-icons-round">notes</span> Notas (opcional)
+                                    </label>
+                                    <input type="text" id="tireNotes" placeholder="Detalles adicionales">
+                                </div>
+                                <div class="form-actions full-width">
+                                    <button type="submit" class="btn btn-primary btn-lg" style="background: #ff9800; border-color: #ff9800;">
+                                        <span class="material-icons-round">add</span>
+                                        Registrar Servicio
+                                    </button>
+                                    <button type="reset" class="btn btn-ghost">
+                                        <span class="material-icons-round">clear</span>
+                                        Limpiar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Active Tire Services -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><span class="material-icons-round">tire_repair</span> Servicios Activos de Llantera</h3>
+                            <span class="badge badge-primary" id="activeTireServicesCount" style="background: #ff9800;">0</span>
+                        </div>
+                        <div class="card-body" id="activeTireServicesList">
+                            <div class="empty-state">
+                                <span class="material-icons-round">tire_repair</span>
+                                <p>No hay servicios activos de llantera</p>
+                                <small>Registra un nuevo servicio arriba</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
+                <section id="page-finances" class="page">
+                    
+                    <div class="period-selector">
+                        <button class="period-btn active" data-period="day"
+                            onclick="setFinancePeriod('day')">Hoy</button>
+                        <button class="period-btn" data-period="week" onclick="setFinancePeriod('week')">Semana</button>
+                        <button class="period-btn" data-period="month" onclick="setFinancePeriod('month')">Mes</button>
+                        <button class="period-btn" data-period="all" onclick="setFinancePeriod('all')">Todo</button>
+                    </div>
+
+                    
+                    <div class="finance-stats">
+                        <div class="finance-stat income">
+                            <span class="material-icons-round">arrow_upward</span>
+                            <div>
+                                <span class="finance-stat-value" id="finIncome">$0</span>
+                                <span class="finance-stat-label">Ingresos</span>
+                            </div>
+                        </div>
+                        <div class="finance-stat expense">
+                            <span class="material-icons-round">arrow_downward</span>
+                            <div>
+                                <span class="finance-stat-value" id="finExpenses">$0</span>
+                                <span class="finance-stat-label">Gastos</span>
+                            </div>
+                        </div>
+                        <div class="finance-stat net">
+                            <span class="material-icons-round">account_balance</span>
+                            <div>
+                                <span class="finance-stat-value" id="finNet">$0</span>
+                                <span class="finance-stat-label">Ganancia Neta</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="finance-grid">
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="material-icons-round">receipt_long</span> Registrar Gasto</h3>
+                            </div>
+                            <div class="card-body">
+                                <form id="addExpenseForm">
+                                    <div class="form-group">
+                                        <label for="expenseDesc">
+                                            <span class="material-icons-round">description</span> Descripción
+                                        </label>
+                                        <input type="text" id="expenseDesc" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expenseCategory">
+                                            <span class="material-icons-round">category</span> Categoría
+                                        </label>
+                                        <select id="expenseCategory" required>
+                                            <option value="">Seleccionar...</option>
+                                            <option value="Suministros">🧴 Suministros (jabón, cera, etc.)</option>
+                                            <option value="Agua">💧 Agua</option>
+                                            <option value="Electricidad">⚡ Electricidad</option>
+
+                                            <option value="Salarios">👷 Salarios</option>
+                                            <option value="Equipo">🔧 Equipo / Herramientas</option>
+                                            <option value="Mantenimiento">🛠️ Mantenimiento</option>
+                                            <option value="Otro">📦 Otro</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expenseAmount">
+                                            <span class="material-icons-round">attach_money</span> Monto
+                                        </label>
+                                        <input type="number" id="expenseAmount" placeholder="0.00" min="0" step="0.01"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expenseDate">
+                                            <span class="material-icons-round">event</span> Fecha
+                                        </label>
+                                        <input type="date" id="expenseDate" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-warning btn-full">
+                                        <span class="material-icons-round">add</span>
+                                        Registrar Gasto
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="material-icons-round">list_alt</span> Gastos Registrados</h3>
+                            </div>
+                            <div class="card-body scrollable" id="expensesList">
+                                <div class="empty-state">
+                                    <span class="material-icons-round">receipt_long</span>
+                                    <p>No hay gastos registrados</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><span class="material-icons-round">pie_chart</span> Distribución de Gastos</h3>
+                        </div>
+                        <div class="card-body chart-container">
+                            <canvas id="expenseChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                
+                <section id="page-history" class="page">
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="period-selector" style="margin-bottom: 0.75rem;">
+                                <button class="period-btn active" data-history-type="all" onclick="setHistoryType('all')">Todo</button>
+                                <button class="period-btn" data-history-type="carwash" onclick="setHistoryType('carwash')">Carwash</button>
+                                <button class="period-btn" data-history-type="tire" onclick="setHistoryType('tire')">Llantera</button>
+                            </div>
+                            <div class="search-bar">
+                                <span class="material-icons-round">search</span>
+                                <input type="text" id="historySearch"
+                                    placeholder="Buscar por nombre, teléfono..." oninput="filterHistory()">
+                            </div>
+                            <div class="filter-row">
+                                <div class="form-group">
+                                    <label>Desde</label>
+                                    <input type="date" id="historyFrom" onchange="filterHistory()">
+                                </div>
+                                <div class="form-group">
+                                    <label>Hasta</label>
+                                    <input type="date" id="historyTo" onchange="filterHistory()">
+                                </div>
+                                <button class="btn btn-ghost" onclick="clearHistoryFilters()">
+                                    <span class="material-icons-round">filter_list_off</span> Limpiar
+                                </button>
+                                <button class="btn btn-primary" onclick="exportToExcel()" style="margin-left: 0.5rem; background: var(--green); color: white; border: none;">
+                                    <span class="material-icons-round">file_download</span> Excel
+                                </button>
+                                <button class="btn btn-primary" onclick="exportToPDF()" style="margin-left: 0.5rem; background: var(--red); color: white; border: none;">
+                                    <span class="material-icons-round">picture_as_pdf</span> PDF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><span class="material-icons-round">history</span> Servicios Completados</h3>
+                            <span class="badge badge-primary" id="historyCount">0</span>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="data-table" id="historyTable">
+                                <thead>
+                                    <tr>
+                                        <th>Tipo</th>
+                                        <th>Fecha</th>
+                                        <th>Vehículo</th>
+                                        <th>Cliente</th>
+                                        <th>Servicio</th>
+                                        <th>Trabajador</th>
+                                        <th>Precio</th>
+                                        <th>Duración</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="historyTableBody">
+                                </tbody>
+                            </table>
+                            <div class="empty-state hidden" id="historyEmpty">
+                                <span class="material-icons-round">history</span>
+                                <p>No hay servicios completados</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
+                <section id="page-settings" class="page">
+                    <div class="settings-grid">
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="material-icons-round">store</span> Datos del Negocio</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="businessName">
+                                        <span class="material-icons-round">badge</span> Nombre del Negocio
+                                    </label>
+                                    <input type="text" id="businessName" placeholder="Mi Car Wash">
+                                </div>
+                                <button class="btn btn-primary btn-full" onclick="saveBusinessName()">
+                                    <span class="material-icons-round">save</span> Guardar
+                                </button>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="material-icons-round">lock</span> Cambiar Contraseña</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="currentPassword">Contraseña Actual</label>
+                                    <input type="password" id="currentPassword" placeholder="Contraseña actual">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">Nueva Contraseña</label>
+                                    <input type="password" id="newPassword" placeholder="Nueva contraseña">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirmar Contraseña</label>
+                                    <input type="password" id="confirmPassword" placeholder="Confirmar contraseña">
+                                </div>
+                                <button class="btn btn-primary btn-full" onclick="changePassword()">
+                                    <span class="material-icons-round">lock_reset</span> Cambiar Contraseña
+                                </button>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="material-icons-round">build</span> Servicios Carwash</h3>
+                                <button class="btn-sm btn-primary" onclick="showAddServiceModal()">
+                                    <span class="material-icons-round">add</span> Agregar
+                                </button>
+                            </div>
+                            <div class="card-body" id="servicesList">
+                            </div>
+                        </div>
+
+                        <!-- Tire Service Types -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="material-icons-round">tire_repair</span> Servicios Llantera</h3>
+                                <button class="btn-sm btn-primary" onclick="showAddTireServiceModal()" style="background: #ff9800; border-color: #ff9800;">
+                                    <span class="material-icons-round">add</span> Agregar
+                                </button>
+                            </div>
+                            <div class="card-body" id="tireServicesList">
+                            </div>
+                        </div>
+
+                        <!-- Workers -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="material-icons-round">badge</span> Trabajadores</h3>
+                            </div>
+                            <div class="card-body">
+                                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                                    <input type="text" id="newWorkerName" placeholder="Nombre del trabajador" style="flex: 1;">
+                                    <button class="btn btn-primary" onclick="addWorker()" style="white-space: nowrap;">
+                                        <span class="material-icons-round">add</span> Agregar
+                                    </button>
+                                </div>
+                                <div id="workersList"></div>
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><span class="material-icons-round">chat</span> Mensaje de WhatsApp</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="whatsappTemplate">
+                                        Plantilla del mensaje (usa {nombre} y {carro} como variables)
+                                    </label>
+                                    <textarea id="whatsappTemplate" rows="4"
+                                        placeholder="Hola {nombre}, tu {carro} ya está listo..."></textarea>
+                                    <small>Variables disponibles: <code>{nombre}</code>, <code>{carro}</code>,
+                                        <code>{servicio}</code></small>
+                                </div>
+                                <button class="btn btn-primary btn-full" onclick="saveWhatsAppTemplate()">
+                                    <span class="material-icons-round">save</span> Guardar Plantilla
+                                </button>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card" style="border-color: var(--red);">
+                            <div class="card-header"
+                                style="border-bottom-color: var(--red); background: var(--red-bg);">
+                                <h3 style="color: var(--red);"><span class="material-icons-round">warning</span> Zona de
+                                    Peligro</h3>
+                            </div>
+                            <div class="card-body">
+                                <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                                    Borrar todo el historial de servicios, finanzas y configuración. Esta acción no se
+                                    puede deshacer.
+                                </p>
+                                <button class="btn btn-danger btn-full" onclick="resetSystemData()"
+                                    style="justify-content: center;">
+                                    <span class="material-icons-round">delete_forever</span> Borrar Datos del Sistema
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    
+    
+    <div id="completeModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeModal('completeModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><span class="material-icons-round">check_circle</span> Finalizar Servicio</h3>
+                <button class="modal-close" onclick="closeModal('completeModal')">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="completeModalText" style="margin-bottom: 0.5rem; font-weight: 600;">¿Cómo deseas finalizar este
+                    servicio?</p>
+                <div class="modal-car-info" id="completeModalInfo"></div>
+            </div>
+            <div class="modal-footer" style="flex-direction: column; gap: 0.5rem;">
+                <button class="btn btn-primary btn-full" id="confirmCompleteWhatsappBtn"
+                    style="justify-content: center; background: #25D366; border-color: #25D366; display: flex; align-items: center; gap: 8px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                    </svg>
+                    Completar y mandar mensaje
+                </button>
+                <button class="btn btn-primary btn-full" id="confirmCompleteBtn" style="justify-content: center;">
+                    <span class="material-icons-round">check</span> Solo completar (sin mensaje)
+                </button>
+                <button class="btn btn-ghost btn-full" onclick="closeModal('completeModal')"
+                    style="justify-content: center; border-color: transparent;">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="cancelModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeModal('cancelModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><span class="material-icons-round" style="color: var(--red);">warning</span> Cancelar Servicio</h3>
+                <button class="modal-close" onclick="closeModal('cancelModal')">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas cancelar este servicio? Esta acción no se puede deshacer.</p>
+                <div class="modal-car-info" id="cancelModalInfo"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeModal('cancelModal')">No, volver</button>
+                <button class="btn btn-danger" id="confirmCancelBtn">
+                    <span class="material-icons-round">delete_forever</span> Sí, cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="addServiceModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeModal('addServiceModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><span class="material-icons-round">add_circle</span> Agregar Servicio</h3>
+                <button class="modal-close" onclick="closeModal('addServiceModal')">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="newServiceName">Nombre del Servicio</label>
+                    <input type="text" id="newServiceName">
+                </div>
+                <div class="form-group">
+                    <label for="newServicePrice">Precio Sugerido</label>
+                    <input type="number" id="newServicePrice" placeholder="0.00" min="0" step="0.01">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeModal('addServiceModal')">Cancelar</button>
+                <button class="btn btn-primary" onclick="addServiceType()">
+                    <span class="material-icons-round">add</span> Agregar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="deleteServiceTypeModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeModal('deleteServiceTypeModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><span class="material-icons-round" style="color: var(--red);">warning</span> Eliminar Servicio</h3>
+                <button class="modal-close" onclick="closeModal('deleteServiceTypeModal')">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas eliminar este tipo de servicio del menú?</p>
+                <div class="modal-car-info" id="deleteServiceTypeModalInfo" style="margin-top: 1rem;"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeModal('deleteServiceTypeModal')">No, volver</button>
+                <button class="btn btn-danger" id="confirmDeleteServiceTypeBtn">
+                    <span class="material-icons-round">delete_forever</span> Sí, eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="logoutModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeModal('logoutModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><span class="material-icons-round" style="color: var(--warning);">logout</span> Cerrar Sesión</h3>
+                <button class="modal-close" onclick="closeModal('logoutModal')">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas cerrar la sesión actual?</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Tendrás que ingresar la
+                    contraseña nuevamente para entrar.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeModal('logoutModal')">Cancelar</button>
+                <button class="btn btn-warning" id="confirmLogoutBtn"
+                    style="background: linear-gradient(135deg, var(--warning), #f57c00); color: white; border: none; box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);">
+                    <span class="material-icons-round">logout</span> Cerrar Sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="resetModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeModal('resetModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><span class="material-icons-round" style="color: var(--red);">delete_forever</span> Borrar Todo el
+                    Sistema</h3>
+                <button class="modal-close" onclick="closeModal('resetModal')">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong>¡ATENCIÓN!</strong> Estás a punto de borrar TODOS los datos, finanzas y configuración. Esta
+                    acción <strong>no se puede deshacer</strong>.</p>
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label for="resetPasswordInput">Ingresa tu contraseña de administrador para confirmar:</label>
+                    <input type="password" id="resetPasswordInput" placeholder="Contraseña">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeModal('resetModal')">Cancelar</button>
+                <button class="btn btn-danger" onclick="confirmResetSystem()">
+                    <span class="material-icons-round">delete_forever</span> Confirmar Borrado
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Worker Assignment Modal -->
+    <div id="assignWorkerModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeModal('assignWorkerModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><span class="material-icons-round" style="color: #ff9800;">badge</span> Asignar Trabajador</h3>
+                <button class="modal-close" onclick="closeModal('assignWorkerModal')">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="assignWorkerInfo" style="margin-bottom: 0.75rem; font-weight: 600;"></p>
+                <div id="workerButtonsList" style="display: flex; flex-direction: column; gap: 0.5rem;"></div>
+            </div>
+            <div class="modal-footer" style="flex-direction: column; gap: 0.5rem;">
+                <button class="btn btn-ghost btn-full" onclick="closeModal('assignWorkerModal')" style="justify-content: center; border-color: transparent;">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="toastContainer" class="toast-container"></div>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="app.js?v=4"></script>
+    <script src="patches.js?v=1"></script>
+</body>
+
+</html>
