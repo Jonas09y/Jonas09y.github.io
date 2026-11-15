@@ -656,3 +656,43 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* ---------- Transparent Costs Breakdown Card ---------- */
+.transparency-card {
+  margin-top: 36px;
+  background: linear-gradient(135deg, #ffffff 0%, #faf8f4 100%);
+  border: 1.5px solid rgba(201, 169, 110, 0.45);
+  border-radius: 24px;
+  padding: 32px 36px;
+  box-shadow: 0 16px 45px rgba(42, 37, 32, 0.05);
+}
+.tc-header { text-align: center; margin-bottom: 24px; }
+.tc-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(201, 169, 110, 0.15); color: #8c6e26;
+  font-size: .74rem; font-weight: 800; letter-spacing: .08em;
+  padding: 4px 14px; border-radius: 20px; text-transform: uppercase; margin-bottom: 8px;
+}
+.tc-header h3 { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.tc-header p { color: var(--muted); font-size: .92rem; }
+.tc-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.tc-col {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex; gap: 14px; align-items: flex-start;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.tc-col:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+.tc-icon { font-size: 1.8rem; line-height: 1; }
+.tc-info h5 { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.tc-price { font-size: 1.35rem; font-weight: 800; color: var(--wine); margin-bottom: 4px; }
+.tc-price small { font-size: .75rem; font-weight: 600; color: var(--muted); display: block; }
+.tc-info p { font-size: .82rem; color: var(--muted); line-height: 1.4; }
+@media (max-width: 860px) {
+  .tc-grid { grid-template-columns: 1fr; }
+  .transparency-card { padding: 24px 20px; }
+}
