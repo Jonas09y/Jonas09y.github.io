@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibella Aesthetics | Botox, Fillers & Skin Rejuvenation in Norwalk, CT</title>
+  <meta name="description" content="Vibella Aesthetics — medical aesthetics by Gabriela Vargas, PA-C in South Norwalk, CT. Botox, lip filler, microneedling, VI Peel, PRP and more. By appointment only. Hablamos Español.">
+  <link rel="preconnect" href="#" data-demo="1">
+  <link rel="preconnect" href="#" data-demo="1" crossorigin>
+  <link href="#" data-demo="1" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="logo" aria-label="Vibella Aesthetics">
+      <span class="logo-main">VIBELLA</span>
+      <span class="logo-sub">AESTHETICS</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#results" data-i18n="nav.results">Results</a>
+      <a href="#services" data-i18n="nav.services">Treatments</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#visit" data-i18n="nav.visit">Visit</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="lang" id="langBtn" aria-label="Switch language">ES</button>
+      <a href="#" data-demo="1" class="btn btn-dark btn-sm" data-i18n="cta.book">Book Now</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero-text">
+      <p class="eyebrow reveal" data-i18n="hero.eyebrow">Medical Aesthetics · South Norwalk, CT</p>
+      <h1 class="reveal" data-i18n-html="hero.title">Enhance your beauty,<br><em>never change it.</em></h1>
+      <p class="lead reveal" data-i18n="hero.lead">Botox, fillers and advanced skin treatments performed by a certified injector with a medical background — for refined, natural-looking results.</p>
+      <div class="hero-ctas reveal">
+        <a href="#" data-demo="1" class="btn btn-dark" data-i18n="cta.consult">Book a Consultation</a>
+        <a href="#results" class="btn btn-line" data-i18n="cta.results">See Real Results</a>
+      </div>
+      <ul class="hero-trust reveal">
+        <li><strong>PA-C</strong><span data-i18n="trust.pa">Physician Assistant</span></li>
+        <li><strong>6+</strong><span data-i18n="trust.years">Years in medicine</span></li>
+        <li><strong>ES · EN</strong><span data-i18n="trust.lang">Hablo Español</span></li>
+      </ul>
+    </div>
+    <div class="hero-media reveal">
+      <div class="hero-img"><img src="assets/img/hero_prp.jpg" alt="Vibella Aesthetics — Hair Restoration with PRP"></div>
+      <div class="hero-card">
+        <span class="hero-card-tag" data-i18n="hero.cardTag">New patients</span>
+        <p data-i18n-html="hero.card">Consultation <strong>$75</strong> — credited toward your treatment</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SIGNATURE PILLARS (Bridging Hero & Results) ============ -->
+  <div class="pillars-wrap">
+    <div class="pillars reveal">
+      <a href="#services" class="pillar">
+        <span class="pillar-num">01</span>
+        <div>
+          <strong data-i18n="pil.t1">Injectables &amp; Tox</strong>
+          <small data-i18n="pil.s1">Botox · Xeomin · Lip Filler</small>
+        </div>
+        <i aria-hidden="true">→</i>
+      </a>
+      <a href="#results" class="pillar">
+        <span class="pillar-num">02</span>
+        <div>
+          <strong data-i18n="pil.t2">Skin Resurfacing</strong>
+          <small data-i18n="pil.s2">Microneedling · VI Peel</small>
+        </div>
+        <i aria-hidden="true">→</i>
+      </a>
+      <a href="#services" class="pillar">
+        <span class="pillar-num">03</span>
+        <div>
+          <strong data-i18n="pil.t3">Regenerative Care</strong>
+          <small data-i18n="pil.s3">Cellenis PRF · PRP Hair</small>
+        </div>
+        <i aria-hidden="true">→</i>
+      </a>
+      <a href="#party" class="pillar">
+        <span class="pillar-num">04</span>
+        <div>
+          <strong data-i18n="pil.t4">Concierge Events</strong>
+          <small data-i18n="pil.s4">Private Tox Parties</small>
+        </div>
+        <i aria-hidden="true">→</i>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============ BEFORE / AFTER ============ -->
+  <section class="results" id="results">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-i18n="results.eyebrow">Real patients · Real results</p>
+      <h2 data-i18n-html="results.title">Move across the photo to <em>see the difference</em></h2>
+    </div>
+
+    <div class="ba-tabs reveal" role="tablist" aria-label="Before and after cases">
+      <button class="ba-tab active" data-case="botox" data-i18n="ba.tab1">01 · Forehead Botox</button>
+      <button class="ba-tab" data-case="acne" data-i18n="ba.tab2">02 · Microneedling + VI Peel</button>
+    </div>
+
+    <div class="ba-wrap reveal">
+      <div class="ba" id="ba" style="--pos:50%">
+        <img class="ba-img ba-after" id="baAfter" src="assets/img/ba_botox_after.jpg" alt="After treatment">
+        <div class="ba-before-clip">
+          <img class="ba-img ba-before" id="baBefore" src="assets/img/ba_botox_before.jpg" alt="Before treatment">
+        </div>
+        <span class="ba-label ba-label-l" data-i18n="ba.before">Before</span>
+        <span class="ba-label ba-label-r" data-i18n="ba.after">After</span>
+        <div class="ba-handle"><span>‹ ›</span></div>
+        <div class="ba-hint" data-i18n="ba.hint">Hover or drag</div>
+      </div>
+      <div class="ba-info">
+        <span class="ba-tag" id="baTag" data-i18n="ba.tag">Forehead & expression lines</span>
+        <h3 id="baTitle" data-i18n="ba.title">Forehead Neurotoxin</h3>
+        <p id="baDesc" data-i18n="ba.desc">Precision neurotoxin placement relaxes overactive forehead muscles for a smooth, rested appearance — while preserving your natural expression.</p>
+        <ul class="ba-points">
+          <li id="baP1" data-i18n="ba.p1">Visibly smoother forehead lines</li>
+          <li id="baP2" data-i18n="ba.p2">Natural, refreshed expression</li>
+          <li id="baP3" data-i18n="ba.p3">Full results in 2 weeks</li>
+        </ul>
+        <a href="#" data-demo="1" class="btn btn-gold" data-i18n="cta.thisTreatment">I want this result</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="services" id="services">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-i18n="services.eyebrow">Treatments</p>
+      <h2 data-i18n-html="services.title">Tailored to your face, <em>your goals</em></h2>
+      <p class="sub" data-i18n="services.sub">Every plan begins with a personal consultation. Prices shown include our current 10% off.</p>
+    </div>
+
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <div class="svc-top"><span class="svc-num">01</span><span class="svc-price"><small data-i18n="from">from</small> $14<small>/unit</small></span></div>
+        <h3>Neurotoxins</h3>
+        <p class="svc-brands">Botox · Xeomin · Letybo</p>
+        <p data-i18n="svc.tox">Forehead lines, frown lines (11s), crow's feet, brow lift, lip flip, gummy smile and bunny lines.</p>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-top"><span class="svc-num">02</span><span class="svc-price"><s>$760</s> $684</span></div>
+        <h3 data-i18n="svc.lipT">Lip Filler</h3>
+        <p class="svc-brands" data-i18n="svc.lipB">Volume · Definition · Balance</p>
+        <p data-i18n="svc.lip">Subtle, beautiful lips — whether you want more fullness or to restore lost volume.</p>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-top"><span class="svc-num">03</span><span class="svc-price"><small data-i18n="from">from</small> $360</span></div>
+        <h3>Microneedling</h3>
+        <p class="svc-brands" data-i18n="svc.mnB">Face · Neck · PRP glide</p>
+        <p data-i18n="svc.mn">Stimulates collagen and elastin to treat acne scars, fine lines and dull skin. 3 sessions: $1,300.</p>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-top"><span class="svc-num">04</span><span class="svc-price"><s>$350</s> $315</span></div>
+        <h3>VI Chemical Peel</h3>
+        <p class="svc-brands" data-i18n="svc.peelB">Face & Body · All skin types</p>
+        <p data-i18n="svc.peel">Painless medium-depth peel for hyperpigmentation, melasma, sun spots and acne scars. 3 peels: $875.</p>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-top"><span class="svc-num">05</span><span class="svc-price"><small data-i18n="from">from</small> $675</span></div>
+        <h3 data-i18n="svc.jawT">Jaw Slimming & Barbie Tox</h3>
+        <p class="svc-brands" data-i18n="svc.jawB">Masseter · Trapezius</p>
+        <p data-i18n="svc.jaw">A slimmer facial contour and an elegant, elongated neckline — plus relief from tension and migraines.</p>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-top"><span class="svc-num">06</span><span class="svc-price"><small data-i18n="from">from</small> $1,980</span></div>
+        <h3>Cellenis PRF Bio-Filler</h3>
+        <p class="svc-brands" data-i18n="svc.prfB">Your own biology, elevated</p>
+        <p data-i18n="svc.prf">A natural filler made from your own plasma for under eyes, cheeks, smile lines and hands.</p>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-top"><span class="svc-num">07</span><span class="svc-price"><small data-i18n="from">from</small> $2,430</span></div>
+        <h3 data-i18n="svc.hairT">PRP Hair Restoration</h3>
+        <p class="svc-brands" data-i18n="svc.hairB">Scalp · Regenerative</p>
+        <p data-i18n="svc.hair">Platelet-rich plasma injections that support thicker, healthier hair growth over 3 monthly sessions.</p>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-top"><span class="svc-num">08</span><span class="svc-price">$675</span></div>
+        <h3>DEJ BioStim</h3>
+        <p class="svc-brands" data-i18n="svc.dejB">Needle-free · Minimal downtime</p>
+        <p data-i18n="svc.dej">A topical bio-stimulator that boosts collagen for firmer, smoother, more radiant skin. Safe for all skin tones.</p>
+      </article>
+    </div>
+
+    <div class="svc-extra reveal">
+      <span data-i18n="svc.more">Also available:</span>
+      <b data-i18n="svc.m1">Hyperhidrosis (excessive sweating)</b> ·
+      <b data-i18n="svc.m2">Filler dissolving</b> ·
+      <b data-i18n="svc.m3">B-12 shots</b> ·
+      <b data-i18n="svc.m4">Gift certificates from $45</b>
+    </div>
+  </section>
+
+  <!-- ============ TOX PARTY ============ -->
+  <section class="party reveal" id="party">
+    <div class="party-img"><img src="assets/img/serum.jpg" alt=""></div>
+    <div class="party-text">
+      <p class="eyebrow light" data-i18n="party.eyebrow">Exclusive to Vibella</p>
+      <h2 data-i18n-html="party.title">Concierge <em>Tox Party</em></h2>
+      <p data-i18n="party.desc">Invite three or more friends and enjoy an exclusive discounted rate per unit. Gabriela comes to your home or venue for a luxurious, hassle-free beauty experience.</p>
+      <a href="#" data-demo="1" class="btn btn-gold" data-i18n="party.cta">Call to book your party</a>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about-section" id="about">
+    <div class="about">
+      <div class="about-media reveal">
+        <img src="assets/img/gabriela_portrait.jpg" alt="Gabriela Vargas, PA-C" class="about-main">
+        <div class="about-card">
+          <span class="about-card-num">PA-C</span>
+          <p data-i18n="about.card">Hospitalist & Plastic Surgery background · Certified Aesthetic Injector</p>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <p class="eyebrow" data-i18n="about.eyebrow">Meet your injector</p>
+        <h2>Gabriela Vargas, <em>PA-C</em></h2>
+        <p data-i18n="about.p1">Gabriela is a dedicated Physician Assistant with over six years of medical experience. She began her career as a Hospitalist, mastering acute care, before moving into plastic surgery and aesthetics — where she found her true passion.</p>
+        <p data-i18n="about.p2">As a certified injector, she is committed to natural, beautiful results, constantly training in the latest techniques so every patient receives precise, personalized care with compassion.</p>
+        <blockquote data-i18n="about.quote">A beautiful balance between science, artistry and natural rejuvenation.</blockquote>
+        <div class="about-badges">
+          <span data-i18n="about.b1">Medical background</span>
+          <span data-i18n="about.b2">Certified injector</span>
+          <span data-i18n="about.b3">Hablo Español</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STEPS ============ -->
+  <section class="steps">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-i18n="steps.eyebrow">Your experience</p>
+      <h2 data-i18n-html="steps.title">Simple, safe & <em>personal</em></h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step reveal"><span>I</span><h3 data-i18n="steps.s1t">Consultation</h3><p data-i18n="steps.s1">We talk about your goals, anatomy and the right plan for you.</p></div>
+      <div class="step reveal"><span>II</span><h3 data-i18n="steps.s2t">Treatment</h3><p data-i18n="steps.s2">Performed with premium products in a calm, private setting.</p></div>
+      <div class="step reveal"><span>III</span><h3 data-i18n="steps.s3t">2-Week Follow-up</h3><p data-i18n="steps.s3">A complimentary check-in for before & after photos and touch-ups.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ INSTAGRAM ============ -->
+  <section class="insta">
+    <div class="section-head reveal">
+      <p class="eyebrow">@vibellaaesthetics</p>
+      <h2 data-i18n-html="insta.title">Follow the <em>glow</em></h2>
+    </div>
+    <div class="insta-grid reveal">
+      <a href="#" data-demo="1"><img src="assets/img/ig_06.jpg" alt="Vampire facial"></a>
+      <a href="#" data-demo="1"><img src="assets/img/ig_12.jpg" alt="PRP"></a>
+      <a href="#" data-demo="1"><img src="assets/img/ig_07.jpg" alt="Fall skin bucket list"></a>
+      <a href="#" data-demo="1"><img src="assets/img/ig_09.jpg" alt="B-12 shot"></a>
+      <a href="#" data-demo="1"><img src="assets/img/ig_11.jpg" alt="Medical aesthetics in Fairfield County"></a>
+      <a href="#" data-demo="1"><img src="assets/img/ig_02.jpg" alt="Thanksgiving"></a>
+    </div>
+  </section>
+
+  <!-- ============ VISIT ============ -->
+  <section class="visit" id="visit">
+    <div class="visit-info reveal">
+      <p class="eyebrow" data-i18n="visit.eyebrow">Visit us</p>
+      <h2 data-i18n-html="visit.title">Your glow starts <em>here</em></h2>
+      <ul class="visit-list">
+        <li><b data-i18n="visit.addr">Address</b><span>515 West Avenue, Suite #3<br>Norwalk, CT 06850</span></li>
+        <li><b data-i18n="visit.phone">Phone</b><a href="#" data-demo="1">(914) 439-0267</a></li>
+        <li><b>Email</b><a href="#" data-demo="1">vibellaaesthetics@gmail.com</a></li>
+        <li><b data-i18n="visit.hours">Hours</b><span data-i18n="visit.hoursV">By appointment only</span></li>
+      </ul>
+      <div class="visit-ctas">
+        <a href="#" data-demo="1" class="btn btn-dark" data-i18n="cta.bookOnline">Book Online</a>
+        <a href="#" data-demo="1" class="btn btn-line" data-i18n="cta.text">Send a Text</a>
+      </div>
+    </div>
+    <div class="visit-map reveal">
+      <iframe title="Vibella Aesthetics Norwalk CT Map" src="https://maps.google.com/maps?q=515+West+Ave+Suite+3,+Norwalk,+CT+06850&t=&z=15&ie=UTF8&iwloc=&output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a href="#" data-demo="1" class="map-pill" data-i18n="visit.directions">Open in Google Maps →</a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="logo logo-footer"><span class="logo-main">VIBELLA</span><span class="logo-sub">AESTHETICS</span></div>
+    <div class="footer-links">
+      <a href="#" data-demo="1">Instagram</a>
+      <a href="#" data-demo="1">(914) 439-0267</a>
+      <a href="#" data-demo="1">Revision Skincare</a>
+    </div>
+    <p class="copy">© 2026 Vibella Aesthetics, LLC · Norwalk, CT</p>
+  </footer>
+
+  <!-- Floating mobile CTA -->
+  <a href="#" data-demo="1" class="float-call" aria-label="Call Vibella">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+  </a>
+
+  <div class="demo-toast" id="demoToast" role="status" aria-live="polite"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
