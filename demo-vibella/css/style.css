@@ -441,3 +441,73 @@ section { padding: 7.5rem 5vw; position: relative; }
   .ba { aspect-ratio: 4/3; }
   .visit-list li { grid-template-columns: 1fr; gap: .2rem; }
 }
+
+
+/* =====================================================================
+   LIGHT CREAM THEME (client request: white / cream backgrounds)
+   ===================================================================== */
+body { background: #fdfaf6; }
+
+/* Hero: soft cream instead of rose-clay panel */
+.hero {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(240, 222, 212, .55) 0%, transparent 45%),
+    linear-gradient(125deg, #fffdfa 0%, #fbf5ef 60%, #f6ece4 100%);
+}
+.hero::before {
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, .7) 0%, transparent 55%),
+    linear-gradient(160deg, #f5e9e0 0%, #efdfd4 55%, #e9d5c8 100%);
+}
+.hero::after { border-color: rgba(196, 125, 114, .22); }
+.hero-media::before { border-color: rgba(196, 125, 114, .35); }
+.pillars-wrap { background: linear-gradient(180deg, #f7eee7 50%, #fdfaf6 50%); }
+
+/* Results: white card instead of dark showcase */
+.results { background: linear-gradient(180deg, #fdfaf6 0%, #f8f0ea 100%); }
+.ba-wrap {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid rgba(196, 125, 114, .2);
+  box-shadow: 0 30px 70px -35px rgba(56, 30, 28, .28);
+}
+.ba-tag { color: var(--rose); }
+.ba-info h3 { color: var(--ink); }
+.ba-info p { color: var(--muted); }
+.ba-points li { color: var(--ink); border-bottom-color: var(--line); }
+.ba-points li::before { color: var(--rose); }
+.ba-tab { background: #fff; }
+
+/* Services */
+.services { background: #fffdfa; }
+.svc { background: #fff; }
+
+/* Party: cream instead of dark plum */
+.party { background: linear-gradient(135deg, #f8efe8 0%, #f2e4da 100%); color: var(--ink); }
+.party-img::after { background: none; }
+.party-text p { color: var(--muted); }
+.party-text em { color: var(--rose); }
+.party .eyebrow.light { color: var(--rose); }
+
+/* About */
+.about-section { background: linear-gradient(180deg, #fdfaf6 0%, #f8f0ea 100%); }
+
+/* Steps: light cards instead of dark section */
+.steps { background: #fffdfa; color: var(--ink); }
+.steps .eyebrow { color: var(--rose); }
+.steps em { color: var(--rose); }
+.step { background: #fff; border-color: rgba(196, 125, 114, .2); box-shadow: 0 16px 40px -28px rgba(56, 30, 28, .25); }
+.step:hover { background: #fff; border-color: var(--rose); }
+.step h3 { color: var(--ink); }
+.step p { color: var(--muted); }
+
+/* Insta & Visit */
+.insta { background: linear-gradient(180deg, #f8f0ea 0%, #fdfaf6 100%); }
+.visit { background: linear-gradient(180deg, #fdfaf6 0%, #f6ece4 100%); }
+.visit-info { background: #fff; }
+
+/* Footer: warm cream */
+.footer { background: #f3e8e0; color: var(--ink); border-top: 1px solid rgba(196, 125, 114, .2); }
+.logo-footer .logo-main { color: var(--ink); }
+.footer-links a:hover { color: var(--rose); }
+.copy { color: var(--muted); }

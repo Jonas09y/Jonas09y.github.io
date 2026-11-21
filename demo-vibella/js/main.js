@@ -73,16 +73,16 @@ const CASES = {
     ratio: '584 / 216',
     en: {
       tag: 'Acne scars & texture',
-      title: 'Microneedling + VI Peel',
-      desc: 'Collagen-stimulating treatments that visibly soften acne scars, refine pores and even out skin tone — with minimal downtime.',
+      title: 'Microneedling',
+      desc: 'A collagen-stimulating treatment that visibly softens acne scars, refines pores and evens out skin texture — with minimal downtime.',
       p1: 'Smoother texture',
       p2: 'Reduced scarring',
       p3: 'Brighter, even tone'
     },
     es: {
       tag: 'Cicatrices de acné y textura',
-      title: 'Microneedling + VI Peel',
-      desc: 'Tratamientos que estimulan el colágeno para suavizar visiblemente las cicatrices de acné, refinar los poros y unificar el tono — con mínima recuperación.',
+      title: 'Microneedling',
+      desc: 'Tratamiento que estimula el colágeno para suavizar visiblemente las cicatrices de acné, refinar los poros y mejorar la textura de la piel — con mínima recuperación.',
       p1: 'Textura más suave',
       p2: 'Menos cicatrices',
       p3: 'Tono más uniforme y luminoso'
@@ -127,7 +127,7 @@ const ES = {
   'results.eyebrow': 'Pacientes reales · Resultados reales',
   'results.title': 'Pasa el cursor sobre la foto para <em>ver la diferencia</em>',
   'ba.before': 'Antes', 'ba.after': 'Después', 'ba.hint': 'Pasa el cursor o desliza',
-  'ba.tab1': '01 · Botox en Frente', 'ba.tab2': '02 · Microneedling + VI Peel',
+  'ba.tab1': '01 · Botox en Frente', 'ba.tab2': '02 · Microneedling',
   'ba.tag': 'Frente y líneas de expresión', 'ba.title': 'Neurotoxina en Frente (Botox)',
   'ba.desc': 'Aplicación precisa de neurotoxina que relaja los músculos de la frente para una piel lisa y descansada — conservando tu expresión natural.',
   'ba.p1': 'Líneas de la frente visiblemente más suaves', 'ba.p2': 'Expresión natural y descansada', 'ba.p3': 'Resultados completos en 2 semanas',
