@@ -83,16 +83,18 @@
   <!-- ============ HERO · CINEMATIC VIDEO BEHIND TEXT ============ -->
   <section class="hero" id="inicio">
     <div class="hero-media" aria-hidden="true">
-      <img class="hero-poster" src="assets/img/camping-montana.jpg" alt="" loading="eager">
-      <div class="yt-cover" id="heroYtWrap">
-        <iframe
-          id="heroYtFrame"
-          src="https://www.youtube.com/embed/o_pB7xoH4Pg?autoplay=1&mute=1&loop=1&playlist=o_pB7xoH4Pg&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&start=18"
-          title="Video ambiental aéreo de Finca Santa Emilia, Danlí"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          referrerpolicy="strict-origin-when-cross-origin">
-        </iframe>
-      </div>
+      <video
+        class="bg-video"
+        id="heroVideo"
+        src="assets/video/santa-emilia-aventura.mp4"
+        poster="assets/img/fb-atardecer.jpg"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        data-loop-end="25.4">
+      </video>
       <div class="hero-scrim"></div>
       <!-- Topographic SVG lines -->
       <svg class="topo-overlay" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice">
@@ -105,8 +107,8 @@
 
     <div class="container hero-content">
       <div class="hero-telemetry reveal">
-        <span class="mono-chip">14°02'N · 86°34'W</span>
-        <span class="mono-chip">CORDILLERA DE APAGÜIZ, DANLÍ</span>
+        <span class="mono-chip">APAGÜIZ · APAPUERTA, DANLÍ</span>
+        <span class="mono-chip">CARRETERA EN BUEN ESTADO HASTA EL PORTÓN</span>
         <span class="mono-chip">1,200 MSNM</span>
       </div>
 
@@ -117,7 +119,7 @@
 
       <div class="hero-grid reveal">
         <p class="hero-lead">
-          Un santuario vivo de más de <strong>300 hectáreas</strong> de bosque latifoliado y pino en El Paraíso, Honduras. Cascadas de agua cristalina, paseos en bote, senderos entre monos aulladores, camping bajo las estrellas y un legado cafetalero que late desde <strong>1870</strong>.
+          Menos pantalla y más caminata en <strong>Montaña Santa Emilia</strong>, El Paraíso. Vive <strong>La Cascada Contemplación</strong>, paseos en bote, cruce de cuerdas y tobogán en la laguna, senderos rodeados de <strong>monos aulladores</strong> y fogón con leña en medio del bosque.
         </p>
 
         <div class="hero-cta-group">
@@ -128,29 +130,29 @@
           <a class="btn btn-glass" href="#planifica">
             <span>Arma tu visita</span>
           </a>
-          <button class="btn-video-trigger" type="button" data-video-modal="o_pB7xoH4Pg" data-video-title="Finca Santa Emilia — Vista Aérea en Danlí">
+          <button class="btn-video-trigger" type="button" data-video-modal="assets/video/santa-emilia-aventura.mp4" data-video-title="Santa Emilia Pulmón de Danlí — Aventura, Laguna y Montaña">
             <span class="play-ring" aria-hidden="true">▶</span>
-            <span>Ver video con sonido</span>
+            <span>Ver video completo</span>
           </button>
         </div>
       </div>
 
       <div class="hero-stats reveal">
         <div class="stat-item">
-          <span class="stat-num">+300</span>
-          <span class="stat-desc">Hectáreas de bosque y reserva natural</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">1,200 m</span>
-          <span class="stat-desc">Altitud con clima fresco de montaña</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">1870</span>
-          <span class="stat-desc">Años de historia cafetalera y casona</span>
-        </div>
-        <div class="stat-item">
           <span class="stat-num">8am–3pm</span>
-          <span class="stat-desc">Abierto todos los días del año</span>
+          <span class="stat-desc">Abierto todos los días en Montaña Santa Emilia</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">+300 ha</span>
+          <span class="stat-desc">Bosque vivo, senderos y fauna silvestre</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">Fogón</span>
+          <span class="stat-desc">Trae tu comida · contamos con fogón y leña</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">Buen acceso</span>
+          <span class="stat-desc">Carretera en buen estado hasta el portón principal</span>
         </div>
       </div>
     </div>
@@ -159,20 +161,20 @@
   <!-- ============ EDITORIAL TICKER ============ -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>CASCADAS CRISTALINAS</span><i>✦</i>
-      <span>PASEO EN BOTE EN LA LAGUNA</span><i>✦</i>
+      <span>LA CASCADA CONTEMPLACIÓN</span><i>✦</i>
+      <span>PASEO EN BOTE &amp; CRUCE DE CUERDAS</span><i>✦</i>
+      <span>TOBOGÁN EN LA LAGUNA</span><i>✦</i>
       <span>MONOS AULLADORES</span><i>✦</i>
-      <span>CAMPING &amp; FOGATAS</span><i>✦</i>
-      <span>CUEVAS DE FAUSTO</span><i>✦</i>
-      <span>MIRADOR DEL VALLE DE JAMASTRÁN</span><i>✦</i>
-      <span>CAFÉ DE MONTAÑA DESDE 1870</span><i>✦</i>
-      <span>CASCADAS CRISTALINAS</span><i>✦</i>
-      <span>PASEO EN BOTE EN LA LAGUNA</span><i>✦</i>
+      <span>MENOS PANTALLA, MÁS CAMINATA</span><i>✦</i>
+      <span>FOGÓN Y LEÑA DISPONIBLES</span><i>✦</i>
+      <span>APAGÜIZ · DANLÍ, EL PARAÍSO</span><i>✦</i>
+      <span>LA CASCADA CONTEMPLACIÓN</span><i>✦</i>
+      <span>PASEO EN BOTE &amp; CRUCE DE CUERDAS</span><i>✦</i>
+      <span>TOBOGÁN EN LA LAGUNA</span><i>✦</i>
       <span>MONOS AULLADORES</span><i>✦</i>
-      <span>CAMPING &amp; FOGATAS</span><i>✦</i>
-      <span>CUEVAS DE FAUSTO</span><i>✦</i>
-      <span>MIRADOR DEL VALLE DE JAMASTRÁN</span><i>✦</i>
-      <span>CAFÉ DE MONTAÑA DESDE 1870</span><i>✦</i>
+      <span>MENOS PANTALLA, MÁS CAMINATA</span><i>✦</i>
+      <span>FOGÓN Y LEÑA DISPONIBLES</span><i>✦</i>
+      <span>APAGÜIZ · DANLÍ, EL PARAÍSO</span><i>✦</i>
     </div>
   </div>
 
@@ -181,11 +183,11 @@
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <p class="eyebrow">CUADERNO DE CAMPO · EXPERIENCIAS</p>
-          <h2 class="display-title">Cinco formas de perderse<br><em>para volver a encontrarse.</em></h2>
+          <p class="eyebrow">CUADERNO DE CAMPO · EXPERIENCIAS REALES</p>
+          <h2 class="display-title">Menos pantalla y más<br><em>montaña viva.</em></h2>
         </div>
         <p class="section-intro">
-          A solo 20–40 minutos de la ciudad de Danlí, cada rincón de Santa Emilia ofrece un ritmo distinto: desde la adrenalina de sus senderos hasta el silencio absoluto frente al agua.
+          Unas horas de recreación en Montaña Santa Emilia bastan para activar el cuerpo, romper la rutina y despejar la mente rodeado de agua pura y aire fresco.
         </p>
       </div>
 
@@ -193,28 +195,28 @@
       <article class="chapter reveal">
         <div class="chapter-media chapter-media-dual">
           <figure class="frame-main">
-            <img src="assets/img/cascada-aerea.jpg" alt="Vista aérea de la cascada y poza cristalina en Finca Santa Emilia" loading="lazy">
-            <figcaption class="mono-stamp">VISTA AÉREA · POZA NATURAL</figcaption>
+            <img src="assets/img/fb-cascada-contemplacion.jpg" alt="La Cascada Contemplación en Santa Emilia Pulmón de Danlí" loading="lazy">
+            <figcaption class="mono-stamp">LA CASCADA CONTEMPLACIÓN · DANLÍ</figcaption>
           </figure>
           <figure class="frame-inset">
-            <img src="assets/img/cascada-poza.jpg" alt="Visitante fotografiando la cascada de Finca Santa Emilia" loading="lazy">
+            <img src="assets/img/cascada-aerea.jpg" alt="Vista aérea de la cascada y poza rodeada de bosque" loading="lazy">
           </figure>
         </div>
         <div class="chapter-body">
           <div class="chapter-meta">
             <span class="chapter-num">01</span>
-            <span class="chapter-tag tag-water">Agua Cristalina</span>
+            <span class="chapter-tag tag-water">Agua Pura</span>
           </div>
-          <h3>Cascada y Pozas de Agua Turquesa</h3>
+          <h3>La Cascada Contemplación y Pozas Naturales</h3>
           <p>
-            El corazón refrescante de la montaña. Después de caminar bajo la sombra del bosque húmedo, la caída de agua cristalina y sus pozas naturales te reciben para un chapuzón revitalizante en aguas puras nacidas en la cordillera de Apagüiz.
+            El sonido del agua cayendo entre rocas cubiertas de musgo es la mejor recompensa después de caminar los senderos. Sumérgete en aguas frescas nacidas en la cordillera de Apagüiz y respira el bosque húmedo en su estado más puro.
           </p>
           <ul class="chapter-facts">
-            <li>Agua fría y cristalina todo el año</li>
-            <li>Escaleras rústicas de madera y miradores fotográficos</li>
-            <li>Ideal para refrescarse tras el senderismo</li>
+            <li>Cascada Contemplación y brotes naturales de montaña</li>
+            <li>Senderos rodeados de vegetación verde todo el año</li>
+            <li>Ideal para fotografías y un chapuzón refrescante</li>
           </ul>
-          <button class="btn-add-plan" type="button" data-add-activity="Cascada y Pozas">
+          <button class="btn-add-plan" type="button" data-add-activity="Cascada Contemplación">
             <span class="plus-icon">+</span> Agregar a mi plan de visita
           </button>
         </div>
@@ -222,27 +224,30 @@
 
       <!-- Chapter 02 (Reversed) -->
       <article class="chapter chapter-reverse reveal">
-        <div class="chapter-media">
+        <div class="chapter-media chapter-media-dual">
           <figure class="frame-main frame-square">
             <img src="assets/img/laguna-bote.jpg" alt="Paseo en bote de remos en la laguna de Santa Emilia Pulmón de Danlí" loading="lazy">
-            <figcaption class="mono-stamp">LAGUNA SANTA EMILIA · PASEO EN BOTE</figcaption>
+            <figcaption class="mono-stamp">LAGUNA SANTA EMILIA · BOTES &amp; CUERDAS</figcaption>
+          </figure>
+          <figure class="frame-inset frame-inset-left">
+            <img src="assets/img/fb-cruce-laguna.jpg" alt="Visitante cruzando el puente de cuerdas sobre la laguna de Santa Emilia" loading="lazy">
           </figure>
         </div>
         <div class="chapter-body">
           <div class="chapter-meta">
             <span class="chapter-num">02</span>
-            <span class="chapter-tag tag-water">Familia &amp; Calma</span>
+            <span class="chapter-tag tag-water">Laguna &amp; Aventura</span>
           </div>
-          <h3>Laguna de Montaña y Paseo en Bote</h3>
+          <h3>Laguna, Paseo en Bote, Cruce de Cuerdas y Tobogán</h3>
           <p>
-            Rodeada de vegetación tropical, hojas gigantes y aire puro, la laguna de Santa Emilia invita a remar en bote de madera sin prisas. Una experiencia perfecta para familias, niños y quienes buscan una tarde tranquila entre naturaleza.
+            El corazón recreativo para compartir con familia y amigos: rema sin prisa en bote por la laguna rodeada de vegetación, pon a prueba tu equilibrio en el <strong>cruce de cuerdas sobre el agua</strong> o deslízate directo al agua en el tobogán natural.
           </p>
           <ul class="chapter-facts">
-            <li>Paseos en bote de remos rodeados de bosque</li>
-            <li>Espacios verdes para descansar y convivir</li>
-            <li>Ambiente seguro para disfrutar en familia</li>
+            <li>Paseos en bote de remos para toda la familia</li>
+            <li>Cruce de cuerdas y tobogán de agua hacia la laguna</li>
+            <li>Espacios sombreados para convivir y descansar</li>
           </ul>
-          <button class="btn-add-plan" type="button" data-add-activity="Paseo en Bote en la Laguna">
+          <button class="btn-add-plan" type="button" data-add-activity="Laguna, Botes y Cruce de Cuerdas">
             <span class="plus-icon">+</span> Agregar a mi plan de visita
           </button>
         </div>
@@ -252,28 +257,28 @@
       <article class="chapter reveal">
         <div class="chapter-media chapter-media-dual">
           <figure class="frame-main">
-            <img src="assets/img/camping-montana.jpg" alt="Zona de camping en la cima verde de Finca Santa Emilia" loading="lazy">
-            <figcaption class="mono-stamp">ZONA DE CAMPING · 1,200 MSNM</figcaption>
+            <img src="assets/img/fb-monos.jpg" alt="Monos aulladores descansando en las ramas de los árboles en Santa Emilia" loading="lazy">
+            <figcaption class="mono-stamp">FAUNA SILVESTRE · MONOS AULLADORES</figcaption>
           </figure>
-          <figure class="frame-inset frame-inset-left">
-            <img src="assets/img/mirador-valle.jpg" alt="Mirador panorámico hacia las montañas y valle de Danlí" loading="lazy">
+          <figure class="frame-inset">
+            <img src="assets/img/fb-letrero.jpg" alt="Visitantes junto al letrero oficial de Montaña Santa Emilia" loading="lazy">
           </figure>
         </div>
         <div class="chapter-body">
           <div class="chapter-meta">
             <span class="chapter-num">03</span>
-            <span class="chapter-tag tag-earth">Noche &amp; Paisaje</span>
+            <span class="chapter-tag tag-forest">Senderismo &amp; Fauna</span>
           </div>
-          <h3>Camping Bajo las Estrellas y Mirador del Valle</h3>
+          <h3>Senderos, Monos Aulladores y Aves Migratorias</h3>
           <p>
-            Armar tu tienda bajo un árbol gigante, encender una fogata al caer el ocaso y despertar con la neblina abrazando el Valle de Jamastrán. Desde el mirador se contemplan algunos de los atardeceres más memorables del oriente hondureño.
+            Caminar temprano por la mañana en Montaña Santa Emilia aclara la mente y te conecta con la fauna local. No te asustes si escuchas su llamado: nuestros <strong>monos aulladores</strong> viven libres en la reserva, son totalmente inofensivos, no bajan al suelo y pasan alimentándose y descansando en lo alto de los árboles.
           </p>
           <ul class="chapter-facts">
-            <li>Amplia pradera verde para acampar y hacer fogatas</li>
-            <li>Vista panorámica a la ciudad de Danlí y el valle</li>
-            <li>Atardeceres frescos ideales para fotografía</li>
+            <li>Se recomienda hacer senderismo en la mañana</li>
+            <li>Avistamiento respetuoso de monos aulladores y aves</li>
+            <li>Zona protegida: prohibido cazar y talar árboles</li>
           </ul>
-          <button class="btn-add-plan" type="button" data-add-activity="Camping y Fogata">
+          <button class="btn-add-plan" type="button" data-add-activity="Senderismo y Monos Aulladores">
             <span class="plus-icon">+</span> Agregar a mi plan de visita
           </button>
         </div>
@@ -283,28 +288,28 @@
       <article class="chapter chapter-reverse reveal">
         <div class="chapter-media chapter-media-dual">
           <figure class="frame-main">
-            <img src="assets/img/cascada-escalera.jpg" alt="Senderistas en escalera rústica de madera junto a la cascada" loading="lazy">
-            <figcaption class="mono-stamp">SENDEROS · RESERVA APAGÜIZ</figcaption>
+            <img src="assets/img/fb-atardecer.jpg" alt="Atardecer dorado sobre Montaña Santa Emilia, Danlí" loading="lazy">
+            <figcaption class="mono-stamp">MIRADOR · MONTAÑA SANTA EMILIA</figcaption>
           </figure>
-          <figure class="frame-inset">
-            <img src="assets/img/senderismo-bosque.jpg" alt="Caminata por senderos rodeados de bambú y bosque en Santa Emilia" loading="lazy">
+          <figure class="frame-inset frame-inset-left">
+            <img src="assets/img/camping-montana.jpg" alt="Zona verde de camping bajo los árboles en Santa Emilia" loading="lazy">
           </figure>
         </div>
         <div class="chapter-body">
           <div class="chapter-meta">
             <span class="chapter-num">04</span>
-            <span class="chapter-tag tag-forest">Aventura &amp; Fauna</span>
+            <span class="chapter-tag tag-earth">Picnic, Fogón &amp; Camping</span>
           </div>
-          <h3>Senderismo, Monos Aulladores y Cuevas de Fausto</h3>
+          <h3>Mirador, Camping y Fogón con Leña para tu Comida</h3>
           <p>
-            Recorre rutas entre pinares, bambúes y árboles centenarios mientras escuchas el canto de las aves y el llamado inconfundible de los monos aulladores. Para los más aventureros, el sendero empinado hacia las <strong>Cuevas de Fausto</strong> y las actividades de <strong>canopy</strong> elevan la adrenalina al máximo.
+            Contempla el paisaje del valle y comparte en grupo al aire libre. <strong>Puedes traer tus propios alimentos y merienda</strong> — por el momento no contamos con servicio de restaurante, pero si deseas cocinar en la montaña, ponemos a tu disposición <strong>fogón y leña</strong>.
           </p>
           <ul class="chapter-facts">
-            <li>Avistamiento de monos aulladores y aves locales</li>
-            <li>Rutas guiadas hacia cascadas y Cuevas de Fausto</li>
-            <li>Columpios, áreas recreativas y canopy de montaña</li>
+            <li>Puedes ingresar tus propios alimentos y bebidas</li>
+            <li>Fogón y leña disponibles para cocinar en familia</li>
+            <li>Áreas verdes para picnic, mirador y camping</li>
           </ul>
-          <button class="btn-add-plan" type="button" data-add-activity="Senderismo y Cuevas de Fausto">
+          <button class="btn-add-plan" type="button" data-add-activity="Picnic / Fogón / Camping">
             <span class="plus-icon">+</span> Agregar a mi plan de visita
           </button>
         </div>
@@ -315,40 +320,41 @@
   <!-- ============ VIDEO-BEHIND-TEXT IMMERSIVE INTERLUDE ============ -->
   <section class="video-manifesto" id="bosque-vivo">
     <div class="manifesto-media" aria-hidden="true">
-      <img class="manifesto-poster" id="manifestoPoster" src="assets/img/chorros-bosque.jpg" alt="">
-      <div class="yt-cover">
-        <iframe
-          id="manifestoYtFrame"
-          src="https://www.youtube.com/embed/aDqPJ4XFyHQ?autoplay=1&mute=1&loop=1&playlist=aDqPJ4XFyHQ&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&start=10"
-          title="Video de fondo Finca Santa Emilia, Danlí"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          referrerpolicy="strict-origin-when-cross-origin">
-        </iframe>
-      </div>
+      <video
+        class="bg-video"
+        id="manifestoVideo"
+        src="assets/video/cascada-contemplacion.mp4"
+        poster="assets/img/fb-cascada-contemplacion.jpg"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata">
+      </video>
       <div class="manifesto-scrim"></div>
     </div>
 
     <div class="container manifesto-inner">
-      <p class="eyebrow eyebrow-light reveal">LA MONTAÑA EN MOVIMIENTO · VIDEOS REALES DE DANLÍ</p>
+      <p class="eyebrow eyebrow-light reveal">LA MONTAÑA EN MOVIMIENTO · VIDEOS REALES DE NUESTRO FACEBOOK</p>
       <blockquote class="manifesto-quote reveal">
-        “Donde el ruido de la ciudad se apaga y solo queda el <em>agua</em>, el <em>bosque</em> y el aire puro de Danlí.”
+        “Tu cuerpo se mueve, tu mente se aclara y la <em>montaña</em> te devuelve la paz.”
       </blockquote>
 
       <div class="video-switcher reveal" role="tablist" aria-label="Cambiar video de fondo">
-        <button class="vswitch active" type="button" data-yt="aDqPJ4XFyHQ" data-start="10" data-poster="assets/img/chorros-bosque.jpg" data-title="Los Chorros de Ceilán — Finca Santa Emilia, Danlí">
+        <button class="vswitch active" type="button" data-video-src="assets/video/cascada-contemplacion.mp4" data-poster="assets/img/fb-cascada-contemplacion.jpg" data-title="La Cascada Contemplación — Santa Emilia, Danlí">
           <span class="vswitch-idx">01</span>
-          <span class="vswitch-name">Los Chorros de Ceilán</span>
+          <span class="vswitch-name">Cascada Contemplación</span>
         </button>
-        <button class="vswitch" type="button" data-yt="o_pB7xoH4Pg" data-start="18" data-poster="assets/img/casona-drone.jpg" data-title="Vista Aérea — Finca Santa Emilia, Danlí">
+        <button class="vswitch" type="button" data-video-src="assets/video/santa-emilia-aventura.mp4" data-poster="assets/img/fb-cruce-laguna.jpg" data-loop-end="25.4" data-title="Aventura en la Laguna, Tobogán y Montaña — Santa Emilia">
           <span class="vswitch-idx">02</span>
-          <span class="vswitch-name">Vista Aérea y Casona</span>
+          <span class="vswitch-name">Laguna, Cuerdas y Montaña</span>
         </button>
-        <button class="vswitch" type="button" data-yt="1wYlOvd9_SE" data-start="35" data-poster="assets/img/senderismo-bosque.jpg" data-title="Montaña Santa Emilia — Senderos y Cascada en Danlí">
+        <button class="vswitch" type="button" data-video-src="assets/video/monos-aulladores.mp4" data-poster="assets/img/fb-monos.jpg" data-title="Monos Aulladores en Montaña Santa Emilia">
           <span class="vswitch-idx">03</span>
-          <span class="vswitch-name">Senderos y Cascada</span>
+          <span class="vswitch-name">Monos Aulladores</span>
         </button>
         <button class="vswitch vswitch-open" type="button" id="openCurrentManifesto">
-          ▶ Ver con sonido
+          ▶ Ver en pantalla completa
         </button>
       </div>
     </div>
@@ -477,12 +483,12 @@
           <div class="builder-group">
             <label class="builder-label">1. ¿Qué experiencias te interesan?</label>
             <div class="chip-grid" id="activityChips">
-              <button type="button" class="chip active" data-value="Cascada y Pozas">💧 Cascada y Pozas</button>
-              <button type="button" class="chip" data-value="Paseo en Bote en la Laguna">🚣 Paseo en Bote</button>
-              <button type="button" class="chip" data-value="Senderismo y Cuevas de Fausto">🥾 Senderismo / Cuevas</button>
-              <button type="button" class="chip" data-value="Camping y Fogata">⛺ Camping y Fogata</button>
-              <button type="button" class="chip" data-value="Canopy y Aventura">🌿 Canopy</button>
-              <button type="button" class="chip" data-value="Tour Histórico y Café">☕ Historia y Café</button>
+              <button type="button" class="chip active" data-value="Cascada Contemplación">💧 Cascada Contemplación</button>
+              <button type="button" class="chip" data-value="Laguna, Botes y Cruce de Cuerdas">🚣 Laguna y Botes</button>
+              <button type="button" class="chip" data-value="Senderismo y Monos Aulladores">🥾 Senderismo y Fauna</button>
+              <button type="button" class="chip" data-value="Picnic / Fogón / Camping">🔥 Fogón / Camping</button>
+              <button type="button" class="chip" data-value="Tobogán al Agua">🌊 Tobogán al Agua</button>
+              <button type="button" class="chip" data-value="Tour Histórico y Mirador">🌄 Mirador e Historia</button>
             </div>
           </div>
 
@@ -576,33 +582,33 @@
       </div>
 
       <div class="bento-gallery reveal">
-        <button class="bento-item bento-tall" type="button" data-lightbox="assets/img/cascada-grupo.jpg" data-caption="Amigos disfrutando de la cascada principal de Finca Santa Emilia">
-          <img src="assets/img/cascada-grupo.jpg" alt="Grupo de visitantes junto a la cascada de Finca Santa Emilia" loading="lazy">
-          <span>Cascada Principal</span>
+        <button class="bento-item bento-tall" type="button" data-lightbox="assets/img/fb-cascada-contemplacion.jpg" data-caption="La Cascada Contemplación — Santa Emilia Pulmón de Danlí">
+          <img src="assets/img/fb-cascada-contemplacion.jpg" alt="La Cascada Contemplación en Montaña Santa Emilia" loading="lazy">
+          <span>Cascada Contemplación</span>
         </button>
-        <button class="bento-item bento-wide" type="button" data-lightbox="assets/img/camping-montana.jpg" data-caption="Zona de camping con vista a las montañas de Apagüiz">
-          <img src="assets/img/camping-montana.jpg" alt="Tiendas de campaña en la pradera verde de Santa Emilia" loading="lazy">
-          <span>Camping en la Cima</span>
+        <button class="bento-item bento-wide" type="button" data-lightbox="assets/img/fb-cruce-laguna.jpg" data-caption="Cruce de cuerdas sobre la laguna de Santa Emilia">
+          <img src="assets/img/fb-cruce-laguna.jpg" alt="Cruce de cuerdas sobre la laguna" loading="lazy">
+          <span>Cruce de Cuerdas</span>
         </button>
-        <button class="bento-item" type="button" data-lightbox="assets/img/laguna-bote.jpg" data-caption="Paseo en bote por la laguna rodeada de naturaleza">
+        <button class="bento-item" type="button" data-lightbox="assets/img/laguna-bote.jpg" data-caption="Paseo en bote por la laguna rodeada de bosque">
           <img src="assets/img/laguna-bote.jpg" alt="Paseo en bote en la laguna de Santa Emilia" loading="lazy">
-          <span>La Laguna</span>
+          <span>Paseo en Bote</span>
         </button>
-        <button class="bento-item" type="button" data-lightbox="assets/img/cascada-aerea.jpg" data-caption="Vista aérea de la caída de agua entre el bosque cerrado">
-          <img src="assets/img/cascada-aerea.jpg" alt="Vista aérea de la cascada entre árboles" loading="lazy">
-          <span>Desde el Cielo</span>
+        <button class="bento-item" type="button" data-lightbox="assets/img/fb-monos.jpg" data-caption="Monos aulladores descansando libres en los árboles de Santa Emilia">
+          <img src="assets/img/fb-monos.jpg" alt="Monos aulladores en los árboles" loading="lazy">
+          <span>Monos Aulladores</span>
         </button>
-        <button class="bento-item bento-wide" type="button" data-lightbox="assets/img/mirador-valle.jpg" data-caption="Mirador panorámico hacia el valle y las colinas de Danlí">
-          <img src="assets/img/mirador-valle.jpg" alt="Visitantes en el mirador de Finca Santa Emilia" loading="lazy">
-          <span>Mirador del Valle</span>
+        <button class="bento-item bento-wide" type="button" data-lightbox="assets/img/fb-atardecer.jpg" data-caption="Atardecer dorado desde Montaña Santa Emilia, Danlí">
+          <img src="assets/img/fb-atardecer.jpg" alt="Atardecer sobre Montaña Santa Emilia" loading="lazy">
+          <span>Atardecer en la Montaña</span>
         </button>
-        <button class="bento-item" type="button" data-lightbox="assets/img/cascada-escalera.jpg" data-caption="Escaleras rústicas y pozas en el sendero de agua">
-          <img src="assets/img/cascada-escalera.jpg" alt="Escalera rústica junto a la cascada" loading="lazy">
-          <span>Sendero del Agua</span>
+        <button class="bento-item" type="button" data-lightbox="assets/img/fb-bote-azul.jpg" data-caption="Familias y amigos remando en la laguna">
+          <img src="assets/img/fb-bote-azul.jpg" alt="Visitantes remando en bote azul" loading="lazy">
+          <span>Aventura en Familia</span>
         </button>
-        <button class="bento-item" type="button" data-lightbox="assets/img/casona-drone.jpg" data-caption="Vista aérea de la casona histórica de techo de teja en Finca Santa Emilia, Danlí">
-          <img src="assets/img/casona-drone.jpg" alt="Vista aérea de la casona histórica de Finca Santa Emilia" loading="lazy">
-          <span>La Casona 1870</span>
+        <button class="bento-item" type="button" data-lightbox="assets/img/fb-letrero.jpg" data-caption="Visitantes en el letrero oficial de Montaña Santa Emilia">
+          <img src="assets/img/fb-letrero.jpg" alt="Letrero de Montaña Santa Emilia" loading="lazy">
+          <span>Montaña Santa Emilia</span>
         </button>
       </div>
     </div>
@@ -630,8 +636,12 @@
               </dd>
             </div>
             <div>
+              <dt>Acceso y alimentación</dt>
+              <dd>Carretera en buen estado hasta el portón principal. Puedes traer tus propios alimentos y merienda; contamos con <strong>fogón y leña</strong> si deseas cocinar.</dd>
+            </div>
+            <div>
               <dt>Ubicación</dt>
-              <dd>Montañas de Apagüiz / Macizo de Ceilán, a 20–40 minutos de Danlí, El Paraíso, Honduras.</dd>
+              <dd>Montaña Santa Emilia, Apagüiz / Apapuerta, Danlí, El Paraíso, Honduras.</dd>
             </div>
             <div>
               <dt>Facebook Oficial</dt>
@@ -701,9 +711,9 @@
   <div class="modal" id="videoModal" aria-hidden="true" role="dialog" aria-label="Reproductor de video">
     <button class="modal-close" id="videoClose" aria-label="Cerrar video">✕</button>
     <div class="video-modal-box">
-      <p class="mono-label" id="videoModalTitle">Finca Santa Emilia</p>
+      <p class="mono-label" id="videoModalTitle">Santa Emilia Pulmón de Danlí</p>
       <div class="video-modal-frame">
-        <iframe id="videoModalIframe" src="" title="Video de Finca Santa Emilia" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <video id="videoModalPlayer" controls playsinline></video>
       </div>
     </div>
   </div>

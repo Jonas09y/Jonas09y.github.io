@@ -58,58 +58,79 @@
     reveals.forEach((el) => el.classList.add('in'));
   }
 
-  /* 5. Video-Behind-Text Scene Switcher */
-  const manifestoFrame = document.getElementById('manifestoYtFrame');
-  const manifestoPoster = document.getElementById('manifestoPoster');
+  /* 5. Native Background Video Loop Guard (trim outro cleanly) & Scene Switcher */
+  const heroVideo = document.getElementById('heroVideo');
+  const manifestoVideo = document.getElementById('manifestoVideo');
   const openCurrentBtn = document.getElementById('openCurrentManifesto');
+
+  const attachLoopTrim = (videoEl) => {
+    if (!videoEl) return;
+    videoEl.addEventListener('timeupdate', () => {
+      const endAt = parseFloat(videoEl.dataset.loopEnd || '0');
+      if (endAt > 0 && videoEl.currentTime >= endAt) {
+        videoEl.currentTime = 0;
+        videoEl.play().catch(() => {});
+      }
+    });
+  };
+  attachLoopTrim(heroVideo);
+  attachLoopTrim(manifestoVideo);
+
   let activeManifesto = {
-    id: 'aDqPJ4XFyHQ',
-    title: 'Los Chorros de Ceilán — Finca Santa Emilia, Danlí'
+    src: 'assets/video/cascada-contemplacion.mp4',
+    title: 'La Cascada Contemplación — Santa Emilia, Danlí'
   };
 
-  document.querySelectorAll('.vswitch[data-yt]').forEach((btn) => {
+  document.querySelectorAll('.vswitch[data-video-src]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const id = btn.dataset.yt;
-      const start = btn.dataset.start || '0';
-      const poster = btn.dataset.poster;
-      const title = btn.dataset.title || 'Finca Santa Emilia';
+      const src = btn.dataset.videoSrc;
+      const poster = btn.dataset.poster || '';
+      const title = btn.dataset.title || 'Santa Emilia Pulmón de Danlí';
+      const loopEnd = btn.dataset.loopEnd || '';
 
-      document.querySelectorAll('.vswitch[data-yt]').forEach((b) => b.classList.remove('active'));
+      document.querySelectorAll('.vswitch[data-video-src]').forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
 
-      if (manifestoPoster && poster) manifestoPoster.src = poster;
-      if (manifestoFrame) {
-        manifestoFrame.src = `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&start=${start}`;
+      if (manifestoVideo && src) {
+        manifestoVideo.dataset.loopEnd = loopEnd;
+        if (poster) manifestoVideo.poster = poster;
+        manifestoVideo.src = src;
+        manifestoVideo.load();
+        manifestoVideo.play().catch(() => {});
       }
-      activeManifesto = { id, title };
+      activeManifesto = { src, title };
     });
   });
 
-  /* 6. Cinema Video Modal */
+  /* 6. Cinema Video Modal (Native MP4) */
   const videoModal = document.getElementById('videoModal');
-  const videoIframe = document.getElementById('videoModalIframe');
+  const videoPlayer = document.getElementById('videoModalPlayer');
   const videoTitle = document.getElementById('videoModalTitle');
   const videoClose = document.getElementById('videoClose');
 
-  const openVideoModal = (id, title) => {
-    if (!videoModal || !videoIframe) return;
-    if (videoTitle) videoTitle.textContent = title || 'Finca Santa Emilia';
-    videoIframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+  const openVideoModal = (src, title) => {
+    if (!videoModal || !videoPlayer) return;
+    if (videoTitle) videoTitle.textContent = title || 'Santa Emilia Pulmón de Danlí';
+    videoPlayer.src = src;
+    videoPlayer.currentTime = 0;
     videoModal.classList.add('open');
     videoModal.setAttribute('aria-hidden', 'false');
+    videoPlayer.play().catch(() => {});
   };
   const closeVideoModal = () => {
-    if (!videoModal || !videoIframe) return;
+    if (!videoModal || !videoPlayer) return;
     videoModal.classList.remove('open');
     videoModal.setAttribute('aria-hidden', 'true');
-    videoIframe.src = '';
+    videoPlayer.pause();
+    videoPlayer.removeAttribute('src');
+    videoPlayer.load();
   };
 
   document.querySelectorAll('[data-video-modal]').forEach((btn) => {
     btn.addEventListener('click', () => openVideoModal(btn.dataset.videoModal, btn.dataset.videoTitle));
   });
   if (openCurrentBtn) {
-    openCurrentBtn.addEventListener('click', () => openVideoModal(activeManifesto.id, activeManifesto.title));
+    openCurrentBtn.addEventListener('click', () => openVideoModal(activeManifesto.src, activeManifesto.title));
   }
   if (videoClose) videoClose.addEventListener('click', closeVideoModal);
   if (videoModal) videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeVideoModal(); });
