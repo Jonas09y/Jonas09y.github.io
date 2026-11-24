@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santa Emilia · Pulmón de Danlí | Ecoturismo, Cascadas y Aventura</title>
+  <meta name="description" content="Finca Santa Emilia, Pulmón de Danlí en El Paraíso, Honduras. Cascadas de agua cristalina, paseo en bote, senderismo, camping, monos aulladores e historia cafetalera desde 1870. Abierto todos los días de 8:00 a.m. a 3:00 p.m.">
+  <meta property="og:title" content="Santa Emilia · Pulmón de Danlí">
+  <meta property="og:description" content="Más de 300 hectáreas de bosque vivo en las montañas de Apagüiz, Danlí. Cascadas, laguna, senderismo, camping y café desde 1870.">
+  <meta property="og:image" content="assets/img/camping-montana.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0D1F17">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Scroll progress line -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ============ FLOATING TOPOGRAPHIC NAV ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-pill">
+      <a href="#inicio" class="brand" aria-label="Santa Emilia Pulmón de Danlí">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="12.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M5 19.5L11.2 10.5L15.4 16L18.6 12L23 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="19" cy="8.5" r="1.5" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong>SANTA EMILIA</strong>
+          <small>Pulmón de Danlí</small>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+        <a href="#experiencias">Experiencias</a>
+        <a href="#bosque-vivo">En Video</a>
+        <a href="#ruta">La Ruta</a>
+        <a href="#historia">Desde 1870</a>
+        <a href="#planifica">Arma tu Visita</a>
+        <a href="#contacto">Cómo Llegar</a>
+      </nav>
+
+      <div class="nav-actions">
+        <span class="live-status" id="liveStatus" title="Horario en Honduras (8:00 a.m. – 3:00 p.m.)">
+          <span class="status-dot"></span>
+          <span class="status-label">8am – 3pm</span>
+        </span>
+        <a class="btn-nav-wa" href="https://wa.me/50492176760?text=Hola%20Santa%20Emilia%2C%20quiero%20informaci%C3%B3n%20para%20visitar%20la%20finca." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.52 3.48A11.82 11.82 0 0 0 12.06 0C5.49 0 .14 5.35.14 11.92c0 2.1.55 4.15 1.6 5.95L0 24l6.31-1.65a11.88 11.88 0 0 0 5.75 1.47h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.18-3.47-8.42Zm-8.45 18.33h-.01a9.88 9.88 0 0 1-5.04-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.46 4.44-9.9 9.91-9.9 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 0 1 2.9 7c0 5.46-4.45 9.9-9.91 9.9Zm5.43-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.21 5.1 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+      <p class="mono-label">Expedición Santa Emilia</p>
+      <a href="#experiencias">01 · Experiencias</a>
+      <a href="#bosque-vivo">02 · La Montaña en Video</a>
+      <a href="#ruta">03 · La Ruta de Altitud</a>
+      <a href="#historia">04 · Historia desde 1870</a>
+      <a href="#planifica">05 · Arma tu Visita</a>
+      <a href="#galeria">06 · Galería Real</a>
+      <a href="#contacto">07 · Horarios y Mapa</a>
+      <div class="mobile-drawer-foot">
+        <a class="btn btn-terracotta" href="https://wa.me/50492176760?text=Hola%20Santa%20Emilia%2C%20deseo%20informaci%C3%B3n%20sobre%20visitas." target="_blank" rel="noopener">Escribir por WhatsApp · 9217-6760</a>
+        <a class="btn btn-outline-light" href="https://www.facebook.com/profile.php?id=61552292182173" target="_blank" rel="noopener">Facebook Oficial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ HERO · CINEMATIC VIDEO BEHIND TEXT ============ -->
+  <section class="hero" id="inicio">
+    <div class="hero-media" aria-hidden="true">
+      <img class="hero-poster" src="assets/img/camping-montana.jpg" alt="" loading="eager">
+      <div class="yt-cover" id="heroYtWrap">
+        <iframe
+          id="heroYtFrame"
+          src="https://www.youtube.com/embed/05EkgRl_us8?autoplay=1&mute=1&loop=1&playlist=05EkgRl_us8&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&start=12"
+          title="Video ambiental de Finca Santa Emilia, Danlí"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+      <div class="hero-scrim"></div>
+      <!-- Topographic SVG lines -->
+      <svg class="topo-overlay" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice">
+        <path d="M-80 220 C 220 120, 420 340, 740 260 S 1180 80, 1520 210" stroke="rgba(243,239,230,0.12)" stroke-width="1"/>
+        <path d="M-80 320 C 260 200, 460 440, 780 350 S 1220 170, 1520 320" stroke="rgba(243,239,230,0.09)" stroke-width="1"/>
+        <path d="M-80 460 C 300 360, 520 560, 860 470 S 1260 320, 1520 460" stroke="rgba(243,239,230,0.07)" stroke-width="1"/>
+        <path d="M-80 650 C 240 560, 560 740, 920 620 S 1260 520, 1520 650" stroke="rgba(243,239,230,0.08)" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-telemetry reveal">
+        <span class="mono-chip">14°02'N · 86°34'W</span>
+        <span class="mono-chip">CORDILLERA DE APAGÜIZ, DANLÍ</span>
+        <span class="mono-chip">1,200 MSNM</span>
+      </div>
+
+      <h1 class="hero-title reveal">
+        Respira el<br>
+        <em>Pulmón</em> de Danlí.
+      </h1>
+
+      <div class="hero-grid reveal">
+        <p class="hero-lead">
+          Un santuario vivo de más de <strong>300 hectáreas</strong> de bosque latifoliado y pino en El Paraíso, Honduras. Cascadas de agua cristalina, paseos en bote, senderos entre monos aulladores, camping bajo las estrellas y un legado cafetalero que late desde <strong>1870</strong>.
+        </p>
+
+        <div class="hero-cta-group">
+          <a class="btn btn-terracotta" href="https://wa.me/50492176760?text=Hola%20Santa%20Emilia%2C%20me%20gustar%C3%ADa%20consultar%20horarios%2C%20tarifas%20y%20disponibilidad%20para%20visitar." target="_blank" rel="noopener">
+            <span>Consultar por WhatsApp</span>
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4.5 10h11m0 0-4.2-4.2M15.5 10l-4.2 4.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-glass" href="#planifica">
+            <span>Arma tu visita</span>
+          </a>
+          <button class="btn-video-trigger" type="button" data-video-modal="05EkgRl_us8" data-video-title="Finca Santa Emilia — Montaña y Café en Danlí">
+            <span class="play-ring" aria-hidden="true">▶</span>
+            <span>Ver video con sonido</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-stats reveal">
+        <div class="stat-item">
+          <span class="stat-num">+300</span>
+          <span class="stat-desc">Hectáreas de bosque y reserva natural</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">1,200 m</span>
+          <span class="stat-desc">Altitud con clima fresco de montaña</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">1870</span>
+          <span class="stat-desc">Años de historia cafetalera y casona</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">8am–3pm</span>
+          <span class="stat-desc">Abierto todos los días del año</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDITORIAL TICKER ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>CASCADAS CRISTALINAS</span><i>✦</i>
+      <span>PASEO EN BOTE EN LA LAGUNA</span><i>✦</i>
+      <span>MONOS AULLADORES</span><i>✦</i>
+      <span>CAMPING &amp; FOGATAS</span><i>✦</i>
+      <span>CUEVAS DE FAUSTO</span><i>✦</i>
+      <span>MIRADOR DEL VALLE DE JAMASTRÁN</span><i>✦</i>
+      <span>CAFÉ DE MONTAÑA DESDE 1870</span><i>✦</i>
+      <span>CASCADAS CRISTALINAS</span><i>✦</i>
+      <span>PASEO EN BOTE EN LA LAGUNA</span><i>✦</i>
+      <span>MONOS AULLADORES</span><i>✦</i>
+      <span>CAMPING &amp; FOGATAS</span><i>✦</i>
+      <span>CUEVAS DE FAUSTO</span><i>✦</i>
+      <span>MIRADOR DEL VALLE DE JAMASTRÁN</span><i>✦</i>
+      <span>CAFÉ DE MONTAÑA DESDE 1870</span><i>✦</i>
+    </div>
+  </div>
+
+  <!-- ============ EXPERIENCES · ASYMMETRIC FIELD JOURNAL ============ -->
+  <section class="section section-parchment" id="experiencias">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">CUADERNO DE CAMPO · EXPERIENCIAS</p>
+          <h2 class="display-title">Cinco formas de perderse<br><em>para volver a encontrarse.</em></h2>
+        </div>
+        <p class="section-intro">
+          A solo 20–40 minutos de la ciudad de Danlí, cada rincón de Santa Emilia ofrece un ritmo distinto: desde la adrenalina de sus senderos hasta el silencio absoluto frente al agua.
+        </p>
+      </div>
+
+      <!-- Chapter 01 -->
+      <article class="chapter reveal">
+        <div class="chapter-media chapter-media-dual">
+          <figure class="frame-main">
+            <img src="assets/img/cascada-aerea.jpg" alt="Vista aérea de la cascada y poza cristalina en Finca Santa Emilia" loading="lazy">
+            <figcaption class="mono-stamp">VISTA AÉREA · POZA NATURAL</figcaption>
+          </figure>
+          <figure class="frame-inset">
+            <img src="assets/img/cascada-poza.jpg" alt="Visitante fotografiando la cascada de Finca Santa Emilia" loading="lazy">
+          </figure>
+        </div>
+        <div class="chapter-body">
+          <div class="chapter-meta">
+            <span class="chapter-num">01</span>
+            <span class="chapter-tag tag-water">Agua Cristalina</span>
+          </div>
+          <h3>Cascada y Pozas de Agua Turquesa</h3>
+          <p>
+            El corazón refrescante de la montaña. Después de caminar bajo la sombra del bosque húmedo, la caída de agua cristalina y sus pozas naturales te reciben para un chapuzón revitalizante en aguas puras nacidas en la cordillera de Apagüiz.
+          </p>
+          <ul class="chapter-facts">
+            <li>Agua fría y cristalina todo el año</li>
+            <li>Escaleras rústicas de madera y miradores fotográficos</li>
+            <li>Ideal para refrescarse tras el senderismo</li>
+          </ul>
+          <button class="btn-add-plan" type="button" data-add-activity="Cascada y Pozas">
+            <span class="plus-icon">+</span> Agregar a mi plan de visita
+          </button>
+        </div>
+      </article>
+
+      <!-- Chapter 02 (Reversed) -->
+      <article class="chapter chapter-reverse reveal">
+        <div class="chapter-media">
+          <figure class="frame-main frame-square">
+            <img src="assets/img/laguna-bote.jpg" alt="Paseo en bote de remos en la laguna de Santa Emilia Pulmón de Danlí" loading="lazy">
+            <figcaption class="mono-stamp">LAGUNA SANTA EMILIA · PASEO EN BOTE</figcaption>
+          </figure>
+        </div>
+        <div class="chapter-body">
+          <div class="chapter-meta">
+            <span class="chapter-num">02</span>
+            <span class="chapter-tag tag-water">Familia &amp; Calma</span>
+          </div>
+          <h3>Laguna de Montaña y Paseo en Bote</h3>
+          <p>
+            Rodeada de vegetación tropical, hojas gigantes y aire puro, la laguna de Santa Emilia invita a remar en bote de madera sin prisas. Una experiencia perfecta para familias, niños y quienes buscan una tarde tranquila entre naturaleza.
+          </p>
+          <ul class="chapter-facts">
+            <li>Paseos en bote de remos rodeados de bosque</li>
+            <li>Espacios verdes para descansar y convivir</li>
+            <li>Ambiente seguro para disfrutar en familia</li>
+          </ul>
+          <button class="btn-add-plan" type="button" data-add-activity="Paseo en Bote en la Laguna">
+            <span class="plus-icon">+</span> Agregar a mi plan de visita
+          </button>
+        </div>
+      </article>
+
+      <!-- Chapter 03 -->
+      <article class="chapter reveal">
+        <div class="chapter-media chapter-media-dual">
+          <figure class="frame-main">
+            <img src="assets/img/camping-montana.jpg" alt="Zona de camping en la cima verde de Finca Santa Emilia" loading="lazy">
+            <figcaption class="mono-stamp">ZONA DE CAMPING · 1,200 MSNM</figcaption>
+          </figure>
+          <figure class="frame-inset frame-inset-left">
+            <img src="assets/img/mirador-valle.jpg" alt="Mirador panorámico hacia las montañas y valle de Danlí" loading="lazy">
+          </figure>
+        </div>
+        <div class="chapter-body">
+          <div class="chapter-meta">
+            <span class="chapter-num">03</span>
+            <span class="chapter-tag tag-earth">Noche &amp; Paisaje</span>
+          </div>
+          <h3>Camping Bajo las Estrellas y Mirador del Valle</h3>
+          <p>
+            Armar tu tienda bajo un árbol gigante, encender una fogata al caer el ocaso y despertar con la neblina abrazando el Valle de Jamastrán. Desde el mirador se contemplan algunos de los atardeceres más memorables del oriente hondureño.
+          </p>
+          <ul class="chapter-facts">
+            <li>Amplia pradera verde para acampar y hacer fogatas</li>
+            <li>Vista panorámica a la ciudad de Danlí y el valle</li>
+            <li>Atardeceres frescos ideales para fotografía</li>
+          </ul>
+          <button class="btn-add-plan" type="button" data-add-activity="Camping y Fogata">
+            <span class="plus-icon">+</span> Agregar a mi plan de visita
+          </button>
+        </div>
+      </article>
+
+      <!-- Chapter 04 (Reversed) -->
+      <article class="chapter chapter-reverse reveal">
+        <div class="chapter-media chapter-media-dual">
+          <figure class="frame-main">
+            <img src="assets/img/cascada-escalera.jpg" alt="Senderistas en escalera rústica de madera junto a la cascada" loading="lazy">
+            <figcaption class="mono-stamp">SENDEROS · RESERVA APAGÜIZ</figcaption>
+          </figure>
+          <figure class="frame-inset">
+            <img src="assets/img/senderismo-bosque.jpg" alt="Caminata por senderos rodeados de bambú y bosque en Santa Emilia" loading="lazy">
+          </figure>
+        </div>
+        <div class="chapter-body">
+          <div class="chapter-meta">
+            <span class="chapter-num">04</span>
+            <span class="chapter-tag tag-forest">Aventura &amp; Fauna</span>
+          </div>
+          <h3>Senderismo, Monos Aulladores y Cuevas de Fausto</h3>
+          <p>
+            Recorre rutas entre pinares, bambúes y árboles centenarios mientras escuchas el canto de las aves y el llamado inconfundible de los monos aulladores. Para los más aventureros, el sendero empinado hacia las <strong>Cuevas de Fausto</strong> y las actividades de <strong>canopy</strong> elevan la adrenalina al máximo.
+          </p>
+          <ul class="chapter-facts">
+            <li>Avistamiento de monos aulladores y aves locales</li>
+            <li>Rutas guiadas hacia cascadas y Cuevas de Fausto</li>
+            <li>Columpios, áreas recreativas y canopy de montaña</li>
+          </ul>
+          <button class="btn-add-plan" type="button" data-add-activity="Senderismo y Cuevas de Fausto">
+            <span class="plus-icon">+</span> Agregar a mi plan de visita
+          </button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ VIDEO-BEHIND-TEXT IMMERSIVE INTERLUDE ============ -->
+  <section class="video-manifesto" id="bosque-vivo">
+    <div class="manifesto-media" aria-hidden="true">
+      <img class="manifesto-poster" id="manifestoPoster" src="assets/img/casona-drone.jpg" alt="">
+      <div class="yt-cover">
+        <iframe
+          id="manifestoYtFrame"
+          src="https://www.youtube.com/embed/o_pB7xoH4Pg?autoplay=1&mute=1&loop=1&playlist=o_pB7xoH4Pg&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&start=18"
+          title="Video de fondo Finca Santa Emilia"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+      <div class="manifesto-scrim"></div>
+    </div>
+
+    <div class="container manifesto-inner">
+      <p class="eyebrow eyebrow-light reveal">LA MONTAÑA EN MOVIMIENTO · VIDEOS REALES DE LA FINCA</p>
+      <blockquote class="manifesto-quote reveal">
+        “Donde el ruido de la ciudad se apaga y solo queda el <em>agua</em>, el <em>bosque</em> y el aire puro de Danlí.”
+      </blockquote>
+
+      <div class="video-switcher reveal" role="tablist" aria-label="Cambiar video de fondo">
+        <button class="vswitch active" type="button" data-yt="o_pB7xoH4Pg" data-start="18" data-poster="assets/img/casona-drone.jpg" data-title="Vista Aérea — Finca Santa Emilia, Danlí">
+          <span class="vswitch-idx">01</span>
+          <span class="vswitch-name">Vista Aérea y Casona</span>
+        </button>
+        <button class="vswitch" type="button" data-yt="aDqPJ4XFyHQ" data-start="10" data-poster="assets/img/chorros-bosque.jpg" data-title="Los Chorros de Ceilán — Finca Santa Emilia">
+          <span class="vswitch-idx">02</span>
+          <span class="vswitch-name">Los Chorros de Ceilán</span>
+        </button>
+        <button class="vswitch" type="button" data-yt="05EkgRl_us8" data-start="40" data-poster="assets/img/cafe-cosecha.jpg" data-title="Corazón Cafetalero — Finca Santa Emilia">
+          <span class="vswitch-idx">03</span>
+          <span class="vswitch-name">Bosque y Cosecha de Café</span>
+        </button>
+        <button class="vswitch vswitch-open" type="button" id="openCurrentManifesto">
+          ▶ Ver con sonido
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTERACTIVE TOPOGRAPHIC ROUTE ============ -->
+  <section class="section section-dark" id="ruta">
+    <div class="container">
+      <div class="section-head section-head-light reveal">
+        <div>
+          <p class="eyebrow eyebrow-light">PERFIL DE ELEVACIÓN · EXPLORA EL RECORRIDO</p>
+          <h2 class="display-title">De la ciudad al corazón<br><em>de la cordillera.</em></h2>
+        </div>
+        <p class="section-intro">
+          Toca cada parada de la ruta para conocer la altitud, el nivel de caminata y lo que te espera en cada punto de Santa Emilia.
+        </p>
+      </div>
+
+      <div class="route-explorer reveal">
+        <div class="route-stops" role="tablist" aria-label="Paradas de la ruta">
+          <button class="route-stop active" type="button" data-stop="0">
+            <span class="stop-elev">815 m</span>
+            <strong>Salida desde Danlí</strong>
+            <small>20–40 min de trayecto</small>
+          </button>
+          <button class="route-stop" type="button" data-stop="1">
+            <span class="stop-elev">1,080 m</span>
+            <strong>La Casona de 1870</strong>
+            <small>Bienvenida e historia</small>
+          </button>
+          <button class="route-stop" type="button" data-stop="2">
+            <span class="stop-elev">1,120 m</span>
+            <strong>Laguna y Botes</strong>
+            <small>Zona familiar y descanso</small>
+          </button>
+          <button class="route-stop" type="button" data-stop="3">
+            <span class="stop-elev">1,180 m</span>
+            <strong>Mirador &amp; Camping</strong>
+            <small>Vista al Valle de Jamastrán</small>
+          </button>
+          <button class="route-stop" type="button" data-stop="4">
+            <span class="stop-elev">1,200 m</span>
+            <strong>Cascada y Cuevas</strong>
+            <small>Aventura y aguas cristalinas</small>
+          </button>
+        </div>
+
+        <div class="route-detail" id="routeDetail">
+          <div class="route-detail-img">
+            <img id="routeImg" src="assets/img/mirador-valle.jpg" alt="Parada de la ruta en Santa Emilia">
+            <span class="mono-stamp" id="routeBadge">ALTITUD · 815 MSNM</span>
+          </div>
+          <div class="route-detail-copy">
+            <span class="route-diff" id="routeDiff">Acceso en vehículo · Fácil</span>
+            <h3 id="routeTitle">Salida desde Danlí hacia Apagüiz</h3>
+            <p id="routeDesc">A tan solo 20 a 40 minutos del casco urbano de Danlí, el camino asciende entre colinas verdes, cultivos de café y aire cada vez más fresco rumbo al macizo montañoso de Ceilán y la reserva de Apagüiz.</p>
+            <div class="route-tip">
+              <strong>Consejo local:</strong>
+              <span id="routeTip">Llega temprano entre 8:00 y 9:30 a.m. para aprovechar la frescura de la mañana y escuchar con claridad a los monos aulladores.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LIVING HERITAGE · SINCE 1870 ============ -->
+  <section class="section section-parchment" id="historia">
+    <div class="container">
+      <div class="heritage-grid">
+        <div class="heritage-text reveal">
+          <p class="eyebrow">PATRIMONIO DE EL PARAÍSO · DESDE 1870</p>
+          <h2 class="display-title">Más que un destino:<br><em>un legado centenario.</em></h2>
+          <p class="heritage-lead">
+            Finca Santa Emilia nació en <strong>1870</strong>, cuando fue adquirida por don Luis Gamero. Tras sus inicios ganaderos, alrededor de <strong>1920</strong> se convirtió en pionera del cultivo de café orgánico en El Paraíso, enviando cosechas a lomo de mula hasta Amapala con destino a Alemania e Inglaterra.
+          </p>
+          <p>
+            Hoy, más de un siglo después, su vieja casona de techo de teja y amplios corredores sigue en pie como testigo vivo de esa historia, resguardando piezas de época, cultivos de café, banano, flores, miel de abeja y vino artesanal, mientras protege una de las fuentes hídricas y pulmones naturales más valiosos de Danlí.
+          </p>
+
+          <div class="timeline-mini">
+            <div>
+              <span class="t-year">1870</span>
+              <p>Fundación de la hacienda por la familia Gamero en la cordillera de Apagüiz.</p>
+            </div>
+            <div>
+              <span class="t-year">1920</span>
+              <p>Primera finca productora de café orgánico exportado hacia Europa desde El Paraíso.</p>
+            </div>
+            <div>
+              <span class="t-year">HOY</span>
+              <p>Santuario ecoturístico de +300 hectáreas abierto al público todos los días.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="heritage-visuals reveal">
+          <figure class="heritage-card-top">
+            <img src="assets/img/casona-drone.jpg" alt="Vista aérea de la casona histórica de techo de teja de Finca Santa Emilia" loading="lazy">
+            <figcaption>La casona histórica rodeada de bosque latifoliado</figcaption>
+          </figure>
+          <figure class="heritage-card-bottom">
+            <img src="assets/img/cafe-cosecha.jpg" alt="Cosecha de granos rojos de café en Finca Santa Emilia" loading="lazy">
+            <figcaption>Tradición cafetalera, miel de abeja y cultivos de montaña</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTERACTIVE WHATSAPP TRIP BUILDER ============ -->
+  <section class="section section-sand" id="planifica">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">PLANIFICADOR INTERACTIVO · RESERVA DIRECTA</p>
+          <h2 class="display-title">Arma tu día en<br><em>Santa Emilia.</em></h2>
+        </div>
+        <p class="section-intro">
+          Selecciona lo que quieres vivir, el tamaño de tu grupo y la fecha tentativa. Te preparamos el mensaje listo para enviar directo a nuestro WhatsApp.
+        </p>
+      </div>
+
+      <div class="builder-grid reveal">
+        <div class="builder-controls">
+          <div class="builder-group">
+            <label class="builder-label">1. ¿Qué experiencias te interesan?</label>
+            <div class="chip-grid" id="activityChips">
+              <button type="button" class="chip active" data-value="Cascada y Pozas">💧 Cascada y Pozas</button>
+              <button type="button" class="chip" data-value="Paseo en Bote en la Laguna">🚣 Paseo en Bote</button>
+              <button type="button" class="chip" data-value="Senderismo y Cuevas de Fausto">🥾 Senderismo / Cuevas</button>
+              <button type="button" class="chip" data-value="Camping y Fogata">⛺ Camping y Fogata</button>
+              <button type="button" class="chip" data-value="Canopy y Aventura">🌿 Canopy</button>
+              <button type="button" class="chip" data-value="Tour Histórico y Café">☕ Historia y Café</button>
+            </div>
+          </div>
+
+          <div class="builder-row">
+            <div class="builder-group">
+              <label class="builder-label" for="groupSelect">2. ¿Con quién vienes?</label>
+              <select id="groupSelect" class="field-input">
+                <option value="En pareja (2 personas)">En pareja (2 personas)</option>
+                <option value="En familia (3 a 6 personas)" selected>En familia (3 a 6 personas)</option>
+                <option value="Con amigos (5 a 10 personas)">Con amigos (5 a 10 personas)</option>
+                <option value="Grupo / Excursión (+10 personas)">Grupo / Excursión (+10 personas)</option>
+                <option value="Visita individual">Visita individual</option>
+              </select>
+            </div>
+            <div class="builder-group">
+              <label class="builder-label" for="visitDate">3. Fecha tentativa</label>
+              <input id="visitDate" type="date" class="field-input">
+            </div>
+          </div>
+
+          <div class="builder-group">
+            <label class="builder-label" for="visitorNote">4. ¿Alguna pregunta extra? (opcional)</label>
+            <input id="visitorNote" type="text" class="field-input" placeholder="Ej. ¿Tienen guía disponible? ¿Podemos llevar comida?">
+          </div>
+
+          <div class="builder-group">
+            <label class="builder-label">5. Línea de WhatsApp de contacto</label>
+            <div class="line-picker" id="linePicker">
+              <button type="button" class="line-btn active" data-phone="50492176760">WhatsApp 1 · 9217-6760</button>
+              <button type="button" class="line-btn" data-phone="50431457430">WhatsApp 2 · 3145-7430</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live WhatsApp Preview Ticket -->
+        <aside class="wa-preview-card">
+          <div class="wa-preview-head">
+            <span class="wa-avatar" aria-hidden="true">SE</span>
+            <div>
+              <strong>Santa Emilia · Pulmón de Danlí</strong>
+              <small>Respuesta directa por WhatsApp</small>
+            </div>
+          </div>
+          <div class="wa-bubble" id="waPreviewText"></div>
+          <div class="wa-preview-actions">
+            <a id="waSendBtn" class="btn btn-wa-big" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.52 3.48A11.82 11.82 0 0 0 12.06 0C5.49 0 .14 5.35.14 11.92c0 2.1.55 4.15 1.6 5.95L0 24l6.31-1.65a11.88 11.88 0 0 0 5.75 1.47h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.18-3.47-8.42Zm-8.45 18.33h-.01a9.88 9.88 0 0 1-5.04-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.46 4.44-9.9 9.91-9.9 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 0 1 2.9 7c0 5.46-4.45 9.9-9.91 9.9Zm5.43-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.21 5.1 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg>
+              <span>Enviar plan por WhatsApp</span>
+            </a>
+            <div class="call-links">
+              <a href="tel:+50492176760">Llamar 9217-6760</a>
+              <span>·</span>
+              <a href="tel:+50431457430">Llamar 3145-7430</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Interactive Packing Checklist -->
+      <div class="checklist-box reveal">
+        <div class="checklist-head">
+          <div>
+            <p class="eyebrow">GUÍA DEL VISITANTE</p>
+            <h3>¿Qué llevar en tu mochila?</h3>
+          </div>
+          <span class="mono-chip" id="packProgress">0 / 6 listos</span>
+        </div>
+        <div class="checklist-grid" id="packList">
+          <label class="pack-item"><input type="checkbox" value="calzado"><span>Tenis o botas cómodas con buen agarre para senderos</span></label>
+          <label class="pack-item"><input type="checkbox" value="bano"><span>Traje de baño, toalla y ropa seca de cambio</span></label>
+          <label class="pack-item"><input type="checkbox" value="agua"><span>Botella de agua reutilizable y snacks energéticos</span></label>
+          <label class="pack-item"><input type="checkbox" value="repelente"><span>Repelente de insectos y bloqueador solar</span></label>
+          <label class="pack-item"><input type="checkbox" value="sueter"><span>Suéter ligero (el clima de montaña refresca en la tarde)</span></label>
+          <label class="pack-item"><input type="checkbox" value="camara"><span>Celular con batería al 100% para fotos en la cascada</span></label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDITORIAL GALLERY & FACEBOOK ============ -->
+  <section class="section section-parchment" id="galeria">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">POSTALES REALES · DANLÍ, EL PARAÍSO</p>
+          <h2 class="display-title">Así se vive<br><em>Santa Emilia.</em></h2>
+        </div>
+        <a class="btn btn-outline-dark" href="https://www.facebook.com/profile.php?id=61552292182173" target="_blank" rel="noopener">
+          Ver más fotos en Facebook ↗
+        </a>
+      </div>
+
+      <div class="bento-gallery reveal">
+        <button class="bento-item bento-tall" type="button" data-lightbox="assets/img/cascada-grupo.jpg" data-caption="Amigos disfrutando de la cascada principal de Finca Santa Emilia">
+          <img src="assets/img/cascada-grupo.jpg" alt="Grupo de visitantes junto a la cascada de Finca Santa Emilia" loading="lazy">
+          <span>Cascada Principal</span>
+        </button>
+        <button class="bento-item bento-wide" type="button" data-lightbox="assets/img/camping-montana.jpg" data-caption="Zona de camping con vista a las montañas de Apagüiz">
+          <img src="assets/img/camping-montana.jpg" alt="Tiendas de campaña en la pradera verde de Santa Emilia" loading="lazy">
+          <span>Camping en la Cima</span>
+        </button>
+        <button class="bento-item" type="button" data-lightbox="assets/img/laguna-bote.jpg" data-caption="Paseo en bote por la laguna rodeada de naturaleza">
+          <img src="assets/img/laguna-bote.jpg" alt="Paseo en bote en la laguna de Santa Emilia" loading="lazy">
+          <span>La Laguna</span>
+        </button>
+        <button class="bento-item" type="button" data-lightbox="assets/img/cascada-aerea.jpg" data-caption="Vista aérea de la caída de agua entre el bosque cerrado">
+          <img src="assets/img/cascada-aerea.jpg" alt="Vista aérea de la cascada entre árboles" loading="lazy">
+          <span>Desde el Cielo</span>
+        </button>
+        <button class="bento-item bento-wide" type="button" data-lightbox="assets/img/mirador-valle.jpg" data-caption="Mirador panorámico hacia el valle y las colinas de Danlí">
+          <img src="assets/img/mirador-valle.jpg" alt="Visitantes en el mirador de Finca Santa Emilia" loading="lazy">
+          <span>Mirador del Valle</span>
+        </button>
+        <button class="bento-item" type="button" data-lightbox="assets/img/cascada-escalera.jpg" data-caption="Escaleras rústicas y pozas en el sendero de agua">
+          <img src="assets/img/cascada-escalera.jpg" alt="Escalera rústica junto a la cascada" loading="lazy">
+          <span>Sendero del Agua</span>
+        </button>
+        <button class="bento-item" type="button" data-lightbox="assets/img/cafe-cosecha.jpg" data-caption="Cosecha artesanal de café de montaña en Finca Santa Emilia">
+          <img src="assets/img/cafe-cosecha.jpg" alt="Canasta de granos rojos de café" loading="lazy">
+          <span>Café de Altura</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATION, HOURS & DIRECT CONTACT ============ -->
+  <section class="section section-dark" id="contacto">
+    <div class="container">
+      <div class="contact-card reveal">
+        <div class="contact-info">
+          <p class="eyebrow eyebrow-light">UBICACIÓN Y HORARIOS</p>
+          <h2 class="display-title">Te esperamos<br><em>en la montaña.</em></h2>
+
+          <dl class="info-list">
+            <div>
+              <dt>Horario de atención</dt>
+              <dd>Abierto todos los días · <strong>8:00 a.m. a 3:00 p.m.</strong></dd>
+            </div>
+            <div>
+              <dt>Teléfonos y WhatsApp</dt>
+              <dd>
+                <a href="https://wa.me/50492176760" target="_blank" rel="noopener">+504 9217-6760</a>
+                <span> / </span>
+                <a href="https://wa.me/50431457430" target="_blank" rel="noopener">+504 3145-7430</a>
+              </dd>
+            </div>
+            <div>
+              <dt>Ubicación</dt>
+              <dd>Montañas de Apagüiz / Macizo de Ceilán, a 20–40 minutos de Danlí, El Paraíso, Honduras.</dd>
+            </div>
+            <div>
+              <dt>Facebook Oficial</dt>
+              <dd><a href="https://www.facebook.com/profile.php?id=61552292182173" target="_blank" rel="noopener">Santa Emilia Pulmón de Danlí ↗</a></dd>
+            </div>
+          </dl>
+
+          <div class="contact-actions">
+            <a class="btn btn-terracotta" href="https://wa.me/50492176760?text=Hola%20Santa%20Emilia%2C%20quiero%20recibir%20la%20ubicaci%C3%B3n%20exacta%20y%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">
+              Pedir ubicación por WhatsApp
+            </a>
+            <a class="btn btn-glass" href="https://www.google.com/maps/search/?api=1&query=Finca+Santa+Emilia+Danli+El+Paraiso+Honduras" target="_blank" rel="noopener">
+              Abrir en Google Maps ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-map">
+          <iframe
+            title="Mapa de ubicación Finca Santa Emilia, Danlí, El Paraíso"
+            src="https://maps.google.com/maps?q=Finca+Santa+Emilia,+Danli,+El+Paraiso,+Honduras&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-wordmark">SANTA EMILIA</span>
+        <p>Pulmón de Danlí · Ecoturismo, Cascadas, Laguna e Historia desde 1870 · El Paraíso, Honduras.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#experiencias">Experiencias</a>
+        <a href="#ruta">La Ruta</a>
+        <a href="#historia">Historia</a>
+        <a href="#planifica">Arma tu Visita</a>
+        <a href="https://www.facebook.com/profile.php?id=61552292182173" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://wa.me/50492176760" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <p class="footer-copy">© <span id="yearNow">2026</span> Santa Emilia Pulmón de Danlí. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a class="float-wa" href="https://wa.me/50492176760?text=Hola%20Santa%20Emilia%2C%20deseo%20informaci%C3%B3n%20para%20visitar." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a Santa Emilia">
+    <span class="float-wa-tip">¿Planificando tu visita?</span>
+    <span class="float-wa-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.52 3.48A11.82 11.82 0 0 0 12.06 0C5.49 0 .14 5.35.14 11.92c0 2.1.55 4.15 1.6 5.95L0 24l6.31-1.65a11.88 11.88 0 0 0 5.75 1.47h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.18-3.47-8.42Zm-8.45 18.33h-.01a9.88 9.88 0 0 1-5.04-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.46 4.44-9.9 9.91-9.9 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 0 1 2.9 7c0 5.46-4.45 9.9-9.91 9.9Zm5.43-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.21 5.1 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg>
+    </span>
+  </a>
+
+  <!-- Lightbox Modal -->
+  <div class="modal" id="lightboxModal" aria-hidden="true" role="dialog" aria-label="Galería de fotos">
+    <button class="modal-close" id="lightboxClose" aria-label="Cerrar">✕</button>
+    <figure class="lightbox-figure">
+      <img id="lightboxImg" src="" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+  </div>
+
+  <!-- Cinema Video Modal -->
+  <div class="modal" id="videoModal" aria-hidden="true" role="dialog" aria-label="Reproductor de video">
+    <button class="modal-close" id="videoClose" aria-label="Cerrar video">✕</button>
+    <div class="video-modal-box">
+      <p class="mono-label" id="videoModalTitle">Finca Santa Emilia</p>
+      <div class="video-modal-frame">
+        <iframe id="videoModalIframe" src="" title="Video de Finca Santa Emilia" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
