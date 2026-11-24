@@ -1,4 +1,4 @@
-// ===== Nav & Progress Bar =====
+﻿// ===== Nav & Progress Bar =====
 const nav = document.getElementById('nav');
 const progress = document.getElementById('progress');
 addEventListener('scroll', () => {
@@ -112,7 +112,15 @@ document.querySelectorAll('.ba-tab').forEach(btn => btn.addEventListener('click'
 
 // ===== i18n (EN / ES) =====
 const ES = {
-  'nav.results': 'Resultados', 'nav.services': 'Tratamientos', 'nav.about': 'Nosotros', 'nav.visit': 'Visítanos',
+  'nav.results': 'Resultados', 'nav.services': 'Tratamientos', 'nav.about': 'Nosotros', 'nav.visit': 'Visítanos', 'nav.shop': 'Tienda',
+  'shop.eyebrow': 'Skincare y Opciones de Pago', 'shop.title': 'Continúa tu glow <em>en casa</em>',
+  'shop.revTag': 'Skincare de grado médico',
+  'shop.revDesc': 'Productos profesionales recomendados por Gabriela para mantener y potenciar los resultados de tu tratamiento — desde sérums iluminadores hasta cuidado de ojos y labios.',
+  'shop.revOffer': '20% OFF al comprar 3 o más productos', 'shop.revCta': 'Comprar Revision Skincare',
+  'shop.cherryTag': 'Financiamiento flexible', 'shop.cherryTitle': 'Paga a plazos <em>con Cherry</em>',
+  'shop.cherryDesc': 'Hazte tu tratamiento hoy y divide el costo en cómodos pagos mensuales. Revisar tus opciones toma solo un minuto y no afecta tu puntaje de crédito.',
+  'shop.c1': 'Aprobación rápida en minutos', 'shop.c2': 'Planes mensuales flexibles', 'shop.c3': 'Úsalo para tus tratamientos',
+  'shop.cherryCta': 'Aplicar con Cherry',
   'cta.book': 'Reservar', 'cta.consult': 'Agenda tu Consulta', 'cta.results': 'Ver Resultados Reales',
   'cta.thisTreatment': 'Quiero este resultado', 'cta.bookOnline': 'Reservar en Línea', 'cta.text': 'Enviar Mensaje',
   'hero.eyebrow': 'Medicina Estética · South Norwalk, CT',

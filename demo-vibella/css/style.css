@@ -511,3 +511,28 @@ body { background: #fdfaf6; }
 .logo-footer .logo-main { color: var(--ink); }
 .footer-links a:hover { color: var(--rose); }
 .copy { color: var(--muted); }
+
+
+/* ============ SHOP & FINANCING ============ */
+.shop { background: linear-gradient(180deg, #fffdfa 0%, #f8efe8 100%); }
+.shop-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.6rem; max-width: 1200px; margin: 0 auto; }
+.shop-card { background: #fff; border: 1px solid rgba(196, 125, 114, .2); border-radius: 26px; box-shadow: 0 24px 60px -34px rgba(56, 30, 28, .28); transition: transform .4s, box-shadow .4s; }
+.shop-card:hover { transform: translateY(-6px); box-shadow: 0 32px 70px -34px rgba(56, 30, 28, .38); }
+.shop-rev { display: grid; grid-template-columns: .85fr 1.15fr; overflow: hidden; }
+.shop-rev-img { background: #f6efe9; padding: 1.4rem; display: flex; align-items: center; justify-content: center; }
+.shop-rev-img img { width: 100%; max-height: 380px; object-fit: contain; border-radius: 10px; box-shadow: 0 14px 30px -18px rgba(56, 30, 28, .4); }
+.shop-body { padding: 2.4rem 2.2rem; display: flex; flex-direction: column; align-items: flex-start; }
+.shop-cherry { padding: 2.4rem 2.2rem; display: flex; flex-direction: column; align-items: flex-start; background: linear-gradient(160deg, #fff 0%, #fbf1ec 100%); }
+.shop-tag { font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: var(--rose); font-weight: 500; }
+.shop-card h3 { font-size: 2.1rem; margin: .5rem 0 .9rem; }
+.shop-card p { color: var(--muted); margin-bottom: 1.2rem; font-size: .98rem; }
+.shop-offer { color: var(--ink) !important; background: rgba(235, 209, 199, .45); border-radius: 100px; padding: .45rem 1rem; font-size: .8rem !important; font-weight: 500; letter-spacing: .04em; }
+.shop-list { list-style: none; margin: 0 0 1.8rem; width: 100%; }
+.shop-list li { padding: .55rem 0; border-bottom: 1px solid var(--line); display: flex; gap: .7rem; align-items: center; font-size: .95rem; }
+.shop-list li::before { content: '✦'; color: var(--rose); font-size: .7rem; }
+.shop-card .btn { margin-top: auto; }
+@media (max-width: 900px) {
+  .shop-grid, .shop-rev { grid-template-columns: 1fr; }
+  .shop-rev-img img { max-height: 300px; }
+  .shop-body, .shop-cherry { padding: 2rem 1.6rem; }
+}
