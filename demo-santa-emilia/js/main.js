@@ -63,8 +63,8 @@
   const manifestoPoster = document.getElementById('manifestoPoster');
   const openCurrentBtn = document.getElementById('openCurrentManifesto');
   let activeManifesto = {
-    id: 'o_pB7xoH4Pg',
-    title: 'Vista Aérea — Finca Santa Emilia, Danlí'
+    id: 'aDqPJ4XFyHQ',
+    title: 'Los Chorros de Ceilán — Finca Santa Emilia, Danlí'
   };
 
   document.querySelectorAll('.vswitch[data-yt]').forEach((btn) => {
