@@ -58,23 +58,30 @@
     reveals.forEach((el) => el.classList.add('in'));
   }
 
-  /* 5. Native Background Video Loop Guard (trim outro cleanly) & Scene Switcher */
-  const heroVideo = document.getElementById('heroVideo');
+  /* 5. Cinematic Hero Slideshow + Native Background Video Switcher */
+  const heroSlides = document.querySelectorAll('#heroSlides .hero-slide');
+  if (heroSlides.length > 1) {
+    let slideIdx = 0;
+    setInterval(() => {
+      heroSlides[slideIdx].classList.remove('active');
+      slideIdx = (slideIdx + 1) % heroSlides.length;
+      heroSlides[slideIdx].classList.add('active');
+    }, 5500);
+  }
+
   const manifestoVideo = document.getElementById('manifestoVideo');
   const openCurrentBtn = document.getElementById('openCurrentManifesto');
 
-  const attachLoopTrim = (videoEl) => {
-    if (!videoEl) return;
-    videoEl.addEventListener('timeupdate', () => {
-      const endAt = parseFloat(videoEl.dataset.loopEnd || '0');
-      if (endAt > 0 && videoEl.currentTime >= endAt) {
-        videoEl.currentTime = 0;
-        videoEl.play().catch(() => {});
+  if (manifestoVideo) {
+    manifestoVideo.addEventListener('timeupdate', () => {
+      const startAt = parseFloat(manifestoVideo.dataset.loopStart || '0');
+      const endAt = parseFloat(manifestoVideo.dataset.loopEnd || '0');
+      if (endAt > 0 && manifestoVideo.currentTime >= endAt) {
+        manifestoVideo.currentTime = startAt;
+        manifestoVideo.play().catch(() => {});
       }
     });
-  };
-  attachLoopTrim(heroVideo);
-  attachLoopTrim(manifestoVideo);
+  }
 
   let activeManifesto = {
     src: 'assets/video/cascada-contemplacion.mp4',
@@ -86,17 +93,22 @@
       const src = btn.dataset.videoSrc;
       const poster = btn.dataset.poster || '';
       const title = btn.dataset.title || 'Santa Emilia Pulmón de Danlí';
+      const loopStart = btn.dataset.loopStart || '0';
       const loopEnd = btn.dataset.loopEnd || '';
 
       document.querySelectorAll('.vswitch[data-video-src]').forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
 
       if (manifestoVideo && src) {
+        manifestoVideo.dataset.loopStart = loopStart;
         manifestoVideo.dataset.loopEnd = loopEnd;
         if (poster) manifestoVideo.poster = poster;
         manifestoVideo.src = src;
         manifestoVideo.load();
-        manifestoVideo.play().catch(() => {});
+        manifestoVideo.addEventListener('loadedmetadata', () => {
+          if (parseFloat(loopStart) > 0) manifestoVideo.currentTime = parseFloat(loopStart);
+          manifestoVideo.play().catch(() => {});
+        }, { once: true });
       }
       activeManifesto = { src, title };
     });

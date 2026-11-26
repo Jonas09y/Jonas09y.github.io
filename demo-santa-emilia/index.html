@@ -71,36 +71,20 @@
     </div>
   </div>
 
-  <!-- ============ HERO · CINEMATIC VIDEO BEHIND TEXT ============ -->
+  <!-- ============ HERO · CINEMATIC HIGH-RES SHOWCASE ============ -->
   <section class="hero" id="inicio">
     <div class="hero-media" aria-hidden="true">
-      <video
-        class="bg-video"
-        id="heroVideo"
-        src="assets/video/santa-emilia-aventura.mp4"
-        poster="assets/img/bosque-neblina.jpg"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        data-loop-end="25.4">
-      </video>
+      <div class="hero-slides" id="heroSlides">
+        <div class="hero-slide active" style="background-image: url('assets/img/piscina-terraza.jpg')"></div>
+        <div class="hero-slide" style="background-image: url('assets/img/bosque-neblina.jpg')"></div>
+        <div class="hero-slide" style="background-image: url('assets/img/cascada-senderistas.jpg')"></div>
+        <div class="hero-slide" style="background-image: url('assets/img/casa-montana.jpg')"></div>
+      </div>
       <div class="hero-scrim"></div>
-      <svg class="topo-overlay" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice">
-        <path d="M-80 220 C 220 120, 420 340, 740 260 S 1180 80, 1520 210" stroke="rgba(243,239,230,0.12)" stroke-width="1"/>
-        <path d="M-80 320 C 260 200, 460 440, 780 350 S 1220 170, 1520 320" stroke="rgba(243,239,230,0.09)" stroke-width="1"/>
-        <path d="M-80 460 C 300 360, 520 560, 860 470 S 1260 320, 1520 460" stroke="rgba(243,239,230,0.07)" stroke-width="1"/>
-        <path d="M-80 650 C 240 560, 560 740, 920 620 S 1260 520, 1520 650" stroke="rgba(243,239,230,0.08)" stroke-width="1"/>
-      </svg>
     </div>
 
     <div class="container hero-content">
-      <div class="hero-telemetry reveal">
-        <span class="mono-chip">14°01'40"N · 86°31'47"W</span>
-        <span class="mono-chip">MONTAÑA SANTA EMILIA, DANLÍ</span>
-        <span class="mono-chip">CARRETERA EN BUEN ESTADO HASTA EL PORTÓN</span>
-      </div>
+      <p class="hero-kicker reveal">Danlí, El Paraíso · Honduras</p>
 
       <h1 class="hero-title reveal">
         Respira el<br>
@@ -335,9 +319,9 @@
           <span class="vswitch-idx">01</span>
           <span class="vswitch-name">Cascada Contemplación</span>
         </button>
-        <button class="vswitch" type="button" data-video-src="assets/video/santa-emilia-aventura.mp4" data-poster="assets/img/fb-cruce-laguna.jpg" data-loop-end="25.4" data-title="Laguna, Cruce de Cuerdas, Tobogán y Montaña">
+        <button class="vswitch" type="button" data-video-src="assets/video/santa-emilia-aventura.mp4" data-poster="assets/img/bosque-neblina.jpg" data-loop-start="16" data-loop-end="25.4" data-title="Bosque Nuboso y Cascada — Montaña Santa Emilia">
           <span class="vswitch-idx">02</span>
-          <span class="vswitch-name">Laguna y Montaña</span>
+          <span class="vswitch-name">Bosque y Cascada</span>
         </button>
         <button class="vswitch" type="button" data-video-src="assets/video/monos-aulladores.mp4" data-poster="assets/img/mono-cielo.jpg" data-title="Monos Aulladores en Montaña Santa Emilia">
           <span class="vswitch-idx">03</span>
