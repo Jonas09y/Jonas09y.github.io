@@ -87,7 +87,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   gap: 0.65rem;
 }
 .brand-logo {
-  height: 40px;
+  height: 36px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -377,8 +377,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 20%, rgba(13, 31, 23, 0.25), transparent 55%),
-    linear-gradient(180deg, rgba(13, 31, 23, 0.56) 0%, rgba(13, 31, 23, 0.44) 45%, rgba(13, 31, 23, 0.93) 100%);
+    radial-gradient(circle at 20% 20%, rgba(13, 31, 23, 0.15), transparent 55%),
+    linear-gradient(180deg, rgba(13, 31, 23, 0.42) 0%, rgba(13, 31, 23, 0.32) 45%, rgba(13, 31, 23, 0.88) 100%);
 }
 .topo-overlay {
   position: absolute;
