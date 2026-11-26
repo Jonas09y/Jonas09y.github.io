@@ -135,47 +135,47 @@
   if (videoClose) videoClose.addEventListener('click', closeVideoModal);
   if (videoModal) videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeVideoModal(); });
 
-  /* 7. Interactive Topographic Route Explorer */
+  /* 7. Interactive Topographic Route Explorer (exact QR route & real areas) */
   const stopsData = [
     {
-      elev: 'ALTITUD · 815 MSNM',
-      diff: 'Acceso en vehículo · 20–40 min',
-      title: 'Salida desde Danlí hacia Apagüiz',
-      desc: 'A pocos minutos del casco urbano de Danlí, el camino asciende entre colinas verdes, cultivos de café y aire cada vez más fresco rumbo al macizo montañoso de Ceilán y la reserva de Apagüiz.',
-      tip: 'Llega temprano entre 8:00 y 9:30 a.m. para aprovechar la frescura de la mañana y escuchar con claridad a los monos aulladores.',
-      img: 'assets/img/mirador-valle.jpg'
+      elev: 'ACCESO · CARRETERA EN BUEN ESTADO',
+      diff: 'Acceso vehicular · Fácil hasta el portón',
+      title: 'Llegada desde Danlí vía Hacienda La Lucha',
+      desc: 'Sal desde Danlí siguiendo la ruta hacia Hacienda La Lucha rumbo a Montaña Santa Emilia (2FHC+33H). La carretera se mantiene en buen estado hasta el portón principal, rodeada de vegetación fresca.',
+      tip: 'Usa el botón de Google Maps abajo para abrir la ruta exacta punto a punto desde tu celular.',
+      img: 'assets/img/bosque-neblina.jpg'
     },
     {
-      elev: 'ALTITUD · 1,080 MSNM',
-      diff: 'Punto de bienvenida · Histórico',
-      title: 'La Casona Centenaria de 1870',
-      desc: 'El punto de encuentro tradicional de la finca. Sus amplios corredores y techo de teja te protegen del sol o la lluvia mientras conoces la historia de la familia Gamero y la tradición cafetalera de El Paraíso.',
-      tip: 'Pregunta por los productos artesanales de temporada como café de la finca, miel de abeja y vino local.',
-      img: 'assets/img/casona-drone.jpg'
+      elev: 'ZONA DE DESCANSO · PISCINA Y FOGÓN',
+      diff: 'Familiar · Uso habilitado',
+      title: 'Casa de Montaña con Piscina y Jardín',
+      desc: 'Disfruta nuestra casa de montaña con barandas de madera, piscina con vista panorámica a las colinas, jardín con columpio de alas de mariposa y fogón con leña si traes comida para preparar en grupo.',
+      tip: 'Puedes traer tus propios alimentos y merienda; consulta disponibilidad por WhatsApp.',
+      img: 'assets/img/piscina-terraza.jpg'
     },
     {
-      elev: 'ALTITUD · 1,120 MSNM',
-      diff: 'Actividad familiar · Relajado',
-      title: 'La Laguna y Paseo en Bote',
-      desc: 'Rodeada de frondosa vegetación tropical, la laguna es el rincón favorito de familias y grupos para dar un paseo en bote de remos, descansar en la orilla y tomar fotografías rodeados de verde.',
-      tip: 'Ideal para hacer una pausa tranquila antes o después de la caminata hacia las cascadas.',
-      img: 'assets/img/laguna-bote.jpg'
+      elev: 'RECREACIÓN · AGUA Y AVENTURA',
+      diff: 'Familia y amigos · Divertido',
+      title: 'Laguna, Paseo en Bote, Cuerdas y Tobogán',
+      desc: 'Rema en bote sobre la laguna rodeada de bosque tropical, reta tu equilibrio en el cruce de cuerdas sobre el agua o deslízate por el tobogán natural.',
+      tip: 'Lleva ropa cómoda que se pueda mojar y una muda seca para después.',
+      img: 'assets/img/laguna-toboganybote.jpg'
     },
     {
-      elev: 'ALTITUD · 1,180 MSNM',
-      diff: 'Caminata moderada · Panorámico',
-      title: 'Mirador del Valle y Zona de Camping',
-      desc: 'Una amplia pradera verde bajo grandes árboles con vista abierta hacia Danlí y el Valle de Jamastrán. Espacio perfecto para instalar tiendas de campaña, disfrutar el atardecer y compartir una fogata bajo las estrellas.',
-      tip: 'Si planeas acampar, coordina previamente por WhatsApp para reservar espacio y recibir recomendaciones.',
-      img: 'assets/img/camping-montana.jpg'
+      elev: 'EXPLORACIÓN · NUEVOS SENDEROS',
+      diff: 'Caminata guiada · En expansión',
+      title: 'Nuevos Senderos y Avistamiento de Fauna',
+      desc: 'Trabajamos constantemente en habilitar nuevos senderos entre el bosque nuboso. En el camino podrás escuchar y observar monos aulladores, aves coloridas y conocer por qué biólogos visitan esta reserva.',
+      tip: 'Se recomienda hacer senderismo temprano por la mañana y llevar suficiente agua.',
+      img: 'assets/img/sendero-grupo.jpg'
     },
     {
-      elev: 'ALTITUD · 1,200 MSNM',
-      diff: 'Aventura · Nivel moderado a exigente',
-      title: 'Cascada Cristalina y Cuevas de Fausto',
-      desc: 'Senderos empinados entre pinos, mangos y bambú te llevan hasta la gran cascada de aguas cristalinas y sus pozas refrescantes. Los más aventureros pueden continuar la travesía hacia las Cuevas de Fausto.',
-      tip: 'Lleva tenis con buena tracción, traje de baño y consulta por guía local para el recorrido completo.',
-      img: 'assets/img/cascada-poza.jpg'
+      elev: 'AGUA PURA · MONTAÑA SANTA EMILIA',
+      diff: 'Aventura · Nivel moderado',
+      title: 'La Cascada Contemplación',
+      desc: 'La gran recompensa de la caminata: una caída de agua fresca entre rocas cubiertas de musgo y escaleras rústicas de madera en medio del pulmón verde de Danlí.',
+      tip: 'Lleva tenis con buen agarre para caminar con seguridad en zonas húmedas.',
+      img: 'assets/img/cascada-senderistas.jpg'
     }
   ];
 

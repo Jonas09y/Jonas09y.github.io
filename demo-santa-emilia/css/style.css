@@ -86,28 +86,28 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   align-items: center;
   gap: 0.65rem;
 }
-.brand-mark {
-  width: 34px; height: 34px;
-  color: #E6B586;
+.brand-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+.drawer-logo {
+  height: 54px;
+  width: auto;
+  margin-bottom: 0.5rem;
+  align-self: flex-start;
+}
+.footer-logo {
+  height: 76px;
+  width: auto;
+  margin-bottom: 0.9rem;
+}
+.wa-avatar-img {
+  width: 48px;
+  height: 36px;
+  object-fit: contain;
   flex-shrink: 0;
-}
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.05;
-}
-.brand-text strong {
-  font-family: var(--serif);
-  font-size: 0.98rem;
-  letter-spacing: 0.08em;
-  font-weight: 600;
-}
-.brand-text small {
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0.72;
 }
 
 .nav-links {
@@ -783,60 +783,96 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .route-tip strong { color: #E8B98A; margin-right: 0.35rem; }
 
-/* ============ HERITAGE 1870 ============ */
-.heritage-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: center;
-}
-.heritage-lead {
-  font-size: 1.12rem;
-  color: var(--ink);
-  margin: 1.3rem 0 1rem;
-}
-.heritage-text > p { color: var(--moss); }
-.timeline-mini {
-  margin-top: 2rem;
+/* ============ FAUNA & BIOLOGISTS SANCTUARY ============ */
+.fauna-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
-  padding-top: 1.6rem;
-  border-top: 1px solid var(--line-dark);
+  gap: 1.35rem;
 }
-.t-year {
-  font-family: var(--serif);
-  font-size: 1.55rem;
-  font-style: italic;
-  color: var(--terracotta);
-  display: block;
-  margin-bottom: 0.35rem;
-}
-.timeline-mini p { font-size: 0.85rem; margin: 0; color: var(--moss); }
-
-.heritage-visuals {
-  display: grid;
-  gap: 1.2rem;
-}
-.heritage-visuals figure {
-  margin: 0;
+.fauna-card {
   background: #fff;
-  padding: 0.7rem 0.7rem 0.95rem;
-  border-radius: 18px;
-  box-shadow: 0 16px 38px rgba(13, 31, 23, 0.1);
+  border: 1px solid var(--line-dark);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 14px 34px rgba(13, 31, 23, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.heritage-visuals img {
+.fauna-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px rgba(13, 31, 23, 0.12);
+}
+.fauna-card-featured {
+  background: var(--forest);
+  color: var(--parchment);
+  border-color: var(--forest);
+}
+.fauna-img {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--forest);
+}
+.fauna-img img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 100%;
   object-fit: cover;
-  border-radius: 12px;
+  transition: transform 0.6s ease;
 }
-.heritage-visuals figcaption {
+.fauna-card:hover .fauna-img img { transform: scale(1.05); }
+.fauna-badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(13, 31, 23, 0.82);
+  color: #E8B98A;
+  backdrop-filter: blur(6px);
+}
+.fauna-body {
+  padding: 1.25rem 1.35rem 1.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+.fauna-body h3 {
+  font-family: var(--serif);
+  font-size: 1.32rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.2;
+}
+.fauna-body p {
+  margin: 0;
+  font-size: 0.9rem;
   color: var(--moss);
+}
+.fauna-card-featured .fauna-body p { color: rgba(243, 239, 230, 0.82); }
+.btn-inline-video {
   margin-top: 0.65rem;
-  padding-inline: 0.35rem;
+  align-self: flex-start;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  background: var(--terracotta);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.btn-inline-video:hover { background: var(--terracotta-dark); }
+.info-list code {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  background: rgba(243, 239, 230, 0.1);
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
 }
 
 /* ============ INTERACTIVE WHATSAPP TRIP BUILDER ============ */
@@ -1217,6 +1253,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .chapter-reverse .chapter-media { order: 0; }
   .hero-stats { grid-template-columns: repeat(2, 1fr); }
   .route-stops { grid-template-columns: repeat(2, 1fr); }
+  .fauna-grid { grid-template-columns: repeat(2, 1fr); }
   .checklist-grid { grid-template-columns: repeat(2, 1fr); }
   .bento-gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
   .wa-preview-card { position: static; }
@@ -1229,7 +1266,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .btn-nav-wa { padding: 0.55rem; }
   .frame-inset { width: 48%; right: 8px; }
   .frame-inset-left { left: 8px; }
-  .builder-row, .line-picker, .timeline-mini, .checklist-grid, .route-stops { grid-template-columns: 1fr; }
+  .builder-row, .line-picker, .fauna-grid, .checklist-grid, .route-stops { grid-template-columns: 1fr; }
   .bento-gallery { grid-template-columns: 1fr; grid-auto-rows: 220px; }
   .bento-tall, .bento-wide { grid-column: span 1; grid-row: span 1; }
   .float-wa-tip { display: none; }
