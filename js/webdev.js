@@ -5,6 +5,42 @@
 
 const PROJECTS = [
   {
+    id: "santa-emilia", cat: "business", img: "santa-emilia", mock: "montanasantaemilia.com",
+    url: "https://montanasantaemilia.com/", live: true,
+    title: "Montaña Santa Emilia",
+    tags: ["Sitio en Vivo", "Turismo", "SEO Local", "WhatsApp", "Responsive"],
+    es: {
+      cat: "Turismo · Sitio en Vivo",
+      badge: "En vivo",
+      desc: "Sitio web oficial en producción para reserva natural y destino ecoturístico de +200 hectáreas en Danlí, Honduras. Piscina, laguna con botes, cascada, galería real, horario en vivo y WhatsApp directo.",
+      features: ["Sitio activo en montanasantaemilia.com", "SEO local y datos estructurados de Google (JSON-LD)", "Experiencias, ruta interactiva y galería fotográfica real", "Indicador de horario en vivo y contacto por WhatsApp", "Diseño 100% responsive para visitantes móviles"]
+    },
+    en: {
+      cat: "Tourism · Live Website",
+      badge: "Live site",
+      desc: "Official production website for a 200+ hectare eco-tourism mountain reserve in Danlí, Honduras. Mountain pool, boat lagoon, waterfall, real photography, live hours indicator, and direct WhatsApp.",
+      features: ["Live production site at montanasantaemilia.com", "Local SEO & Google structured data (JSON-LD)", "Experiences, route guide & real photo gallery", "Live opening hours indicator & one-tap WhatsApp", "100% mobile-first design for travelers"]
+    }
+  },
+  {
+    id: "vibella", cat: "business", img: "vibella", mock: "Vibella Aesthetics · MedSpa Norwalk, CT",
+    url: "demo-vibella/", demo: true,
+    title: "Vibella Aesthetics",
+    tags: ["MedSpa", "Bilingüe EN/ES", "Antes / Después", "Cherry Pay", "Responsive"],
+    es: {
+      cat: "Clínica Estética · MedSpa",
+      badge: "Demo interactivo",
+      desc: "Sitio web bilingüe (EN/ES) para clínica de medicina estética en Norwalk, CT. Incluye comparador interactivo Antes/Después (Botox y Microneedling), tratamientos con precios, Revision Skincare y pagos con Cherry.",
+      features: ["Comparador interactivo Antes y Después (mouse y táctil)", "Cambio de idioma instantáneo Inglés / Español", "Catálogo de tratamientos médicos y precios claros", "Integración de Revision Skincare y financiamiento Cherry", "Estética editorial luminosa 100% responsive"]
+    },
+    en: {
+      cat: "Medical Aesthetics · MedSpa",
+      badge: "Interactive demo",
+      desc: "Bilingual (EN/ES) website for a medical aesthetics clinic in Norwalk, CT. Features an interactive Before/After slider (Botox & Microneedling), treatments & pricing, Revision Skincare, and Cherry financing.",
+      features: ["Interactive Before & After slider (hover & touch)", "Instant English / Spanish language toggle", "Medical treatments showcase with clear pricing", "Revision Skincare shop & Cherry financing integration", "Luminous editorial design optimized for mobile"]
+    }
+  },
+  {
     id: "kota", cat: "business", img: "kota", mock: "AURA · Lakeside Bistro & Lounge",
     title: "AURA",
     tags: ["UI / UX", "HTML", "CSS", "JavaScript", "WhatsApp", "Responsive"],
@@ -162,19 +198,19 @@ const PROJECTS = [
 const T = {
   es: {
     navWork: "Proyectos", navServices: "Servicios", navPricing: "Precios", navProcess: "Proceso", navCta: "Cotizar",
-    heroEyebrow: "Prototipos & Conceptos de Diseño Web",
+    heroEyebrow: "Sitios Web Reales & Prototipos a Medida",
     heroT1: "Diseño web", heroT2: "moderno y a medida", heroT3: "para tu marca.",
-    heroLead: "Explora mis conceptos y prototipos de diseño web: páginas de presentación, catálogos visuales, paneles de gestión y tiendas. Diseñados desde cero con atención al detalle.",
-    heroBtn1: "Ver prototipos", heroBtn2: "Hablemos de tu idea",
-    stat1: "Proyectos en vitrina", stat2: "Estilos visuales", stat3: "Landing desde", fb1: "Carga rápida", fb2: "100% responsive",
-    workLabel: "Vitrina de Trabajos", workTitle: "Prototipos & Diseños Seleccionados",
-    workDesc: "Muestras de diseño y conceptos visuales. Pasa el cursor sobre cada pantalla para ver el recorrido completo de la página, o haz clic para verla en detalle.",
-    featTag: "Concepto de diseño · Restaurante & Bistro",
-    featDesc: "Propuesta de diseño web para un restaurante y bistro frente al lago. Estructurado para presentar el menú digital interactivo, coctelería de autor, ubicaciones y botón de reservas por WhatsApp.",
-    featL1: "Menú digital por categorías", featL2: "Reservas y contacto por WhatsApp", featL3: "Galería y ubicaciones con mapa", featL4: "Optimizado para móvil y SEO local",
-    viewDesign: "Ver diseño completo", details: "Ver detalles", quoteThis: "Cotizar diseño similar",
+    heroLead: "Explora sitios web reales en producción, demos interactivos y prototipos a medida: páginas para negocios, clínicas, turismo, paneles y tiendas. Diseñados desde cero.",
+    heroBtn1: "Ver proyectos", heroBtn2: "Hablemos de tu idea",
+    stat1: "Proyectos en vitrina", stat2: "Descuento activo", stat3: "Landing desde", fb1: "Carga rápida", fb2: "100% responsive",
+    workLabel: "Portafolio", workTitle: "Proyectos & Diseños Seleccionados",
+    workDesc: "Sitios web publicados en vivo y demos interactivos. Pasa el cursor sobre cada pantalla para recorrer la página completa o haz clic para verla en detalle.",
+    featTag: "Sitio en Vivo · Ecoturismo & Reserva Natural",
+    featDesc: "Sitio web oficial publicado en montanasantaemilia.com para un destino ecoturístico de más de 200 hectáreas en Danlí, Honduras. Diseñado para mostrar su piscina de montaña, laguna con botes, Cascada Contemplación, ruta interactiva y reservas por WhatsApp.",
+    featL1: "Publicado y activo en montanasantaemilia.com", featL2: "SEO local con datos estructurados para Google", featL3: "Galería real, videos y guía interactiva de visita", featL4: "Horario en vivo y contacto directo por WhatsApp",
+    viewDesign: "Ver diseño completo", visitLive: "Visitar sitio ↗", openDemo: "Probar demo ↗", details: "Ver detalles", quoteThis: "Cotizar diseño similar",
     fAll: "Todos", fBusiness: "Negocios & Turismo", fApps: "Sistemas & Apps", fShop: "E-commerce", fGaming: "Gaming",
-    demoNote: "Aviso: Todos los proyectos expuestos son conceptos de diseño UI/UX y prototipos demostrativos para exhibir habilidades visuales y de maquetación web. No corresponden a sitios activos en producción ni procesan datos reales.",
+    demoNote: "Este portafolio incluye tanto sitios web reales publicados en producción (marcados como «En vivo») como demos interactivos y conceptos UI/UX desarrollados para mostrar distintos estilos y soluciones.",
     svcLabel: "Servicios", svcTitle: "¿Qué tipo de sitio necesitas?", svcDesc: "Diseño cada propuesta desde cero, adaptada a la identidad y objetivos de tu proyecto.",
     s1t: "Landing Pages", s1d: "Página de aterrizaje atractiva para presentar tu marca, servicio o producto y captar clientes.",
     s2t: "Restaurantes & Turismo", s2d: "Menú digital, galería, reservas, mapa y botón directo de WhatsApp.",
@@ -229,19 +265,19 @@ const T = {
   },
   en: {
     navWork: "Projects", navServices: "Services", navPricing: "Pricing", navProcess: "Process", navCta: "Get a quote",
-    heroEyebrow: "Web Design Prototypes & Concepts",
+    heroEyebrow: "Live Websites & Custom Prototypes",
     heroT1: "Modern, custom", heroT2: "web design", heroT3: "for your brand.",
-    heroLead: "Explore my web design concepts and prototypes: presentation landing pages, visual catalogs, dashboards, and online stores. Crafted from scratch with attention to detail.",
-    heroBtn1: "View prototypes", heroBtn2: "Let's talk about your idea",
-    stat1: "Featured designs", stat2: "Visual styles", stat3: "Landing from", fb1: "Fast loading", fb2: "100% responsive",
-    workLabel: "Work Showcase", workTitle: "Selected Prototypes & Designs",
-    workDesc: "Design samples and visual concepts. Hover over any screen to scroll through the full page, or click to view details.",
-    featTag: "Design Concept · Restaurant & Bistro",
-    featDesc: "Web design concept for a modern lakeside restaurant & bistro. Structured to showcase an interactive digital menu, signature drinks gallery, locations, and direct WhatsApp reservations.",
-    featL1: "Digital menu by category", featL2: "Reservations and WhatsApp contact", featL3: "Gallery and locations with map", featL4: "Mobile-first and local SEO",
-    viewDesign: "View full design", details: "View details", quoteThis: "Request similar design",
+    heroLead: "Explore live client websites, interactive demos, and custom prototypes: business landing pages, clinics, eco-tourism, dashboards, and online stores built from scratch.",
+    heroBtn1: "View projects", heroBtn2: "Let's talk about your idea",
+    stat1: "Featured projects", stat2: "Active discount", stat3: "Landing from", fb1: "Fast loading", fb2: "100% responsive",
+    workLabel: "Portfolio", workTitle: "Selected Projects & Designs",
+    workDesc: "Live production websites and interactive demos. Hover over any screen to scroll through the full page, or click to view details.",
+    featTag: "Live Website · Eco-Tourism & Nature Reserve",
+    featDesc: "Official production website live at montanasantaemilia.com for a 200+ hectare eco-tourism reserve in Danlí, Honduras. Built to showcase its mountain pool, boat lagoon, waterfall, route guide, and direct WhatsApp inquiries.",
+    featL1: "Live in production at montanasantaemilia.com", featL2: "Local SEO with Google structured data", featL3: "Real photo gallery, video & visitor guide", featL4: "Live hours badge & one-tap WhatsApp contact",
+    viewDesign: "View full design", visitLive: "Visit live site ↗", openDemo: "Try live demo ↗", details: "View details", quoteThis: "Request similar design",
     fAll: "All", fBusiness: "Business & Tourism", fApps: "Systems & Apps", fShop: "E-commerce", fGaming: "Gaming",
-    demoNote: "Notice: All featured projects are demonstrative UI/UX prototypes and visual layouts to showcase web styling and design skills. They are not active production sites and do not process real data.",
+    demoNote: "This portfolio includes both live production client websites (marked as 'Live site') as well as interactive demos and UI/UX concepts showcasing different industries and visual styles.",
     svcLabel: "Services", svcTitle: "What kind of website do you need?", svcDesc: "Every concept is tailored from scratch to match your project's identity and goals.",
     s1t: "Landing Pages", s1d: "A striking single-page layout to present your brand, product, or service and turn visitors into clients.",
     s2t: "Restaurants & Tourism", s2d: "Digital menu, photo gallery, reservations, map, and one-tap WhatsApp contact.",
@@ -305,9 +341,15 @@ const t = k => T[lang][k] || k;
 function renderGrid() {
   const grid = $("#grid");
   const active = $("#filters .active")?.dataset.filter || "all";
-  grid.innerHTML = PROJECTS.filter(p => p.id !== "kota").map(p => {
+  grid.innerHTML = PROJECTS.filter(p => p.id !== "santa-emilia").map(p => {
     const L = p[lang];
     const src = p.phone ? `assets/web/${p.img}.webp` : `assets/web/${p.img}-full.webp`;
+    const statusCls = p.live ? "live" : p.demo ? "demo" : "";
+    const secondBtn = p.live
+      ? `<a href="${esc(p.url)}" target="_blank" rel="noopener" class="btn btn-live">${t("visitLive")}</a>`
+      : p.demo
+        ? `<a href="${esc(p.url)}" target="_blank" rel="noopener" class="btn btn-gold-outline">${t("openDemo")}</a>`
+        : `<a href="#contact" class="btn btn-ghost-dark">${t("navCta")}</a>`;
     return `
     <article class="card reveal in ${active !== "all" && p.cat !== active ? "hide" : ""}" data-cat="${p.cat}">
       <div class="frame" data-open="${p.id}" style="cursor:zoom-in" title="${t("viewDesign")}">
@@ -317,14 +359,14 @@ function renderGrid() {
       <div class="card-body">
         <div class="card-top">
           <span class="card-cat">${esc(L.cat)}</span>
-          <span class="card-status">${esc(L.badge)}</span>
+          <span class="card-status ${statusCls}">${p.live ? '<i class="live-dot"></i>' : ''}${esc(L.badge)}</span>
         </div>
         <h3>${esc(p.title)}</h3>
         <p>${esc(L.desc)}</p>
         <div class="tags">${p.tags.map(x => `<span>${esc(x)}</span>`).join("")}</div>
         <div class="card-actions">
           <button class="btn btn-dark" data-open="${p.id}"><span>${t("viewDesign")}</span> 🔍</button>
-          <a href="#contact" class="btn btn-ghost-dark">${t("navCta")}</a>
+          ${secondBtn}
         </div>
       </div>
     </article>`;
@@ -387,6 +429,13 @@ function openModal(id) {
   if (mFeatures) mFeatures.innerHTML = L.features.map(f => `<li>${esc(f)}</li>`).join("");
   const mTags = $("#mTags");
   if (mTags) mTags.innerHTML = p.tags.map(x => `<span>${esc(x)}</span>`).join("");
+  const mBtns = $("#mBtns");
+  if (mBtns) {
+    const extBtn = p.url
+      ? `<a href="${esc(p.url)}" target="_blank" rel="noopener" class="btn ${p.live ? "btn-live" : "btn-gold"}">${p.live ? t("visitLive") : t("openDemo")}</a>`
+      : "";
+    mBtns.innerHTML = `${extBtn}<a href="#contact" class="btn ${p.url ? "btn-dark" : "btn-gold"}" data-close>${t("mQuote")}</a><button class="btn btn-ghost-dark" data-close>${t("mClose")}</button>`;
+  }
 
   modal.classList.add("open"); modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
